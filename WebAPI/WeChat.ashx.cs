@@ -18,7 +18,7 @@ namespace WebAPI
             var timestamp = context.Request["timestamp"];
             var nonce = context.Request["nonce"];
             var echostr = context.Request["echostr"];
-            File.WriteAllText(string.Format("{0}/yyyyMMddhhmmss.txt",context.Server.MapPath("~"), DateTime.Now), context.Request.RawUrl);
+            File.WriteAllText(string.Format("{0}/{1}.txt",context.Server.MapPath("~"), DateTime.Now.ToString("yyyyMMddhhmmss")), context.Request.RawUrl);
             context.Response.ContentType = "text/plain";
             context.Response.Write(echostr);
         }

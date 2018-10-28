@@ -10,7 +10,8 @@ namespace WangJun.APITest
     {
         static void Main(string[] args)
         {
-            var res = WeChatAPI.GetInstance().GetToken();
+            //var res = WeChatAPI.GetInstance().GetToken();
+            var res = WeChatAPI.GetInstance().CreateMenu();
             Console.WriteLine(res);
             Console.ReadKey();
         }

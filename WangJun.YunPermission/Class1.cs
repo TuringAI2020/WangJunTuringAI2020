@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WangJun.YunDocument
+namespace WangJun.YunPermission
 {
-    public class BaseDocument
+    public class Class1
     {
-        public RES Save() { }
     }
 }

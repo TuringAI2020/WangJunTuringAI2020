@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WangJun.YunDocument
+namespace WangJun.YunDB
 {
-    public class BaseDocument
+    public class SQLSERVER
     {
     }
 }

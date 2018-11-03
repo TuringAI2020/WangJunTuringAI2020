@@ -32,10 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,13 +53,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JSON.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Program基本队列处理.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WeChatAPI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WangJun.Common\WangJun.Common.csproj">
+      <Project>{D2FE513E-355E-44BA-96FE-844970CF960D}</Project>
+      <Name>WangJun.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WangJun.YunEF\WangJun.YunEF.csproj">
+      <Project>{7C1E7961-DE0E-4FFC-A797-6DAA3E6DF63F}</Project>
+      <Name>WangJun.YunEF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WangJun.YunQueueProcessor\WangJun.YunQueueProcessor.csproj">
+      <Project>{40B79E2B-76CC-431B-B7E0-116346A187D3}</Project>
+      <Name>WangJun.YunQueueProcessor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WangJun.YunQueue\WangJun.YunQueue.csproj">
+      <Project>{ED5DC865-4F9B-411B-BDB6-679B22E77047}</Project>
+      <Name>WangJun.YunQueue</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

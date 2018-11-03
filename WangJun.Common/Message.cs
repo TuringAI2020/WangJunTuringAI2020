@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WangJun.YunQueueProcessor
+namespace WangJun.Common
 {
-    public class Class1
+    class Message
     {
     }
 }

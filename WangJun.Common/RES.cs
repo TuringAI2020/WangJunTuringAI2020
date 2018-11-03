@@ -15,5 +15,20 @@ namespace WangJun.Common
         public string MESSAGE { get; set; }
 
         public object DATA { get; set; }
+
+        public static RES New
+        {
+            get
+            {
+                var inst = new RES();
+                return inst;
+            }
+        }
+
+        public RES SetAsOK() {
+            this.SUCCESS = true;
+            return this;
+        }
     }
+
 }

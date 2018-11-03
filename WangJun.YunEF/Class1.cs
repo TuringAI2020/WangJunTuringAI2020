@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WangJun.YunDocument
+namespace WangJun.YunEF
 {
-    public class BaseDocument
+    public class Class1
     {
     }
 }

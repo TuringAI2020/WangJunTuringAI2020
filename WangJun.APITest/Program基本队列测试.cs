@@ -18,7 +18,7 @@ namespace WangJun.APITest
             {
                 var q = WJQueue.GetQueue("汪俊" + k % 100);
                 var res = q.Enqueue(new string('J', 2048));
-                var ef = db.YunQueue.Add(new YunQueue() { DATA = new string('J', 2048), GroupName = "汪俊" + k % 100 });
+                var ef = db.YunQueue.Add(new YunQueue() { DATA = new string('J', 2048), GroupName = "汪俊" + k % 100, Status = 0 });
                 db.SaveChanges();
                 Console.WriteLine(k);
             }

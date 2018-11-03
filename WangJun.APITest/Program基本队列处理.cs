@@ -13,9 +13,7 @@ namespace WangJun.APITest
         static void Main(string[] args)
         {
             WJQueueProcessor processor = new WJQueueProcessor();
-            processor.Proc();
-
-            Task.Run(()=> { processor.Proc(); });
+            processor.AutoProc(); 
             Console.ReadKey();
         }
     }

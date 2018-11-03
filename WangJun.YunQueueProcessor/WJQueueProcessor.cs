@@ -11,23 +11,42 @@ namespace WangJun.Yun
 {
     public class WJQueueProcessor
     {
-        public void Proc() {
+        class GroupByRes {
+           public string GroupName{get;set;}
+            public int Count { get; set; }
+        }
+
+        /// <summary>
+        /// 消息处理
+        /// </summary>
+        /// <param name="groupName"></param>
+        public void Proc(string groupName) {
             var db = new ModelEF();
 
 
             while (0 < db.YunQueue.Count())
             {
-                var res = db.Database.SqlQuery<YunQueue>("DEQUEUE @GroupName", new SqlParameter[] {new SqlParameter("@GroupName",string.Empty)}).ToList();
-                //var minID = db.YunQueue.Min(p => p.ID);
-                //var ef = db.YunQueue.First(p => p.ID == minID);
-                //db.YunQueue.Remove(ef);
-                //db.SaveChanges();
+                var res = db.Database.SqlQuery<YunQueue>("DEQUEUE @GroupName", new SqlParameter[] {new SqlParameter("@GroupName", groupName) }).ToList();
+                db.Database.Connection.Close();
                 Console.WriteLine("已处理" + DateTime.Now);
             }
+        }
 
-                
+        /// <summary>
+        /// 自动化处理
+        /// </summary>
+        public void AutoProc() {
+            var db = new ModelEF();
 
-       
+            var q =( from p in db.YunQueue group p by p.GroupName into g select new GroupByRes() { GroupName= g.Key,  Count=g.Count(p => p.Status == 0) }).ToList();
+            foreach (var item in q)
+            {
+                Task.Run(()=> {
+                    Console.WriteLine(Task.CurrentId);
+                    this.Proc(item.GroupName);
+
+                });
+            }
         }
     }
 }

@@ -15,5 +15,7 @@ namespace WangJun.YunEF
 
         [StringLength(500)]
         public string GroupName { get; set; }
+
+        public int? Status { get; set; }
     }
 }

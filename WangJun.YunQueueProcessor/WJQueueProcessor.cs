@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WangJun.Yun;
-using WangJun.YunEF;
 
 namespace WangJun.Yun
 {
@@ -28,6 +27,13 @@ namespace WangJun.Yun
             {
                 var res = db.Database.SqlQuery<YunQueue>("DEQUEUE @GroupName", new SqlParameter[] {new SqlParameter("@GroupName", groupName) }).ToList();
                 db.Database.Connection.Close();
+
+                foreach (var item in res)
+                {
+                    var data = YunDocument.Parse(item.DATA);
+                    data.Save();
+                }
+
                 Console.WriteLine("已处理" + DateTime.Now);
             }
         }

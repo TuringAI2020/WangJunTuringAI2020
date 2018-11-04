@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WangJun.YunMessage
+namespace WangJun.Yun
 {
-    public class Class1
+    /// <summary>
+    /// 文档服务
+    /// </summary>
+    public class WJDocument
     {
+
     }
 }

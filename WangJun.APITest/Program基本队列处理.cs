@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WangJun.Yun;
-using WangJun.YunEF;
 
 namespace WangJun.APITest
 {

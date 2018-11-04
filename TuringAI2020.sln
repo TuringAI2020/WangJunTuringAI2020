@@ -43,6 +43,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WangJun.YunPermission", "Wa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WangJun.YunEF", "WangJun.YunEF\WangJun.YunEF.csproj", "{7C1E7961-DE0E-4FFC-A797-6DAA3E6DF63F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "文档", "文档", "{9A531D78-788F-4C09-9627-8207E98C95A8}"
+	ProjectSection(SolutionItems) = preProject
+		要做的事.txt = 要做的事.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

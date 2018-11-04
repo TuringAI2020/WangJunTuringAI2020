@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WangJun.Yun;
-using WangJun.YunEF;
-
 namespace WangJun.APITest
 {
     class Program
@@ -14,11 +12,12 @@ namespace WangJun.APITest
         {
             var db = new ModelEF();
 
-            for (int k = 0; k < 100 * 10000; k++)
+            for (int k = 0; k < 100; k++)
             {
                 var q = WJQueue.GetQueue("汪俊" + k % 100);
                 var res = q.Enqueue(new string('J', 2048));
-                var ef = db.YunQueue.Add(new YunQueue() { DATA = new string('J', 2048), GroupName = "汪俊" + k % 100, Status = 0 });
+                var data = new YunDocument { Title = string.Format("汪俊文档{0}", k), Content = new string('J', 512), ID = Guid.NewGuid(), CreateTime = DateTime.Now };
+                var ef = db.YunQueue.Add(new YunQueue() { DATA = data.ToJson(), GroupName = "汪俊" + k % 5, Status = 0 });
                 db.SaveChanges();
                 Console.WriteLine(k);
             }

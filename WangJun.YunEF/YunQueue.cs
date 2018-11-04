@@ -1,4 +1,4 @@
-namespace WangJun.YunEF
+namespace WangJun.Yun
 {
     using System;
     using System.Collections.Generic;
@@ -11,11 +11,13 @@ namespace WangJun.YunEF
     {
         public int ID { get; set; }
 
+        [Required]
         public string DATA { get; set; }
 
+        [Required]
         [StringLength(500)]
         public string GroupName { get; set; }
 
-        public int? Status { get; set; }
+        public int Status { get; set; }
     }
 }

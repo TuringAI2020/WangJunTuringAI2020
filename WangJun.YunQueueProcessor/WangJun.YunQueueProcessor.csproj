@@ -52,6 +52,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WangJun.Common\WangJun.Common.csproj">
+      <Project>{d2fe513e-355e-44ba-96fe-844970cf960d}</Project>
+      <Name>WangJun.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WangJun.YunEF\WangJun.YunEF.csproj">
       <Project>{7C1E7961-DE0E-4FFC-A797-6DAA3E6DF63F}</Project>
       <Name>WangJun.YunEF</Name>

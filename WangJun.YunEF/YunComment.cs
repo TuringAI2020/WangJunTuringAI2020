@@ -6,8 +6,8 @@ namespace WangJun.Yun
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("YunDocument")]
-    public partial class YunDocument
+    [Table("YunComment")]
+    public partial class YunComment
     {
         public Guid ID { get; set; }
 
@@ -58,5 +58,22 @@ namespace WangJun.Yun
 
         [StringLength(50)]
         public string PermissionGroupName { get; set; }
+
+        public int? ServiceType { get; set; }
+
+        [StringLength(50)]
+        public string KeyA01 { get; set; }
+
+        public int? ValueA01 { get; set; }
+
+        [StringLength(50)]
+        public string KeyA02 { get; set; }
+
+        public int? ValueA02 { get; set; }
+
+        [StringLength(50)]
+        public string KeyA03 { get; set; }
+
+        public int? ValueA03 { get; set; }
     }
 }

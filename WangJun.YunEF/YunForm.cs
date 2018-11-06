@@ -59,6 +59,8 @@ namespace WangJun.Yun
         [StringLength(10)]
         public string PermissionGroupName { get; set; }
 
+        public int? ServiceType { get; set; }
+
         [StringLength(50)]
         public string KeyA01 { get; set; }
 

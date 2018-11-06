@@ -27,11 +27,28 @@ namespace WangJun.Yun
             {
                 var res = db.Database.SqlQuery<YunQueue>("DEQUEUE @GroupName", new SqlParameter[] {new SqlParameter("@GroupName", groupName) }).ToList();
                 db.Database.Connection.Close();
-
-                foreach (var item in res)
+                if (groupName == "云文档")
                 {
-                    var data = YunDocument.Parse(item.DATA);
-                    data.Save();
+                    foreach (var item in res)
+                    {
+                        var data = YunDocument.Parse(item.DATA);
+                        data.Save();
+                    }
+                }
+                else if ("云表单" == groupName) {
+                    foreach (var item in res)
+                    {
+                        var data = YunForm.Parse(item.DATA);
+                        data.Save();
+                    }
+                }
+                if (groupName == "云评论")
+                {
+                    foreach (var item in res)
+                    {
+                        var data = YunDocument.Parse(item.DATA);
+                        data.Save();
+                    }
                 }
 
                 Console.WriteLine("已处理" + DateTime.Now);
@@ -46,7 +63,7 @@ namespace WangJun.Yun
 
             var q =( from p in db.YunQueue group p by p.GroupName into g select new GroupByRes() { GroupName= g.Key,  Count=g.Count(p => p.Status == 0) }).ToList();
             foreach (var item in q)
-            {
+            { 
                 Task.Run(()=> {
                     Console.WriteLine(Task.CurrentId);
                     this.Proc(item.GroupName);

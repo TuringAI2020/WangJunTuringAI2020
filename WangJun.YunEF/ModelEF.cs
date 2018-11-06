@@ -12,9 +12,12 @@ namespace WangJun.Yun
         {
         }
 
+        public virtual DbSet<YunComment> YunComment { get; set; }
         public virtual DbSet<YunDocument> YunDocument { get; set; }
         public virtual DbSet<YunForm> YunForm { get; set; }
         public virtual DbSet<YunQueue> YunQueue { get; set; }
+        public virtual DbSet<YunService> YunService { get; set; }
+        public virtual DbSet<YunCategory> YunCategory { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -141,6 +144,10 @@ namespace WangJun.Yun
             modelBuilder.Entity<YunForm>()
                 .Property(e => e.ValueC30)
                 .HasPrecision(18, 0);
+
+            modelBuilder.Entity<YunService>()
+                .Property(e => e.ServiceName)
+                .IsFixedLength();
         }
     }
 }

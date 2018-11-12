@@ -48,6 +48,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "文档", "文档", "{9A531D
 		要做的事.txt = 要做的事.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "界面", "界面", "{CF728202-6DE0-4D79-9E83-83941B831662}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WangJun.PCWeb", "WangJun.PCWeb\WangJun.PCWeb.csproj", "{D7863A76-BDFF-44FD-9A93-2C0C0D483C9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,6 +130,10 @@ Global
 		{7C1E7961-DE0E-4FFC-A797-6DAA3E6DF63F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C1E7961-DE0E-4FFC-A797-6DAA3E6DF63F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C1E7961-DE0E-4FFC-A797-6DAA3E6DF63F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7863A76-BDFF-44FD-9A93-2C0C0D483C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7863A76-BDFF-44FD-9A93-2C0C0D483C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7863A76-BDFF-44FD-9A93-2C0C0D483C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7863A76-BDFF-44FD-9A93-2C0C0D483C9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -148,6 +156,7 @@ Global
 		{91840E35-5952-4D8C-ABB2-5E848476B822} = {0694C09D-5889-4E78-9927-DF8BA0AB4C8F}
 		{AF97838B-E7A8-4689-AE46-ABD488284965} = {0694C09D-5889-4E78-9927-DF8BA0AB4C8F}
 		{7C1E7961-DE0E-4FFC-A797-6DAA3E6DF63F} = {0694C09D-5889-4E78-9927-DF8BA0AB4C8F}
+		{D7863A76-BDFF-44FD-9A93-2C0C0D483C9A} = {CF728202-6DE0-4D79-9E83-83941B831662}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88960E35-C3BF-4EC9-A2B7-B2831A1629AA}

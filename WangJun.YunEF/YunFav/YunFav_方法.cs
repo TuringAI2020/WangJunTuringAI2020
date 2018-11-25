@@ -6,20 +6,20 @@ namespace WangJun.Yun
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
  
-    public partial class YunForm:WJ
+    public partial class YunFav:YunForm
     {
-        public static YunForm Parse(string jsonString) {
-            var inst = JSON.ToObject<YunForm>(jsonString);
+        public static YunFav Parse(string jsonString) {
+            var inst = JSON.ToObject<YunFav>(jsonString);
             return inst;
         }
          
 
-        public virtual RES Save() {
+        public override RES Save() {
 
             if (Guid.Empty == this.ID) {
                 this.ID = Guid.NewGuid();
             }
-;
+        ;this.ServiceType = (int)ENUM.ServiceType.云收藏;
 
             var res = RES.New;
             var db = ModelEF.GetInst();
@@ -28,13 +28,15 @@ namespace WangJun.Yun
             return res;
         }
 
-        public virtual RES SaveToTask()
+        public  override RES SaveToTask()
         {
             var res = RES.New;
             var db = ModelEF.GetInst();
-            db.YunQueue.Add(new YunQueue { DATA = this.ToJson(), GroupName = Enum.GetName(typeof(ENUM.队列分组名称),ENUM.队列分组名称.YunForm待处理), Status =(int)ENUM.TaskStatus.待处理});
+            db.YunQueue.Add(new YunQueue { DATA = this.ToJson(), GroupName = Enum.GetName(typeof(ENUM.队列分组名称),ENUM.队列分组名称.YunFav待处理), Status =(int)ENUM.TaskStatus.待处理});
             var resCode = db.SaveChanges();
             return res;
         }
+
+
     }
 }

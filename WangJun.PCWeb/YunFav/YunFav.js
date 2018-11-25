@@ -1,20 +1,20 @@
-﻿var YunForm = {};
-YunForm.VUE = null;
-YunForm.Config = {
+﻿var YunFav = {};
+YunFav.VUE = null;
+YunFav.Config = {
     API:"http://localhost:5168/API.ashx"
 }
 ///创建表单
-YunForm.BuildForm = function (option) {
+YunFav.BuildForm = function (option) {
  
-    YunForm.VUE = app;
+    YunFav.VUE = app;
      
 }
  
 
 ///保存变化
-YunForm.SaveChanges = function () {
+YunFav.SaveChanges = function () {
     var msg = {
-        TargetClass: "YunForm",
+        TargetClass: "YunFav",
         Method: "SaveToTask",
         IsStaticClass: false,
         IsStaticMethod: false,
@@ -30,7 +30,7 @@ YunForm.SaveChanges = function () {
     msg.Param = param;
 
     var option = {
-        url: YunForm.Config.API,
+        url: YunFav.Config.API,
         method: "POST",
         data:JSON.stringify( msg),
         error: function () { },
@@ -43,15 +43,15 @@ YunForm.SaveChanges = function () {
     $.ajax(option);
 }
 
-YunForm.BuildForm();
+YunFav.BuildForm();
 
 var app = new Vue({
     el: '#form',
     data: {
         showform: false,
-        message: 'Hello Vue!',
+        btn1Text: '收藏',
     },
     methods: {
-        SaveChanges:YunForm.SaveChanges
+        SaveChanges:YunFav.SaveChanges
     }
 });

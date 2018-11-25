@@ -73,6 +73,8 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Web.config" />
+    <Content Include="YunFav\YunFav.js" />
+    <Content Include="YunFav\YunFav.html" />
     <Content Include="YunForm\YunForm.js" />
     <Content Include="YunForm\YunFormCreator.html" />
   </ItemGroup>

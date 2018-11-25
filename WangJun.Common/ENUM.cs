@@ -9,6 +9,10 @@ namespace WangJun.Yun
     public static class ENUM
     {
 
+        public enum ServiceType {
+            云收藏=0x0101,
+        }
+
         public enum TaskStatus {
             待处理 = 0,
 
@@ -27,6 +31,7 @@ namespace WangJun.Yun
 
         public enum 队列分组名称 {
             YunForm待处理=0x0001,
+            YunFav待处理 = 0x0002,
         }
     }
 }

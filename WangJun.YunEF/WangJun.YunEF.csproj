@@ -57,9 +57,11 @@
     <Compile Include="YunComment.cs" />
     <Compile Include="YunDocument.cs" />
     <Compile Include="YunDocument\YunDocument_方法.cs" />
+    <Compile Include="YunFav\YunFav_方法.cs" />
     <Compile Include="YunForm.cs" />
     <Compile Include="YunForm\YunForm_方法.cs" />
     <Compile Include="YunQueue.cs" />
+    <Compile Include="YunQueue\YunQueue.cs" />
     <Compile Include="YunService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -30,8 +30,18 @@ namespace HttpAPI
             var buffer = new byte[length];
             context.Request.InputStream.Read(buffer, 0, length);
             var str = Encoding.UTF8.GetString(buffer);
-            var reqMsg = ReqMsg<YunForm>.Parse(str);
-            reqMsg.Param.SaveToTask();
+            var reqCheck = ReqMsg<WJ>.Parse(str);
+            if (typeof(YunForm).Name == reqCheck.TargetClass) {
+                var reqMsg = ReqMsg<YunForm>.Parse(str);
+                reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, null);
+            }
+           else if (typeof(YunForm).Name == reqCheck.TargetClass)
+            {
+                var reqMsg = ReqMsg<YunForm>.Parse(str);
+                reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, null);
+            }
+
+
             context.Response.ContentType = "text/plain";
             context.Response.Write(str);
         }

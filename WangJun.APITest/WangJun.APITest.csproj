@@ -52,7 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program基本队列测试.cs" />
+    <Compile Include="Program基本队列处理.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WeChatAPI.cs" />
   </ItemGroup>

@@ -12,6 +12,8 @@ namespace WangJun.Yun
         {
         }
 
+
+
         public virtual DbSet<YunComment> YunComment { get; set; }
         public virtual DbSet<YunDocument> YunDocument { get; set; }
         public virtual DbSet<YunForm> YunForm { get; set; }

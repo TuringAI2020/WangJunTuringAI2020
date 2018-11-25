@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelEF.cs" />
+    <Compile Include="ModelEF\ModelEF_对外方法.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YunCategory.cs" />
     <Compile Include="YunComment.cs" />
@@ -64,6 +65,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="SQLSERVER\WangJun20181125.7z" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WangJun.Common\WangJun.Common.csproj">

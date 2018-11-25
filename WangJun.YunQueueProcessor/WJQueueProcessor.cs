@@ -35,7 +35,7 @@ namespace WangJun.Yun
                         data.Save();
                     }
                 }
-                else if ("云表单" == groupName) {
+                else if ( Enum.GetName( typeof(ENUM.队列分组名称), ENUM.队列分组名称.YunForm待处理)== groupName) {
                     foreach (var item in res)
                     {
                         var data = YunForm.Parse(item.DATA);

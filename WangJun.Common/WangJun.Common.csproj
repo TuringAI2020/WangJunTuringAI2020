@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base.cs" />
+    <Compile Include="ENUM.cs" />
     <Compile Include="JSON.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="RES.cs" />

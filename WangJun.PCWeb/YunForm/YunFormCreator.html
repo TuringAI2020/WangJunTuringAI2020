@@ -11,7 +11,7 @@
         <form id="form">
             <div class="form-group">
                 <label for="exampleInputEmail1">普通填写框</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="普通填写框">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="普通填写框" data-property="KeyA01" data-group="1">
                 <small id="emailHelp" class="form-text text-muted">提示信息</small>
             </div>
             <div class="form-group">
@@ -96,14 +96,25 @@
                 <label for="exampleFormControlTextarea1">文本框</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">{{message}}</button>
+            <button type="button" class="btn btn-primary" data-submit="1" v-on:click="SaveChanges">{{message}}</button>
         </form>
     </div>
-
+    <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="YunForm.js?ver=0.1"></script>
+
+
+    <script src="YunForm.js"></script>
+    <script type="text/javascript">
+                //var jsArray = [];
+                //jsArray.push("YunForm.js?ver=" + Math.random());
+                //for (var k = 0; k < jsArray.length; k++) {
+                //    $.getScript(jsArray.pop());
+                //}
+
+
+    </script>
 </body>
 </html>

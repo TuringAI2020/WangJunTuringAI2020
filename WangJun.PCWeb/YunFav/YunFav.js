@@ -50,8 +50,29 @@ var app = new Vue({
     data: {
         showform: false,
         btn1Text: '收藏',
+        List: [{ ID: '1', Title: "标题1", CreateTime: '2018-10-10' }, { ID: '2', Title: "标题2", CreateTime: '2018-10-10' }, { ID: '3', Title: "标题3", CreateTime: '2018-10-10' }, { ID: '4', Title: "标题4", CreateTime: '2018-10-10' }]
     },
     methods: {
         SaveChanges:YunFav.SaveChanges
+    }
+});
+
+var app2 = new Vue({
+    el: '#List',
+    data: { 
+        List: [{ ID: '1', Title: "标题1", CreateTime: '2018-10-10' }, { ID: '2', Title: "标题2", CreateTime: '2018-10-10' }, { ID: '3', Title: "标题3", CreateTime: '2018-10-10' }, { ID: '4', Title: "标题4", CreateTime: '2018-10-10' }]
+    },
+    methods: {
+         
+    }
+});
+
+var app3 = new Vue({
+    el: '#List2',
+    data: {
+        List: [{ ID: '1', Title: "标题1", CreateTime: '2018-10-10' }, { ID: '2', Title: "标题2", CreateTime: '2018-10-10' }, { ID: '3', Title: "标题3", CreateTime: '2018-10-10' }, { ID: '4', Title: "标题4", CreateTime: '2018-10-10' }]
+    },
+    methods: {
+
     }
 });

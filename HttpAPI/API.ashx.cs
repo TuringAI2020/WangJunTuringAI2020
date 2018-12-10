@@ -30,15 +30,21 @@ namespace HttpAPI
             var buffer = new byte[length];
             context.Request.InputStream.Read(buffer, 0, length);
             var str = Encoding.UTF8.GetString(buffer);
-            var reqCheck = ReqMsg<WJ>.Parse(str);
-            if (typeof(YunForm).Name == reqCheck.TargetClass) {
-                var reqMsg = ReqMsg<YunForm>.Parse(str);
-                reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, null);
-            }
-           else if (typeof(YunForm).Name == reqCheck.TargetClass)
+            var reqCheck = ReqMsg<object>.Parse(str);
+            if (typeof(YunForm).Name == reqCheck.TargetClass)
             {
                 var reqMsg = ReqMsg<YunForm>.Parse(str);
                 reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, null);
+            }
+            else if (typeof(YunFav).Name == reqCheck.TargetClass)
+            {
+                var reqMsg = ReqMsg<YunFav>.Parse(str);
+                reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, null);
+            }
+            else if (typeof(HTTP).Name == reqCheck.TargetClass) {
+                var reqMsg = ReqMsg<HTTP>.Parse(str);
+                object res= reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, null);
+                str = res.ToString();
             }
 
 

@@ -5,6 +5,7 @@ namespace WangJun.Yun
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+
  
     public partial class YunForm:WJ
     {

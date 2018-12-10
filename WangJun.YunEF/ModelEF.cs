@@ -12,14 +12,12 @@ namespace WangJun.Yun
         {
         }
 
-
-
-        public virtual DbSet<YunComment> YunComment { get; set; }
-        public virtual DbSet<YunDocument> YunDocument { get; set; }
-        public virtual DbSet<YunForm> YunForm { get; set; }
-        public virtual DbSet<YunQueue> YunQueue { get; set; }
-        public virtual DbSet<YunService> YunService { get; set; }
-        public virtual DbSet<YunCategory> YunCategory { get; set; }
+        public virtual DbSet<YunAccount> YunAccounts { get; set; }
+        public virtual DbSet<YunComment> YunComments { get; set; }
+        public virtual DbSet<YunDocument> YunDocuments { get; set; }
+        public virtual DbSet<YunForm> YunForms { get; set; }
+        public virtual DbSet<YunQueue> YunQueues { get; set; }
+        public virtual DbSet<YunService> YunServices { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

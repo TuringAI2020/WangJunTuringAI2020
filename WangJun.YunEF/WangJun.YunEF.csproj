@@ -53,7 +53,7 @@
     <Compile Include="ModelEF.cs" />
     <Compile Include="ModelEF\ModelEF_对外方法.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YunCategory.cs" />
+    <Compile Include="YunAccount.cs" />
     <Compile Include="YunComment.cs" />
     <Compile Include="YunDocument.cs" />
     <Compile Include="YunDocument\YunDocument_方法.cs" />

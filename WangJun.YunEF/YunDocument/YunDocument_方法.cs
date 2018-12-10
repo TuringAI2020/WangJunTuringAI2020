@@ -20,7 +20,7 @@ namespace WangJun.Yun
         public RES Save() {
             var res = RES.New;
             var db = new ModelEF();
-            db.YunDocument.Add(this);
+            db.YunDocuments.Add(this);
             db.SaveChanges();
             return res;
         }

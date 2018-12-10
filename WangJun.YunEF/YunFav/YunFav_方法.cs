@@ -5,7 +5,9 @@ namespace WangJun.Yun
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
+    [NotMapped]
     public partial class YunFav : YunForm
     {
         public static YunFav Parse(string jsonString)
@@ -30,7 +32,7 @@ namespace WangJun.Yun
             var res = RES.New;
             var db = ModelEF.GetInst();
             var form = YunForm.Parse(this.ToJson());
-            db.YunForm.Add(form);
+            db.YunForms.Add(form);
             res.DATA = db.SaveChanges();
             return res;
         }
@@ -39,7 +41,7 @@ namespace WangJun.Yun
         {
             var res = RES.New;
             var db = ModelEF.GetInst();
-            db.YunQueue.Add(new YunQueue { DATA = this.ToJson(), GroupName = Enum.GetName(typeof(ENUM.队列分组名称), ENUM.队列分组名称.YunFav待处理), Status = (int)ENUM.TaskStatus.待处理 });
+            db.YunQueues.Add(new YunQueue { DATA = this.ToJson(), GroupName = Enum.GetName(typeof(ENUM.队列分组名称), ENUM.队列分组名称.YunFav待处理), Status = (int)ENUM.TaskStatus.待处理 });
             var resCode = db.SaveChanges();
             return res;
         }
@@ -57,12 +59,7 @@ namespace WangJun.Yun
             return res.SetAsOK();
         }
 
-        public RES LoadList(string filter) {
-            var res = RES.New;
-            var db = ModelEF.GetInst();
-            db.YunForm.
-            return res.SetAsOK();
-        }
+
 
     }
 }

@@ -12,7 +12,7 @@ namespace WangJun.Yun
         {
             var res = RES.New;
             var db = ModelEF.GetInst();
-            db.YunQueue.Add(new YunQueue { DATA = wj.ToJson(), GroupName = Enum.GetName(typeof(ENUM.队列分组名称), ENUM.队列分组名称.YunForm待处理), Status = (int)ENUM.TaskStatus.待处理 });
+            db.YunQueues.Add(new YunQueue { DATA = wj.ToJson(), GroupName = Enum.GetName(typeof(ENUM.队列分组名称), ENUM.队列分组名称.YunForm待处理), Status = (int)ENUM.TaskStatus.待处理 });
             var resCode = db.SaveChanges();
             return res;
         }

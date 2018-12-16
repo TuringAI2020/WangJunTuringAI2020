@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace HttpAPI
 {
-    public class API : ApiController
+    public class WebAPI : ApiController
     {
         // GET api/<controller>
         public IEnumerable<string> Get()

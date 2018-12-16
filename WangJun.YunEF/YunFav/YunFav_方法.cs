@@ -10,7 +10,7 @@ namespace WangJun.Yun
     [NotMapped]
     public partial class YunFav : YunForm
     {
-        public static YunFav Parse(string jsonString)
+        public new static YunFav Parse(string jsonString)
         {
 
             var inst = JSON.ToObject<YunFav>(jsonString);

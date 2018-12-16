@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>十字路口工具箱</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>十字路口工具箱</h1>
+        <h2>本网站为个人网站，主要内容为：个人的计算机，软件，人工智能，金融，数学，图像，多媒体等方面的学习笔记，学习记录，学习日志，学习成果展示。个人的数据备忘录等。</h2>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="获取一个新的GUID" aria-label="获取一个新的GUID" aria-describedby="button01" id="text01">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" data-get="0001" data-target_ctrl="text01" id="button01">刷新</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Base64FormControlTextarea1">要转换的明文</label>
+            <textarea class="form-control" id="Base64FormControlTextarea1" rows="3"></textarea>
+            <button type="button" class="btn btn-primary">从明文到Bade64</button>
+            <button type="button" class="btn btn btn-danger">清空</button>
+            <button type="button" class="btn btn-secondary">从Base64到明文</button>
+            <label for="Base64FormControlTextarea2">Base64字符串</label>
+            <textarea class="form-control" id="Base64FormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="fixed-bottom mx-auto " style="width: 200px;"><a href="http://www.miitbeian.gov.cn">陕ICP备17020177号-1</a></div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script src="../Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $('[data-get]').on("click", function () {
+            var m = $(this).attr("data-get");
+            var targetCtrl = $(this).attr("data-target_ctrl");
+            var url = "/YunAPI/api.ashx?m=" + m;
+            $.getJSON(url, function (res1, res2) {
+                console.log(res1 + res2);
+                $("#" + targetCtrl).val(res1.DATA);
+            });
+        })
+
+    </script>
+</body>
+</html>

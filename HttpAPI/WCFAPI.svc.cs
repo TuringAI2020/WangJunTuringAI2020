@@ -11,7 +11,7 @@ namespace HttpAPI
 {
     [ServiceContract(Namespace = "")]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    public class WCFAPI
+    public class API
     {
         // 要使用 HTTP GET，请添加 [WebGet] 特性。(默认 ResponseFormat 为 WebMessageFormat.Json)
         // 要创建返回 XML 的操作，

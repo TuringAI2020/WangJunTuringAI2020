@@ -50,6 +50,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WangJun.JSLib", "WangJun.JS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JS库", "JS库", "{1B304772-8BDB-4C65-87B9-578812843F90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WangJun.RedisTest", "WangJun.RedisTest\WangJun.RedisTest.csproj", "{409F000D-BF20-48FA-AFB3-E3F6F30190CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -124,6 +126,10 @@ Global
 		{9296AFCD-B456-4854-8B2D-603472A3B123}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9296AFCD-B456-4854-8B2D-603472A3B123}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9296AFCD-B456-4854-8B2D-603472A3B123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{409F000D-BF20-48FA-AFB3-E3F6F30190CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409F000D-BF20-48FA-AFB3-E3F6F30190CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409F000D-BF20-48FA-AFB3-E3F6F30190CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409F000D-BF20-48FA-AFB3-E3F6F30190CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

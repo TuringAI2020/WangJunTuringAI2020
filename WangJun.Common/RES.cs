@@ -25,8 +25,10 @@ namespace WangJun.Yun
             }
         }
 
-        public RES SetAsOK() {
+        public RES SetAsOK(object data=null,string msg="成功") {
             this.SUCCESS = true;
+            this.DATA = data;
+            this.MESSAGE = msg;
             return this;
         }
     }

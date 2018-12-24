@@ -60,10 +60,6 @@
       <Project>{7C1E7961-DE0E-4FFC-A797-6DAA3E6DF63F}</Project>
       <Name>WangJun.YunEF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WangJun.YunQueue\WangJun.YunQueue.csproj">
-      <Project>{ED5DC865-4F9B-411B-BDB6-679B22E77047}</Project>
-      <Name>WangJun.YunQueue</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

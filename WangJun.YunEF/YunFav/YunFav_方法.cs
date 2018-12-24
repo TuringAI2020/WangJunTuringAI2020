@@ -21,18 +21,23 @@ namespace WangJun.Yun
 
         public override RES Save()
         {
-
+            this.ServiceType = (int)ENUM.ServiceType.云收藏;
+            var res = RES.New;
+            var db = ModelEF.GetInst();
+            var form = YunForm.Parse(this.ToJson());
             if (Guid.Empty == this.ID)
             {
                 this.ID = Guid.NewGuid();
                 this.CreateTime = DateTime.Now;
+                form.ID = this.ID;
+                form.CreateTime = this.CreateTime;
+                db.YunForms.Add(form);
             }
-            this.ServiceType = (int)ENUM.ServiceType.云收藏;
-
-            var res = RES.New;
-            var db = ModelEF.GetInst();
-            var form = YunForm.Parse(this.ToJson());
-            db.YunForms.Add(form);
+            else {
+                var formInst = db.Entry<YunForm>(form);
+                formInst.State = System.Data.Entity.EntityState.Modified;
+            }
+             
             res.DATA = db.SaveChanges();
             return res;
         }
@@ -55,8 +60,17 @@ namespace WangJun.Yun
             var html = http.GET();
             this.ContentType = "html";
             this.Content = html;
+            this.Status = (int)ENUM.TaskStatus.待处理;
             this.Save();
             return res.SetAsOK();
+        }
+
+        public RES GetHtmlDoc() {
+            var res = RES.New;
+            var db = ModelEF.GetInst();
+            var data = db.YunForms.FirstOrDefault(p => p.ContentType == "html" && p.Status == (int)ENUM.TaskStatus.待处理);
+
+            return res.SetAsOK(data);
         }
 
 

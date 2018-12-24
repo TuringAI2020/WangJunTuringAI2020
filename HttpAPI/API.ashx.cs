@@ -31,6 +31,7 @@ namespace HttpAPI
             context.Request.InputStream.Read(buffer, 0, length);
             var str = Encoding.UTF8.GetString(buffer);
             var reqCheck = ReqMsg<object>.Parse(str);
+            context.Response.ContentType = "text/plain";
             if (typeof(YunForm).Name == reqCheck.TargetClass)
             {
                 var reqMsg = ReqMsg<YunForm>.Parse(str);
@@ -39,7 +40,9 @@ namespace HttpAPI
             else if (typeof(YunFav).Name == reqCheck.TargetClass)
             {
                 var reqMsg = ReqMsg<YunFav>.Parse(str);
-                reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, null);
+                var res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
+                str = JSON.ToJson(res);
+                context.Response.ContentType = "application/json";
             }
             else if (typeof(HTTP).Name == reqCheck.TargetClass) {
                 var reqMsg = ReqMsg<HTTP>.Parse(str);
@@ -48,7 +51,7 @@ namespace HttpAPI
             }
 
 
-            context.Response.ContentType = "text/plain";
+
             context.Response.Write(str);
         }
 

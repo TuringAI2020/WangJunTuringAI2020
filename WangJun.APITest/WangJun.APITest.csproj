@@ -73,10 +73,6 @@
       <Project>{40B79E2B-76CC-431B-B7E0-116346A187D3}</Project>
       <Name>WangJun.YunQueueProcessor</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WangJun.YunQueue\WangJun.YunQueue.csproj">
-      <Project>{ED5DC865-4F9B-411B-BDB6-679B22E77047}</Project>
-      <Name>WangJun.YunQueue</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

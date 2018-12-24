@@ -29,8 +29,12 @@ namespace WangJun.PCWeb.YunAPI
             var res = new RES { MESSAGE = "尚未处理" , SUCCESS=false };
             if ("GET" == method) {
                 var m = context.Request["m"];
-                if ("0001" == m) {
+                if ("0001" == m)
+                { ///获取一个新GUID
                     res.DATA = Guid.NewGuid();
+                }
+                else if ("0002" == method) { ///获取一个要处理的任务
+                    
                 }
             }
             res.MESSAGE = "成功处理";

@@ -13,9 +13,10 @@
             <label for="basic-url">今日头条</label>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon3">正文 https://www.toutiao.com/</span>
+                    <span class="input-group-text" id="basic-addon3">正文  </span>
                 </div>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="a6626881877179367940/">
+                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="https://www.toutiao.com/a6626881877179367940/" data-property="Url" data-group="1">
+                <input type="hidden" data-property="ValueA01" value="gzip, deflate, br" data-group="1"/>
                 <button type="button" class="btn btn-primary ml-1" data-submit="1" v-on:click="SaveChanges">{{btn1Text}}</button>
             </div>
 
@@ -60,16 +61,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-
-        <script src="YunFav.js"></script>
-        <script type="text/javascript">
-                            //var jsArray = [];
-                            //jsArray.push("YunForm.js?ver=" + Math.random());
-                            //for (var k = 0; k < jsArray.length; k++) {
-                            //    $.getScript(jsArray.pop());
-                            //}
-
-
-        </script>
+        <script src="YunFav.js"></script> 
 </body>
 </html>

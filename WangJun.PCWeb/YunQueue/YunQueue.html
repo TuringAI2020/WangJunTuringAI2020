@@ -3,8 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <title>云队列</title>
+    <script src="../Scripts/jquery-3.3.1.min.js"></script>
 </head>
 <body>
+    <div id="resInfo">1</div>
 
+
+    <script type="text/javascript">
+        var count = 0;
+        $.getJSON("../YunAPI/API.ashx", function (res1, res2) {
+            $("#resInfo").append(res1);
+        });
+
+    </script>
 </body>
 </html>

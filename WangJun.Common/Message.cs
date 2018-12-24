@@ -15,6 +15,8 @@ namespace WangJun.Common
         public bool IsStaticMethod { get; set; }
         public T Param { get; set; }
 
+        public object[] InputParamArray { get; set; }
+
         public static ReqMsg<T> Parse(string input) {
             var inst = JSON.ToObject<ReqMsg<T>>(input);
             return inst;

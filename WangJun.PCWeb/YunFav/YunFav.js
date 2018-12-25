@@ -48,19 +48,19 @@ YunFav.GetHtmlDoc = function () {
         data: JSON.stringify(msg),
         error: function () { },
         success: function (RES, textStatus) {
-            var $script = $(RES.DATA.Content).find("script");
-            var jsonStr = $(RES.DATA.Content)[31].innerText.replace("var BASE_DATA = ", "").slice(0, -1);
+            var $script = $(RES.DATA.ValueA01).find("script");
+            var jsonStr = $(RES.DATA.ValueA01)[31].innerText.replace("var BASE_DATA = ", "").slice(0, -1);
             var articleInfo = eval("(" + jsonStr + ")").articleInfo;
             var content = articleInfo.content;
             var title = articleInfo.title;
             var contentHtml = $("<div></div>").html(content).text();
 
             RES.DATA.Title = title;
-            RES.DATA.ValueA02 = RES.DATA.Content;
+            //RES.DATA.ValueA02 = RES.DATA.Content;
 
             RES.DATA.Content = contentHtml;
             RES.DATA.ContentType = "plaintext";
-            RES.DATA.KeyA02 = "源数据";
+            //RES.DATA.KeyA02 = "源数据";
             RES.DATA.Status = 1;
             YunFav.SaveAsPlainText(RES.DATA, null);
         },

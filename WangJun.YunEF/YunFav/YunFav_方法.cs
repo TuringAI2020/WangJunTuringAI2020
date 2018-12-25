@@ -59,7 +59,8 @@ namespace WangJun.Yun
             http.AcceptEncoding = this.ValueA01;
             var html = http.GET();
             this.ContentType = "html";
-            this.Content = html;
+            this.KeyA01 = "原始文档";
+            this.ValueA01 = html;
             this.Status = (int)ENUM.TaskStatus.待处理;
             this.Save();
             return res.SetAsOK();

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WangJun.Yun;
 
-namespace WangJun.YunDB
+namespace WangJun.Yun
 {
     /// <summary>
     /// Redis服务
@@ -14,6 +14,12 @@ namespace WangJun.YunDB
     public partial class REDIS
     {
         protected ConnectionMultiplexer redisClient = null;
+
+        public REDIS() {
+            var config = ConfigurationOptions.Parse("localhost");
+            config.AllowAdmin = true;
+            this.redisClient = ConnectionMultiplexer.Connect(config);
+        }
 
         protected IDatabase GetRedis() {
             var db = this.redisClient.GetDatabase();

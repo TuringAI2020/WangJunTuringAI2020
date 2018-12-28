@@ -10,9 +10,7 @@ namespace WangJun.APITest
     class Program
     {
         static void Main(string[] args)
-        {
-            WJQueueProcessor processor = new WJQueueProcessor();
-            processor.AutoProc(); 
+        {  
             Console.ReadKey();
         }
     }

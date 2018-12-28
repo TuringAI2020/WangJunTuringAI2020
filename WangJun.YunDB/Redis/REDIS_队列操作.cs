@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WangJun.Yun;
 
-namespace WangJun.YunDB
+namespace WangJun.Yun
 {
     /// <summary>
     /// Redis服务

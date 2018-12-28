@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="MYSQL.cs" />
     <Compile Include="Redis\REDIS.cs" />
+    <Compile Include="Redis\REDIS_字典操作.cs" />
+    <Compile Include="Redis\REDIS_列表操作.cs" />
     <Compile Include="Redis\REDIS_队列操作.cs" />
     <Compile Include="SQLSERVER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

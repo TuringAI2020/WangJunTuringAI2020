@@ -49,6 +49,12 @@ namespace HttpAPI
                 object res= reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, null);
                 str = res.ToString();
             }
+            else if (typeof(REDIS).Name == reqCheck.TargetClass)
+            {
+                var reqMsg = ReqMsg<REDIS>.Parse(str);
+                object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
+                str = res.ToString();
+            }
 
 
 

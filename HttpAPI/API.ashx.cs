@@ -55,7 +55,12 @@ namespace HttpAPI
                 object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
                 str = res.ToString();
             }
-
+            else if (typeof(ModelEF).Name == reqCheck.TargetClass)
+            {
+                var reqMsg = ReqMsg<ModelEF>.Parse(str);
+                object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
+                str = res.ToString();
+            }
 
 
             context.Response.Write(str);

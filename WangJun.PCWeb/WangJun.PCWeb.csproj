@@ -67,11 +67,89 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\iscroll-master\.gitignore" />
+    <Content Include="Scripts\iscroll-master\build.js" />
+    <Content Include="Scripts\iscroll-master\build\iscroll-infinite.js" />
+    <Content Include="Scripts\iscroll-master\build\iscroll-lite.js" />
+    <Content Include="Scripts\iscroll-master\build\iscroll-probe.js" />
+    <Content Include="Scripts\iscroll-master\build\iscroll-zoom.js" />
+    <Content Include="Scripts\iscroll-master\build\iscroll.js" />
+    <Content Include="Scripts\iscroll-master\demos\2d-scroll\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\barebone\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\bounce-easing\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\carousel\gaugin.jpg" />
+    <Content Include="Scripts\iscroll-master\demos\carousel\giotto.jpg" />
+    <Content Include="Scripts\iscroll-master\demos\carousel\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\carousel\leonardo.jpg" />
+    <Content Include="Scripts\iscroll-master\demos\carousel\warhol.jpg" />
+    <Content Include="Scripts\iscroll-master\demos\click\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\demoUtils.js" />
+    <Content Include="Scripts\iscroll-master\demos\event-passthrough\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\forms\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\horizontal\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\infinite\dataset.php" />
+    <Content Include="Scripts\iscroll-master\demos\infinite\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\key-bindings\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\minimap\ermine.jpg" />
+    <Content Include="Scripts\iscroll-master\demos\minimap\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\no-transition\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\parallax\galaxies1.png" />
+    <Content Include="Scripts\iscroll-master\demos\parallax\galaxies2.png" />
+    <Content Include="Scripts\iscroll-master\demos\parallax\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\parallax\stars.jpg" />
+    <Content Include="Scripts\iscroll-master\demos\probe\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\scroll-to-element\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\scrollbars\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\simple\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\snap\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\styled-scrollbars\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\tap\index.html" />
+    <Content Include="Scripts\iscroll-master\demos\zoom\index.html" />
+    <Content Include="Scripts\iscroll-master\src\close.js" />
+    <Content Include="Scripts\iscroll-master\src\core.js" />
+    <Content Include="Scripts\iscroll-master\src\default\handleEvent.js" />
+    <Content Include="Scripts\iscroll-master\src\default\_animate.js" />
+    <Content Include="Scripts\iscroll-master\src\indicator\indicator.js" />
+    <Content Include="Scripts\iscroll-master\src\indicator\_initIndicators.js" />
+    <Content Include="Scripts\iscroll-master\src\indicator\_transitionTime.js" />
+    <Content Include="Scripts\iscroll-master\src\indicator\_transitionTimingFunction.js" />
+    <Content Include="Scripts\iscroll-master\src\indicator\_translate.js" />
+    <Content Include="Scripts\iscroll-master\src\infinite\infinite.js" />
+    <Content Include="Scripts\iscroll-master\src\infinite\refresh.js" />
+    <Content Include="Scripts\iscroll-master\src\keys\keys.js" />
+    <Content Include="Scripts\iscroll-master\src\open.js" />
+    <Content Include="Scripts\iscroll-master\src\probe\indicator._move.js" />
+    <Content Include="Scripts\iscroll-master\src\probe\probe.js" />
+    <Content Include="Scripts\iscroll-master\src\probe\_animate.js" />
+    <Content Include="Scripts\iscroll-master\src\probe\_move.js" />
+    <Content Include="Scripts\iscroll-master\src\snap\refresh.js" />
+    <Content Include="Scripts\iscroll-master\src\snap\snap.js" />
+    <Content Include="Scripts\iscroll-master\src\snap\_end.js" />
+    <Content Include="Scripts\iscroll-master\src\utils.js" />
+    <Content Include="Scripts\iscroll-master\src\wheel\wheel.js" />
+    <Content Include="Scripts\iscroll-master\src\zoom\handleEvent.js" />
+    <Content Include="Scripts\iscroll-master\src\zoom\refresh.js" />
+    <Content Include="Scripts\iscroll-master\src\zoom\zoom.js" />
+    <Content Include="YunHome\App01\App01.html" />
     <Content Include="YunHome\Home1.html" />
     <Content Include="YunQueue\YunQueue.html" />
     <Content Include="YunQueue\YunQueue.js" />
     <Content Include="YunTools\YunTools.html" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="Scripts\iscroll-master\.nodemonignore" />
+    <Content Include="Scripts\iscroll-master\bower.json" />
+    <Content Include="Scripts\iscroll-master\CONTRIBUTING.md" />
+    <Content Include="Scripts\iscroll-master\LICENSE" />
+    <Content Include="Scripts\iscroll-master\package.json" />
+    <Content Include="Scripts\iscroll-master\README.md" />
+    <Content Include="Scripts\iscroll-master\RELEASENOTES.md" />
+    <Content Include="Scripts\iscroll-master\src\indicator\build.json" />
+    <Content Include="Scripts\iscroll-master\src\infinite\build.json" />
+    <Content Include="Scripts\iscroll-master\src\keys\build.json" />
+    <Content Include="Scripts\iscroll-master\src\probe\build.json" />
+    <Content Include="Scripts\iscroll-master\src\snap\build.json" />
+    <Content Include="Scripts\iscroll-master\src\wheel\build.json" />
+    <Content Include="Scripts\iscroll-master\src\zoom\build.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -106,6 +184,9 @@
       <Project>{D2FE513E-355E-44BA-96FE-844970CF960D}</Project>
       <Name>WangJun.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="YunApp\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

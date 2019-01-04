@@ -44,9 +44,10 @@ namespace HttpAPI
                 str = JSON.ToJson(res);
                 context.Response.ContentType = "application/json";
             }
-            else if (typeof(HTTP).Name == reqCheck.TargetClass) {
+            else if (typeof(HTTP).Name == reqCheck.TargetClass)
+            {
                 var reqMsg = ReqMsg<HTTP>.Parse(str);
-                object res= reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, null);
+                object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, null);
                 str = res.ToString();
             }
             else if (typeof(REDIS).Name == reqCheck.TargetClass)
@@ -58,6 +59,11 @@ namespace HttpAPI
             else if (typeof(ModelEF).Name == reqCheck.TargetClass)
             {
                 var reqMsg = ReqMsg<ModelEF>.Parse(str);
+                object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
+                str = res.ToString();
+            }
+            else if (typeof(YunConvertor).Name == reqCheck.TargetClass) {
+                var reqMsg = ReqMsg<YunConvertor>.Parse(str);
                 object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
                 str = res.ToString();
             }

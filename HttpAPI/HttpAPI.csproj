@@ -124,6 +124,10 @@
       <Project>{D2FE513E-355E-44BA-96FE-844970CF960D}</Project>
       <Name>WangJun.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WangJun.YunConvertor\WangJun.YunConvertor.csproj">
+      <Project>{15a31a16-f82d-433c-8e02-04d696b345d6}</Project>
+      <Name>WangJun.YunConvertor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WangJun.YunDB\WangJun.YunDB.csproj">
       <Project>{2dabfe1d-acbf-4e41-bc36-205a626df1ea}</Project>
       <Name>WangJun.YunDB</Name>

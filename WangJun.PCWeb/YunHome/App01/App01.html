@@ -15,11 +15,7 @@
             myScroll = new IScroll('#wrapper', { scrollX: true, scrollY: false, mouseWheel: true });
         }
 
-        //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
-        //    capture: false,
-        //    passive: false
-        //} : false);
-
+ 
     </script>
     <style type="text/css">
         #wrapper {
@@ -29,17 +25,15 @@
             bottom: 48px;*/
             /*left: 0;*/
             width: 100%;
-            background: #ccc;
             overflow: hidden;
         }
 
         #scroller {
-            position: absolute;
+            position: relative;
             z-index: 1;
             -webkit-tap-highlight-color: rgba(0,0,0,0);
             width: 5000px;
             height:2em;
-            background-color: #a00;
             -webkit-transform: translateZ(0);
             -moz-transform: translateZ(0);
             -ms-transform: translateZ(0);
@@ -73,8 +67,10 @@
                 width: 100px;
                 height: 100%;
                 border-right: 1px solid #ccc;
-                background-color: #fafafa;
-                font-size: 14px;
+                font-size: 1rem;
+                text-align:center;
+                vertical-align:middle;
+                line-height:2rem;
             }
 
         .media > img {
@@ -93,6 +89,7 @@
 </head>
 <body onload="loaded()">
     <div class="container-fluid">
+        <h3 class="text-center my-2">汪俊头条</h3>
     <div id="wrapper">
         <div id="scroller">
             <ul>
@@ -200,7 +197,7 @@
                     </div>
                 </div>
             </li>
-            <li><button type="button" class="btn btn-link">加载更多...</button></li>
+            <li class="text-center"><a  href="#" class="btn btn-link">加载更多...</a></li>
         </ul>
     </div>
         

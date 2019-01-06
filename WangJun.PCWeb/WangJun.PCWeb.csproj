@@ -134,6 +134,7 @@
     <Content Include="YunHome\Home1.html" />
     <Content Include="YunQueue\YunQueue.html" />
     <Content Include="YunQueue\YunQueue.js" />
+    <Content Include="YunSocket\YunSocket.html" />
     <Content Include="YunTools\YunTools.html" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Scripts\iscroll-master\.nodemonignore" />

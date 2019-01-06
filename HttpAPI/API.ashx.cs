@@ -5,6 +5,9 @@ using System.Text;
 using System.Web;
 using WangJun.Common;
 using WangJun.Yun;
+using System.Web.WebSockets;
+using System.Net.WebSockets;
+using System.Threading;
 
 namespace HttpAPI
 {
@@ -13,14 +16,21 @@ namespace HttpAPI
     /// </summary>
     public class API : IHttpHandler
     {
+        private static List<WebSocket> _sockets = new List<WebSocket>();
 
         public void ProcessRequest(HttpContext context)
         {
-            context.Response.Headers.Add("Access-Control-Allow-Origin", "*"); //设置请求来源不受限制
-            context.Response.Headers.Add("Access-Control-Allow-Headers", "X-Requested-With");
-            context.Response.Headers.Add("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS"); //请求方式
-            this.Execute(context);
-
+            if (context.IsWebSocketRequest)
+            {
+                this.WebSocketProc(context);
+            }
+            else
+            {
+                context.Response.Headers.Add("Access-Control-Allow-Origin", "*"); //设置请求来源不受限制
+                context.Response.Headers.Add("Access-Control-Allow-Headers", "X-Requested-With");
+                context.Response.Headers.Add("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS"); //请求方式
+                this.Execute(context);
+            }
 
         }
 
@@ -70,6 +80,39 @@ namespace HttpAPI
 
 
             context.Response.Write(str);
+        }
+
+        public void WebSocketProc(HttpContext context ) {
+            if (null != context &&context.IsWebSocketRequest)
+            {
+                context.AcceptWebSocketRequest(async p => {
+                    var socket = p.WebSocket;
+ 
+                    //进入一个无限循环，当web socket close是循环结束
+                    while (true)
+                    {
+                        var buffer = new ArraySegment<byte>(new byte[1024]);
+                        var receivedResult = await socket.ReceiveAsync(buffer, CancellationToken.None);//对web socket进行异步接收数据
+                        if (receivedResult.MessageType == WebSocketMessageType.Close)
+                        {
+                            await socket.CloseAsync(WebSocketCloseStatus.Empty, string.Empty, CancellationToken.None);//如果client发起close请求，对client进行ack
+                            _sockets.Remove(socket);
+                            break;
+                        }
+
+                        if (socket.State == System.Net.WebSockets.WebSocketState.Open)
+                        {
+                            string recvMsg = Encoding.UTF8.GetString(buffer.Array, 0, receivedResult.Count);
+                            var recvBytes = Encoding.UTF8.GetBytes(recvMsg);
+                            var sendBuffer = new ArraySegment<byte>(recvBytes);
+        
+                                    await socket.SendAsync(sendBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
+                         
+            
+                        }
+                    }
+                });
+            }
         }
 
         public bool IsReusable

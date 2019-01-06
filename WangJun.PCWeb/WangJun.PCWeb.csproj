@@ -130,10 +130,12 @@
     <Content Include="Scripts\iscroll-master\src\zoom\handleEvent.js" />
     <Content Include="Scripts\iscroll-master\src\zoom\refresh.js" />
     <Content Include="Scripts\iscroll-master\src\zoom\zoom.js" />
+    <Content Include="YunHome\App01\App02.html" />
     <Content Include="YunHome\App01\App01.html" />
     <Content Include="YunHome\Home1.html" />
     <Content Include="YunQueue\YunQueue.html" />
     <Content Include="YunQueue\YunQueue.js" />
+    <Content Include="YunScript\NET.js" />
     <Content Include="YunSocket\YunSocket.html" />
     <Content Include="YunTools\YunTools.html" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />

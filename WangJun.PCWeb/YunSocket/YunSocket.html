@@ -16,7 +16,7 @@
         }
 
         webSocket.onmessage = function (event,res3) {
-            console.log("web socket error");
+            console.log(event.data);
         }
 
         self.webSocket.onclose = function (res4) { console.log("closed"); }

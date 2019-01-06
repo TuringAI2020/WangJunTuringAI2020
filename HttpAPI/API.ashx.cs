@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Net.WebSockets;
 using System.Text;
+using System.Threading;
 using System.Web;
 using WangJun.Common;
 using WangJun.Yun;
-using System.Web.WebSockets;
-using System.Net.WebSockets;
-using System.Threading;
 
 namespace HttpAPI
 {
@@ -16,7 +14,6 @@ namespace HttpAPI
     /// </summary>
     public class API : IHttpHandler
     {
-        private static List<WebSocket> _sockets = new List<WebSocket>();
 
         public void ProcessRequest(HttpContext context)
         {
@@ -72,7 +69,8 @@ namespace HttpAPI
                 object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
                 str = res.ToString();
             }
-            else if (typeof(YunConvertor).Name == reqCheck.TargetClass) {
+            else if (typeof(YunConvertor).Name == reqCheck.TargetClass)
+            {
                 var reqMsg = ReqMsg<YunConvertor>.Parse(str);
                 object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
                 str = res.ToString();
@@ -82,12 +80,19 @@ namespace HttpAPI
             context.Response.Write(str);
         }
 
-        public void WebSocketProc(HttpContext context ) {
-            if (null != context &&context.IsWebSocketRequest)
+        private static List<WebSocket> clientSockList = new List<WebSocket>();
+        /// <summary>
+        /// WebSocket处理
+        /// </summary>
+        /// <param name="context"></param>
+        public void WebSocketProc(HttpContext context)
+        {
+            if (null != context && context.IsWebSocketRequest)
             {
-                context.AcceptWebSocketRequest(async p => {
+                context.AcceptWebSocketRequest(async p =>
+                {
                     var socket = p.WebSocket;
- 
+                    clientSockList.Add(socket);
                     //进入一个无限循环，当web socket close是循环结束
                     while (true)
                     {
@@ -96,19 +101,16 @@ namespace HttpAPI
                         if (receivedResult.MessageType == WebSocketMessageType.Close)
                         {
                             await socket.CloseAsync(WebSocketCloseStatus.Empty, string.Empty, CancellationToken.None);//如果client发起close请求，对client进行ack
-                            _sockets.Remove(socket);
                             break;
                         }
 
                         if (socket.State == System.Net.WebSockets.WebSocketState.Open)
                         {
-                            string recvMsg = Encoding.UTF8.GetString(buffer.Array, 0, receivedResult.Count);
+                            string recvMsg = Encoding.UTF8.GetString(buffer.Array, 0, receivedResult.Count) + "来自服务器"+DateTime.Now;
                             var recvBytes = Encoding.UTF8.GetBytes(recvMsg);
                             var sendBuffer = new ArraySegment<byte>(recvBytes);
-        
-                                    await socket.SendAsync(sendBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
-                         
-            
+
+                            await socket.SendAsync(sendBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
                         }
                     }
                 });

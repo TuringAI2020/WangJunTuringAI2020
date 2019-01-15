@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="WebServiceAPI.asmx" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="WCFAPI" />
     <Content Include="Test.html" />
     <Content Include="Web.config" />

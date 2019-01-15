@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WangJun.YunFile
 {
-    public class Class1
+    public class YunFile
     {
+        public string Save()
     }
 }

@@ -21,6 +21,11 @@ namespace HttpAPI
             {
                 this.WebSocketProc(context);
             }
+            else if (0 < context.Request.Files.Count)
+            {
+                 var filePath = new YunFile().SaveFromHttp();
+                context.Response.Write(filePath);
+            }
             else
             {
                 context.Response.Headers.Add("Access-Control-Allow-Origin", "*"); //设置请求来源不受限制
@@ -72,6 +77,12 @@ namespace HttpAPI
             else if (typeof(YunConvertor).Name == reqCheck.TargetClass)
             {
                 var reqMsg = ReqMsg<YunConvertor>.Parse(str);
+                object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
+                str = res.ToString();
+            }
+            else if (typeof(YunFile).Name == reqCheck.TargetClass)
+            {
+                var reqMsg = ReqMsg<YunFile>.Parse(str);
                 object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
                 str = res.ToString();
             }

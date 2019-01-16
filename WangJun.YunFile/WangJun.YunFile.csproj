@@ -7,7 +7,7 @@
     <ProjectGuid>{2E27E8F5-7A0D-491A-9287-8A33503DB4B6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WangJun.YunFile</RootNamespace>
+    <RootNamespace>WangJun.Yun</RootNamespace>
     <AssemblyName>WangJun.YunFile</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +44,12 @@
   <ItemGroup>
     <Compile Include="YunFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WangJun.Common\WangJun.Common.csproj">
+      <Project>{D2FE513E-355E-44BA-96FE-844970CF960D}</Project>
+      <Name>WangJun.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

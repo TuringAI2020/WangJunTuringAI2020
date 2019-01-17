@@ -52,6 +52,7 @@
     <Compile Include="HANZI.cs" />
     <Compile Include="HMACSHA1.cs" />
     <Compile Include="HTTP.cs" />
+    <Compile Include="HttpRequestParam.cs" />
     <Compile Include="JSON.cs" />
     <Compile Include="MD5.cs" />
     <Compile Include="Message.cs" />

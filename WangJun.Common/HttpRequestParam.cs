@@ -35,7 +35,7 @@ namespace WangJun.Yun
                 else if (str.Contains("="))
                 {
                     var array = str.Split(new char[] { '&' }, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (var item in collection)
+                    foreach (var item in array)
                     {
 
                     }

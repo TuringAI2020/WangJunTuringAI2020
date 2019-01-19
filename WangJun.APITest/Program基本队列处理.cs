@@ -11,7 +11,6 @@ namespace WangJun.APITest
     {
         static void Main(string[] args)
         {
-            new QRCode().Encoder();
             Console.ReadKey();
         }
     }

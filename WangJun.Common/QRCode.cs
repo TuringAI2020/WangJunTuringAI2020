@@ -14,7 +14,7 @@ namespace WangJun.Yun
     {
 
 
-        public void Encoder()
+        public void Encode(string data)
         {
             QrCodeEncodingOptions options = new QrCodeEncodingOptions();
             options.CharacterSet = "UTF-8";
@@ -27,12 +27,13 @@ namespace WangJun.Yun
             writer.Format = BarcodeFormat.QR_CODE;
             writer.Options = options;
 
-            using (Bitmap bmp = writer.Write("12345678"))
+            using (Bitmap bmp = writer.Write(data))
             {
                 MemoryStream ms = new MemoryStream();
                 {
                     bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                    bmp.Save("Test.png", System.Drawing.Imaging.ImageFormat.Png);
+                    var md5 = MD5.ToMD5(data.Trim());
+                    bmp.Save(string.Format("{0}.png",md5), System.Drawing.Imaging.ImageFormat.Png);
                 }
             }
         }

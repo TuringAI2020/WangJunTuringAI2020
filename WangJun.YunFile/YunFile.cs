@@ -62,7 +62,21 @@ namespace WangJun.Yun
         /// 删除文件
         /// </summary>
         /// <returns></returns>
-        public string DeleteFromHttp() {
+        public string DeleteFromHttp(string fileName) {
+            var context = HttpContext.Current;
+            var filePath = string.Empty;
+            if (null != context)
+            {
+                //var param = HttpRequestParam.Parse(HttpContext.Current.Request.InputStream, HttpContext.Current.Request.RawUrl);
+                //var md5 = param.GetQueryParam["FileName"].ToString();
+                var path = context.Server.MapPath("~") + "/" + "FILES/"+ fileName;
+
+                File.Delete(path);
+
+                File.Delete(path+".txt");
+            }
+            return "OK";
+
          }
     }
 }

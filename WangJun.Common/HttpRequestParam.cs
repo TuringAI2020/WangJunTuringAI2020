@@ -15,7 +15,7 @@ namespace WangJun.Yun
 
         public Dictionary<string, object> PostJsonStreamParam { get; set; }
 
-        public static HttpRequestParam Parse(Stream stream,Encoding encoding=null) {
+        public static HttpRequestParam Parse(Stream stream,string rawUrl,Encoding encoding=null) {
             var inst = new HttpRequestParam();
             if (null != stream)
             {
@@ -34,12 +34,30 @@ namespace WangJun.Yun
                 }
                 else if (str.Contains("="))
                 {
+                    
                     var array = str.Split(new char[] { '&' }, StringSplitOptions.RemoveEmptyEntries);
                     foreach (var item in array)
                     {
-
+                        var pair = item.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+                        if (2 == pair.Length) {
+                            inst.PostFormParam.Add(pair[0], pair[1]);
+                        }
                     }
                 }
+
+                if (!string.IsNullOrWhiteSpace(rawUrl) && rawUrl.Contains("?") && rawUrl.Contains("&") && rawUrl.Contains("="))
+                {
+                    var array = str.Split(new char[] { '&' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var item in array)
+                    {
+                        var pair = item.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+                        if (2 == pair.Length)
+                        {
+                            inst.GetQueryParam.Add(pair[0], pair[1]);
+                        }
+                    }
+                }
+
             }
 
             return inst;

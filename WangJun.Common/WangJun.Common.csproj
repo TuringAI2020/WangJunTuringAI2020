@@ -38,6 +38,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="BASE64.cs" />
+    <Compile Include="CONST.cs" />
     <Compile Include="DATETIME.cs" />
     <Compile Include="ENUM.cs" />
     <Compile Include="GZIP.cs" />

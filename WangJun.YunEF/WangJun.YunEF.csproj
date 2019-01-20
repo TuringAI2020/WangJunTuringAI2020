@@ -42,6 +42,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +59,9 @@
     <Compile Include="YunDocument.cs" />
     <Compile Include="YunDocument\YunDocument_方法.cs" />
     <Compile Include="YunFav\YunFav_方法.cs" />
+    <Compile Include="YunFile.cs" />
+    <Compile Include="YunFile\YunFile_SQLSERVER.cs" />
+    <Compile Include="YunFile\YunFile_LOCAL.cs" />
     <Compile Include="YunForm.cs" />
     <Compile Include="YunForm\YunForm_方法.cs" />
     <Compile Include="YunQueue.cs" />

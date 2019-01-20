@@ -17,6 +17,8 @@ namespace HttpAPI
 
         public void ProcessRequest(HttpContext context)
         {
+            var param = HttpRequestParam.Parse(context);
+
             if (context.IsWebSocketRequest)
             {
                 this.WebSocketProc(context);

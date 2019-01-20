@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace WangJun.Yun
 {
@@ -15,14 +16,19 @@ namespace WangJun.Yun
 
         public Dictionary<string, object> PostJsonStreamParam { get; set; }
 
-        public static HttpRequestParam Parse(Stream stream,string rawUrl,Encoding encoding=null) {
+        public static HttpRequestParam Parse(HttpContext context) {
             var inst = new HttpRequestParam();
+            var stream = context.Request.InputStream;
+            var encoding = context.Request.ContentEncoding;
+            var rawUrl = context.Request.RawUrl;
+            var contentType = context.Request.ContentType;
             if (null != stream)
             {
                 if (null == encoding)
                 {
                     encoding = Encoding.UTF8;
                 }
+
 
                 var bytes = new byte[stream.Length];
                 stream.Read(bytes, 0, (int)stream.Length);
@@ -34,8 +40,8 @@ namespace WangJun.Yun
                 }
                 else if (str.Contains("="))
                 {
-                    
                     var array = str.Split(new char[] { '&' }, StringSplitOptions.RemoveEmptyEntries);
+                    inst.PostFormParam = new Dictionary<string, object>();
                     foreach (var item in array)
                     {
                         var pair = item.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);

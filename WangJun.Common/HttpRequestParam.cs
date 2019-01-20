@@ -33,19 +33,20 @@ namespace WangJun.Yun
                 var bytes = new byte[stream.Length];
                 stream.Read(bytes, 0, (int)stream.Length);
                 var str = encoding.GetString(bytes).Trim();
-                if ((str.StartsWith("{") && str.EndsWith("}")) || (str.StartsWith("[") && str.EndsWith("]")))
+                if (CONST.application_json == contentType && (str.StartsWith("{") && str.EndsWith("}")) || (str.StartsWith("[") && str.EndsWith("]")))
                 {
                     var streamData = JSON.ToObject<Dictionary<string, object>>(str);
                     inst.PostJsonStreamParam = streamData;
                 }
-                else if (str.Contains("="))
+                else if (contentType == CONST.application_x_www_form_urlencoded && str.Contains("="))
                 {
                     var array = str.Split(new char[] { '&' }, StringSplitOptions.RemoveEmptyEntries);
                     inst.PostFormParam = new Dictionary<string, object>();
                     foreach (var item in array)
                     {
                         var pair = item.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
-                        if (2 == pair.Length) {
+                        if (2 == pair.Length)
+                        {
                             inst.PostFormParam.Add(pair[0], pair[1]);
                         }
                     }

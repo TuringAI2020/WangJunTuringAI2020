@@ -17,15 +17,18 @@ namespace HttpAPI
 
         public void ProcessRequest(HttpContext context)
         {
-            var param = HttpRequestParam.Parse(context);
+            //var param = HttpRequestParam.Parse(context);
 
             if (context.IsWebSocketRequest)
             {
                 this.WebSocketProc(context);
             }
+            else if ("SaveToSQLServer" == context.Request.QueryString["m"]) {
+                new YunFile().SaveToSQLServer();
+            }
             else if (0 < context.Request.Files.Count)
             {
-                 var filePath = new YunFile().SaveFromHttp();
+                var filePath = new YunFile().SaveFromHttp();
                 context.Response.Write(filePath);
             }
             else

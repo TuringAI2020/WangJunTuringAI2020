@@ -44,6 +44,16 @@ namespace WangJun.Yun
             return res;
         }
 
+        public RES Remove()
+        {
+            var res = RES.New;
+            var db = ModelEF.GetInst();
+            var data_db = db.YunForms.FirstOrDefault(p => p.ID == this.ID);
+            db.YunForms.Remove(data_db);
+            db.SaveChanges();
+            return res.SetAsOK();
+        }
+
         public RES LoadList()
         {
             var res = RES.New;

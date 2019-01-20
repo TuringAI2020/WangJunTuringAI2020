@@ -56,5 +56,11 @@ namespace WangJun.Yun
             return HANZI.GetAll();
         }
 
+
+        public string TimeNow() {
+            return DATETIME.Now();
+        }
+
+
     }
 }

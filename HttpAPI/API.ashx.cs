@@ -86,6 +86,12 @@ namespace HttpAPI
                 object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
                 str = res.ToString();
             }
+            else if (typeof(YunDocument).Name == reqCheck.TargetClass)
+            {
+                var reqMsg = ReqMsg<YunDocument>.Parse(str);
+                object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
+                str = res.ToString();
+            }
 
 
             context.Response.Write(str);

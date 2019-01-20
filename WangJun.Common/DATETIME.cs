@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace WangJun.Yun
 {
-    /// <summary>
-    /// 文档服务
-    /// </summary>
-    public class WJDocument
+   public static class DATETIME
     {
-
+        public static string Now() {
+            return DateTime.Now.ToString();
+        }
     }
 }

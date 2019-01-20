@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="BASE64.cs" />
+    <Compile Include="DATETIME.cs" />
     <Compile Include="ENUM.cs" />
     <Compile Include="GZIP.cs" />
     <Compile Include="HANZI.cs" />

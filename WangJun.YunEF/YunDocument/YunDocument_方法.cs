@@ -23,6 +23,9 @@ namespace WangJun.Yun
             var db = ModelEF.GetInst();
             if (this.ID == Guid.Empty) {
                 this.ID = Guid.NewGuid();
+                this.CreateTime = DateTime.Now;
+                this.UpdateTime = DateTime.Now;
+                this.
             }
             db.YunDocuments.Add(this);
             db.SaveChanges();

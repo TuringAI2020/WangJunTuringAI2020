@@ -9,24 +9,36 @@ namespace WangJun.Yun
     public static class ENUM
     {
 
-        public enum ServiceType {
-            云收藏=0x0101,
+        /// <summary>
+        /// 服务类型
+        /// </summary>
+        public enum ServiceType
+        {
+            云收藏 = 0x0101,
         }
 
-        public enum TaskStatus {
+        public enum TaskStatus
+        {
             待处理 = 0,
 
 
             正常处理中 = 2,
 
-             超时处理中 = 3,
+            超时处理中 = 3,
 
-             首次处理出错 = -1,
+            首次处理出错 = -1,
 
-             多次处理出错 = -2,
-             处理失败 = -10000,
+            多次处理出错 = -2,
+            处理失败 = -10000,
 
-             处理完毕 = 1
+            处理完毕 = 1
+        }
+
+        /// <summary>
+        /// 实体状态
+        /// </summary>
+        public enum EntityStatus {
+
         }
 
         public enum 队列分组名称 {

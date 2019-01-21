@@ -14,7 +14,8 @@ namespace WangJun.Yun
             var inst = new HTTP();
             inst.Url = url;
             return inst;
-        } 
+        }
+         
 
         public string Url { get; set; }
 
@@ -39,6 +40,45 @@ namespace WangJun.Yun
             var str = Encoding.UTF8.GetString(res);
             return str;
 
+        }
+
+        /// <summary>
+        /// GET 获取数据
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="header"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
+        public static string Get(string url, Dictionary<string, string> headers)
+        {
+            var http = new HttpClient();
+            var resGzip = false;
+            if (!string.IsNullOrWhiteSpace(url))
+            {
+                if (null != headers)
+                {
+                    foreach (var item in headers)
+                    {
+                        http.DefaultRequestHeaders.Add(item.Key, item.Value);
+                        if (!resGzip && item.Value.Contains("gzip"))
+                        {
+                            resGzip = item.Value.Contains("gzip");
+                        }
+                    }
+                }
+
+
+
+                var task = http.GetAsync(url);
+                var res = task.Result.Content.ReadAsByteArrayAsync().Result;
+                if (resGzip)
+                {
+                    res = GZIP.Decompress(res);
+                }
+                var str = Encoding.UTF8.GetString(res);
+                return str;
+            }
+            return null;
         }
     }
 }

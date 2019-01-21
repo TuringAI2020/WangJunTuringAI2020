@@ -97,7 +97,12 @@ namespace HttpAPI
                 object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
                 str = res.ToString();
             }
-
+            else if (typeof(YunSpider).Name == reqCheck.TargetClass)
+            {
+                var reqMsg = ReqMsg<YunSpider>.Parse(str);
+                object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
+                str = res.ToString();
+            }
 
             context.Response.Write(str);
         }

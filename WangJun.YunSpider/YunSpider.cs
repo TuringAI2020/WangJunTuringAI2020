@@ -7,9 +7,15 @@ using WangJun.Yun;
 
 namespace WangJun.Yun
 {
+    /// <summary>
+    /// 云蜘蛛
+    /// </summary>
     public class YunSpider
     {
-
+        public static YunSpider GetInst() {
+            var inst = new YunSpider();
+            return inst;
+        }
         /// <summary>
         /// 获取头条的原始文章
         /// </summary>
@@ -28,9 +34,19 @@ namespace WangJun.Yun
 
         }
 
-        public string SaveTouTiaoArticleToDB(string ur)
+        #region 将头条文章保存到数据库中
+        /// <summary>
+        /// 将头条文章保存到数据库中
+        /// </summary>
+        /// <param name="ur"></param>
+        /// <returns></returns>
+        public RES SaveTouTiaoArticleToDB(string url)
         {
-
+            var res = RES.New;
+            var article = YunSpider.GetInst().GetTouTiaoArticle(url);
+            res = new YunDocument { Content = article, ContentType = CONST.html, Url = url, SourceName = CONST.今日头条 }.Save();
+            return res.SetAsOK(article);
         }
+        #endregion
     }
 }

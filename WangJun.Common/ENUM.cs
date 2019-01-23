@@ -37,8 +37,10 @@ namespace WangJun.Yun
         /// <summary>
         /// 实体状态
         /// </summary>
-        public enum EntityStatus {
-
+        public enum EntityStatus
+        {
+            正常 = 0x0001,
+            已删除 = -0x0001
         }
 
         public enum 队列分组名称 {

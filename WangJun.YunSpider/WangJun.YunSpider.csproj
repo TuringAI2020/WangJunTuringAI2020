@@ -49,6 +49,10 @@
       <Project>{D2FE513E-355E-44BA-96FE-844970CF960D}</Project>
       <Name>WangJun.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WangJun.YunEF\WangJun.YunEF.csproj">
+      <Project>{7c1e7961-de0e-4ffc-a797-6daa3e6df63f}</Project>
+      <Name>WangJun.YunEF</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

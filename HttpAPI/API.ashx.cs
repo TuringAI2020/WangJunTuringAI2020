@@ -162,6 +162,10 @@ namespace HttpAPI
             }
         }
         #endregion
+
+        #region 文件处理
+
+        #endregion
         public bool IsReusable
         {
             get

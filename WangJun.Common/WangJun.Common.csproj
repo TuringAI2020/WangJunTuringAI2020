@@ -64,6 +64,7 @@
     <Compile Include="HTTP.cs" />
     <Compile Include="HttpRequestParam.cs" />
     <Compile Include="JSON.cs" />
+    <Compile Include="MAIL.cs" />
     <Compile Include="MD5.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="QRCode.cs" />

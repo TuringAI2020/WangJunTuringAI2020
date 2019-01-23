@@ -12,7 +12,7 @@ namespace HttpAPI
     /// <summary>
     /// API 的摘要说明
     /// </summary>
-    public class API : IHttpHandler
+    public partial class API : IHttpHandler
     {
 
         public void ProcessRequest(HttpContext context)
@@ -41,6 +41,10 @@ namespace HttpAPI
 
         }
 
+        /// <summary>
+        /// 业务处理
+        /// </summary>
+        /// <param name="context"></param>
         public void Execute(HttpContext context)
         {
             var length = (int)context.Request.InputStream.Length;
@@ -105,12 +109,23 @@ namespace HttpAPI
                 str = res.ToJson();
                 contentType= CONST.application_json;
             }
-
+            else if (typeof(MAIL).Name == reqCheck.TargetClass)
+            {
+                var reqMsg = ReqMsg<MAIL>.Parse(str);
+                RES res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray) as RES;
+                str = res.ToJson();
+                contentType = CONST.application_json;
+            }
             context.Response.ContentType = contentType;
             context.Response.Write(str);
         }
 
+
+        #region WebSocket处理
+
         private static List<WebSocket> clientSockList = new List<WebSocket>();
+        
+        
         /// <summary>
         /// WebSocket处理
         /// </summary>
@@ -146,7 +161,7 @@ namespace HttpAPI
                 });
             }
         }
-
+        #endregion
         public bool IsReusable
         {
             get

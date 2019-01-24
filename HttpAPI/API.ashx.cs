@@ -23,14 +23,14 @@ namespace HttpAPI
             {
                 this.WebSocketProc(context);
             }
-            else if ("SaveToSQLServer" == context.Request.QueryString["m"]) {
+            else if (0 < context.Request.Files.Count&&"SaveToSQLServer" == context.Request.QueryString["m"]) {
                 new YunFile().SaveToSQLServer();
             }
-            else if (0 < context.Request.Files.Count)
+            else if (0 < context.Request.Files.Count&&"SaveToDisk" == context.Request.QueryString["m"])
             {
                 var filePath = new YunFile().SaveFromHttp();
                 context.Response.Write(filePath);
-            }
+            } 
             else
             {
                 context.Response.Headers.Add("Access-Control-Allow-Origin", "*"); //设置请求来源不受限制

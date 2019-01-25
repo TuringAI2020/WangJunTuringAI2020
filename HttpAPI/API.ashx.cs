@@ -88,7 +88,8 @@ namespace HttpAPI
             {
                 var reqMsg = ReqMsg<YunConvertor>.Parse(str);
                 object res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
-                str = res.ToString();
+                str =JSON.ToJson(res);
+                contentType = CONST.application_json;
             }
             else if (typeof(YunFile).Name == reqCheck.TargetClass)
             {

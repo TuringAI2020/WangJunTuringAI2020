@@ -71,6 +71,7 @@
     <Compile Include="RES.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SHA1.cs" />
+    <Compile Include="WordAnalysor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

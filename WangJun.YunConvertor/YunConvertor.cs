@@ -61,6 +61,11 @@ namespace WangJun.Yun
             return DATETIME.Now();
         }
 
+        public List<KeyValuePair<string, int>> WordAnalyse(string input)
+        {
+            return WordAnalysor.Analyse(input);
+        }
+
 
     }
 }

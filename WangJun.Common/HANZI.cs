@@ -7,15 +7,39 @@ using System.Threading.Tasks;
 
 namespace WangJun.Yun
 {
+    /// <summary>
+    /// 汉字
+    /// </summary>
     public static class HANZI
     {
-        public static string GetAll() {
+        /// <summary>
+        /// 获取所有汉字
+        /// </summary>
+        /// <returns></returns>
+        public static string GetAll()
+        {
             var str = new StringBuilder();
             for (int k = 0x4e00; k < 0x9fbb; k++)
             {
                 str.AppendFormat(Convert.ToChar(k).ToString());
             }
             return str.ToString();
+        }
+
+        /// <summary>
+        /// 获取一个空的字符字典
+        /// </summary>
+        /// <returns></returns>
+        public static Dictionary<string, int> GetAllHanZiDict()
+        {
+            var dict = new Dictionary<string, int>();
+            var allChar = HANZI.GetAll();
+            for (int k = 0; k < allChar.Length; k++)
+            {
+                dict.Add(allChar[k].ToString(), 0);
+            }
+
+            return dict;
         }
 
         /// <summary>

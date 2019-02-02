@@ -21,7 +21,6 @@ namespace WangJun.Yun
 
         public string PlainText { get; set; }
 
-        [Required]
         public string SummaryText { get; set; }
 
         public int? Status { get; set; }
@@ -50,7 +49,6 @@ namespace WangJun.Yun
 
         public Guid? PermissionGroupID { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string PermissionGroupName { get; set; }
 

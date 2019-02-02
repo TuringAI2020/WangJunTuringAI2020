@@ -10,6 +10,8 @@ namespace WangJun.Yun
     /// <summary>
     /// ÔÆÎÄµµ
     /// </summary>
+
+    [NotMapped]
     public partial class YunDocument : YunForm
     {
     }

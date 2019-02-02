@@ -1,8 +1,11 @@
 namespace WangJun.Yun
 {
     using System;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Web;
 
+
+    [NotMapped]
     public partial class YunFile : YunForm
     {
         public virtual RES SaveToSQLServer()

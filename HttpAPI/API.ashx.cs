@@ -59,13 +59,6 @@ namespace HttpAPI
                 var reqMsg = ReqMsg<YunForm>.Parse(str);
                 reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, null);
             }
-            else if (typeof(YunFav).Name == reqCheck.TargetClass)
-            {
-                var reqMsg = ReqMsg<YunFav>.Parse(str);
-                var res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray);
-                str = JSON.ToJson(res);
-                context.Response.ContentType = "application/json";
-            }
             else if (typeof(HTTP).Name == reqCheck.TargetClass)
             {
                 var reqMsg = ReqMsg<HTTP>.Parse(str);

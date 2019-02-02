@@ -83,7 +83,7 @@ namespace WangJun.Yun
         {
             if (!string.IsNullOrWhiteSpace(localPath) && !string.IsNullOrWhiteSpace(sourceFileName) && null != fileData) ///若数据符合要求
             {
-                var fileMd5 = MD5.ToMD5(fileData);
+                var fileMd5 = WangJun.Yun.MD5.ToMD5(fileData);
                 var extension = string.Empty;
                 if (sourceFileName.Contains("."))
                 {

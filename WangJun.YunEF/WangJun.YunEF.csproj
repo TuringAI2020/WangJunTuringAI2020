@@ -54,19 +54,12 @@
     <Compile Include="ModelEF.cs" />
     <Compile Include="ModelEF\ModelEF_对外方法.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YunAccount.cs" />
-    <Compile Include="YunComment.cs" />
-    <Compile Include="YunDocument.cs" />
     <Compile Include="YunDocument\YunDocument_方法.cs" />
-    <Compile Include="YunFav\YunFav_方法.cs" />
-    <Compile Include="YunFile.cs" />
     <Compile Include="YunFile\YunFile_SQLSERVER.cs" />
     <Compile Include="YunFile\YunFile_LOCAL.cs" />
     <Compile Include="YunForm.cs" />
     <Compile Include="YunForm\YunForm_方法.cs" />
-    <Compile Include="YunQueue.cs" />
-    <Compile Include="YunQueue\YunQueue.cs" />
-    <Compile Include="YunService.cs" />
+    <Compile Include="YunRelation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -79,6 +72,8 @@
       <Name>WangJun.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

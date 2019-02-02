@@ -21,28 +21,25 @@ namespace WangJun.Yun
             return res;
         }
 
-        public virtual RES Save() {
+        /// <summary>
+        /// 同步保存一个对象
+        /// </summary>
+        /// <returns></returns>
+        public virtual RES Save()
+        {
+            var res = RES.New;
 
             if (Guid.Empty == this.ID) {
                 this.ID = Guid.NewGuid();
+                this.CreateTime = DateTime.Now;
             }
 ;
 
-            var res = RES.New;
             var db = ModelEF.GetInst();
             db.YunForms.Add(this);
             db.SaveChanges();
             return res;
-        }
-
-        public virtual RES SaveToTask()
-        {
-            var res = RES.New;
-            var db = ModelEF.GetInst();
-            db.YunQueues.Add(new YunQueue { DATA = this.ToJson(), GroupName = Enum.GetName(typeof(ENUM.队列分组名称),ENUM.队列分组名称.YunForm待处理), Status =(int)ENUM.TaskStatus.待处理});
-            var resCode = db.SaveChanges();
-            return res;
-        }
+        } 
 
         public RES Remove()
         {
@@ -59,7 +56,7 @@ namespace WangJun.Yun
             var res = RES.New;
             var db = ModelEF.GetInst();
 
-            var query = from item in db.YunForms where 100 <= item.Content.Length select item;
+            var query = from item in db.YunForms  select item;
             res.DATA = query.ToList();
             return res.SetAsOK();
         }

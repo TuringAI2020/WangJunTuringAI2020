@@ -44,7 +44,7 @@ namespace WangJun.Yun
         {
             var res = RES.New;
             var article = YunSpider.GetInst().GetTouTiaoArticle(url);
-            res = new YunDocument { Content = article, ContentType = CONST.html, Url = url, SourceName = CONST.今日头条 }.Save();
+            res = new YunForm { Html = article,    SourceUrl = url, SourceName = CONST.今日头条 }.Save();
             return res.SetAsOK(article);
         }
         #endregion

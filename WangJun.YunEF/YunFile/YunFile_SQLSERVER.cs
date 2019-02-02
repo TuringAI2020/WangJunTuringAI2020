@@ -1,13 +1,9 @@
 namespace WangJun.Yun
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
     using System.Web;
 
-    public partial class YunFile
+    public partial class YunFile : YunForm
     {
         public virtual RES SaveToSQLServer()
         {
@@ -18,13 +14,13 @@ namespace WangJun.Yun
             }
             HttpPostedFile file = HttpContext.Current.Request.Files[0];
 
-  var bytes = new byte[(int)file.InputStream.Length];
+            var bytes = new byte[(int)file.InputStream.Length];
             file.InputStream.Read(bytes, 0, bytes.Length);
 
-            this.Data = bytes;
+            this.BinData = bytes;
             var res = RES.New;
             var db = ModelEF.GetInst();
-            db.YunFiles.Add(this);
+            db.YunForms.Add(this);
             db.SaveChanges();
             return res;
         }

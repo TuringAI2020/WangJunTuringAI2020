@@ -60,11 +60,13 @@
     <Compile Include="YunForm.cs" />
     <Compile Include="YunForm\YunForm_方法.cs" />
     <Compile Include="YunRelation.cs" />
+    <Compile Include="YunRelation\YunRelation_方法.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="SQLSERVER\WangJun20181125.7z" />
+    <None Include="SQLSERVER\WangJun20190203-2.7z" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WangJun.Common\WangJun.Common.csproj">
@@ -75,5 +77,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

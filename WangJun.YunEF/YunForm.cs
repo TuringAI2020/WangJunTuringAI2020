@@ -60,5 +60,8 @@ namespace WangJun.Yun
 
         [StringLength(50)]
         public string FormTypeName { get; set; }
+
+        [StringLength(50)]
+        public string ValueS01 { get; set; }
     }
 }

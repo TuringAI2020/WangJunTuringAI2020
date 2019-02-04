@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WangJun.YunSpider", "WangJu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WangJun.YunQueue", "WangJun.YunQueue\WangJun.YunQueue.csproj", "{B3370E44-C78B-4381-B2C8-D20DCFF84272}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WangJun.YunOrder", "WangJun.YunOrder\WangJun.YunOrder.csproj", "{4A969021-DE7D-436A-93B9-74E2D51E2D28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{B3370E44-C78B-4381-B2C8-D20DCFF84272}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3370E44-C78B-4381-B2C8-D20DCFF84272}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3370E44-C78B-4381-B2C8-D20DCFF84272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A969021-DE7D-436A-93B9-74E2D51E2D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A969021-DE7D-436A-93B9-74E2D51E2D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A969021-DE7D-436A-93B9-74E2D51E2D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A969021-DE7D-436A-93B9-74E2D51E2D28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +112,7 @@ Global
 		{9296AFCD-B456-4854-8B2D-603472A3B123} = {1B304772-8BDB-4C65-87B9-578812843F90}
 		{B9EF34B4-2144-452A-9739-F71BB367F446} = {0694C09D-5889-4E78-9927-DF8BA0AB4C8F}
 		{B3370E44-C78B-4381-B2C8-D20DCFF84272} = {0694C09D-5889-4E78-9927-DF8BA0AB4C8F}
+		{4A969021-DE7D-436A-93B9-74E2D51E2D28} = {0694C09D-5889-4E78-9927-DF8BA0AB4C8F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88960E35-C3BF-4EC9-A2B7-B2831A1629AA}

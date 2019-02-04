@@ -67,6 +67,7 @@
     <Compile Include="MAIL.cs" />
     <Compile Include="MD5.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="ORDER.cs" />
     <Compile Include="QRCode.cs" />
     <Compile Include="RES.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

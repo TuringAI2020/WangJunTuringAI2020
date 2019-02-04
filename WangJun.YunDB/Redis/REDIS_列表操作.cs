@@ -28,6 +28,38 @@ namespace WangJun.Yun
 
             return res.SetAsOK();
         }
+
+        /// <summary>
+        /// 设置列表
+        /// </summary>
+        /// <param name="listName"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public RES SetList(string listName,IEnumerable<object> list)
+        {
+            var res = RES.New;
+
+
+            if (null != list)
+            {
+                var db = this.GetRedis();
+                foreach (var item in list)
+                {
+                    if (item is string && null != item && !string.IsNullOrWhiteSpace(item.ToString()))
+                    {
+                         db.ListRightPush(listName, item.ToString());
+                    }
+                    else
+                    {
+                        db.ListRightPush(listName, JSON.ToJson(item));
+                    }
+                }
+            }
+
+            return res.SetAsOK();
+
+        }
+
         #endregion
 
 

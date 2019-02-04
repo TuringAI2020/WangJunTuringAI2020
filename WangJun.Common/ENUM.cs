@@ -15,6 +15,7 @@ namespace WangJun.Yun
         public enum ServiceType
         {
             云收藏 = 0x0101,
+            云商品 = 0x0201,
         }
 
         public enum TaskStatus

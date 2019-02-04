@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2DABFE1D-ACBF-4E41-BC36-205A626DF1EA}</ProjectGuid>
+    <ProjectGuid>{B3370E44-C78B-4381-B2C8-D20DCFF84272}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WangJun.Yun</RootNamespace>
-    <AssemblyName>WangJun.YunDB</AssemblyName>
+    <AssemblyName>WangJun.YunQueue</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,12 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="StackExchange.Redis, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\StackExchange.Redis.1.2.6\lib\net45\StackExchange.Redis.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,21 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MYSQL\MYSQL.cs" />
-    <Compile Include="Redis\REDIS.cs" />
-    <Compile Include="Redis\REDIS_字典操作.cs" />
-    <Compile Include="Redis\REDIS_列表操作.cs" />
-    <Compile Include="Redis\REDIS_队列操作.cs" />
-    <Compile Include="SQLSERVER\SQLSERVER.cs" />
+    <Compile Include="YunQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\WangJun.Common\WangJun.Common.csproj">
-      <Project>{D2FE513E-355E-44BA-96FE-844970CF960D}</Project>
+      <Project>{d2fe513e-355e-44ba-96fe-844970cf960d}</Project>
       <Name>WangJun.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WangJun.YunDB\WangJun.YunDB.csproj">
+      <Project>{2dabfe1d-acbf-4e41-bc36-205a626df1ea}</Project>
+      <Name>WangJun.YunDB</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

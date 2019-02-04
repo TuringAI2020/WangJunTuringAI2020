@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WangJun.RedisTest", "WangJu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WangJun.YunSpider", "WangJun.YunSpider\WangJun.YunSpider.csproj", "{B9EF34B4-2144-452A-9739-F71BB367F446}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WangJun.YunQueue", "WangJun.YunQueue\WangJun.YunQueue.csproj", "{B3370E44-C78B-4381-B2C8-D20DCFF84272}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{B9EF34B4-2144-452A-9739-F71BB367F446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9EF34B4-2144-452A-9739-F71BB367F446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9EF34B4-2144-452A-9739-F71BB367F446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3370E44-C78B-4381-B2C8-D20DCFF84272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3370E44-C78B-4381-B2C8-D20DCFF84272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3370E44-C78B-4381-B2C8-D20DCFF84272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3370E44-C78B-4381-B2C8-D20DCFF84272}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{6631EE08-4F3B-4640-B9E0-C0B0EF533936} = {A9B532E4-A233-4EE4-9888-B92041621849}
 		{9296AFCD-B456-4854-8B2D-603472A3B123} = {1B304772-8BDB-4C65-87B9-578812843F90}
 		{B9EF34B4-2144-452A-9739-F71BB367F446} = {0694C09D-5889-4E78-9927-DF8BA0AB4C8F}
+		{B3370E44-C78B-4381-B2C8-D20DCFF84272} = {0694C09D-5889-4E78-9927-DF8BA0AB4C8F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88960E35-C3BF-4EC9-A2B7-B2831A1629AA}

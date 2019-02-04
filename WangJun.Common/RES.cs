@@ -34,7 +34,10 @@ namespace WangJun.Yun
         public RES SetAsOK(object data = null, string msg = "成功")
         {
             this.SUCCESS = true;
-            this.DATA = data;
+            if (null != data)
+            {
+                this.DATA = data;
+            }
             this.MESSAGE = msg;
             return this;
         }

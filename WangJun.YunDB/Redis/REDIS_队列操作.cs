@@ -32,7 +32,15 @@ namespace WangJun.Yun
         {
             var res = RES.New;
             var db = this.GetRedis();
-            res.DATA = db.ListRightPush(queueName, JSON.ToJson(value));
+            if (value is string && null != value && !string.IsNullOrWhiteSpace(value.ToString()))
+            {
+                res.DATA = db.ListRightPush(queueName, value.ToString());
+            }
+            else
+            {
+                res.DATA = db.ListRightPush(queueName, JSON.ToJson(value));
+            }
+            
             return res.SetAsOK();
         }
 
@@ -69,7 +77,8 @@ namespace WangJun.Yun
         /// </summary>
         /// <param name="queueName"></param>
         /// <returns></returns>
-        public RES ClearQueue(string queueName) {
+        public RES ClearQueue(string queueName)
+        {
             return this.RemoveFromDB(queueName);
         }
         #endregion

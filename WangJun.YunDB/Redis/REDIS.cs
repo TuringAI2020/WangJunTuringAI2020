@@ -21,7 +21,8 @@ namespace WangJun.Yun
             this.redisClient = ConnectionMultiplexer.Connect(config);
         }
 
-        protected IDatabase GetRedis() {
+        protected IDatabase GetRedis()
+        {
             var db = this.redisClient.GetDatabase();
             return db;
         }

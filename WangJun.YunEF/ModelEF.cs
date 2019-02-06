@@ -19,25 +19,6 @@ namespace WangJun.Yun
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<YunQRCode>()
-                .Property(e => e.Status)
-                .IsFixedLength();
-
-            modelBuilder.Entity<YunQRCode>()
-                .Property(e => e.OrderID)
-                .IsFixedLength();
-
-            modelBuilder.Entity<YunQRCode>()
-                .Property(e => e.CheckInStartTime)
-                .IsFixedLength();
-
-            modelBuilder.Entity<YunQRCode>()
-                .Property(e => e.CheckInEndTime)
-                .IsFixedLength();
-
-            modelBuilder.Entity<YunQRCode>()
-                .Property(e => e.ExpiryTime)
-                .IsFixedLength();
         }
     }
 }

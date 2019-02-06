@@ -14,22 +14,17 @@ namespace WangJun.Yun
         [StringLength(50)]
         public string QRCode { get; set; }
 
-        [StringLength(10)]
-        public string Status { get; set; }
+        public int? Status { get; set; }
 
-        [StringLength(10)]
-        public string OrderID { get; set; }
+        public Guid? OrderID { get; set; }
 
         public DateTime? CreateTime { get; set; }
 
-        [StringLength(10)]
-        public string CheckInStartTime { get; set; }
+        public DateTime? CheckInStartTime { get; set; }
 
-        [StringLength(10)]
-        public string CheckInEndTime { get; set; }
+        public DateTime? CheckInEndTime { get; set; }
 
-        [StringLength(10)]
-        public string ExpiryTime { get; set; }
+        public DateTime? ExpiryTime { get; set; }
 
         public int? QRCodeType { get; set; }
     }

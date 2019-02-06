@@ -42,11 +42,13 @@ namespace WangJun.Yun
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public RES CreatePrepayOrder(string goodsIDStr,int count, string sourceIDStr, string consumerIDStr)
+        public RES CreatePrepayOrder(string goodsIDStr,long count, string sourceIDStr, string consumerIDStr)
         {
             var res = RES.New;
             if (!string.IsNullOrWhiteSpace(goodsIDStr) && 0 < count && !string.IsNullOrWhiteSpace(goodsIDStr) && !string.IsNullOrWhiteSpace(goodsIDStr))
             {
+
+                var db = ModelEF.GetInst();
                 ///若数据符合要求
                 var goodsID = new Guid(goodsIDStr);
                 var sourceID = new Guid(sourceIDStr);
@@ -55,15 +57,21 @@ namespace WangJun.Yun
                 yunOrder.GoodsID = goodsID;
                 yunOrder.SourceID = sourceID;
                 yunOrder.ConsumerID = consumerID;
-                yunOrder.Count = count;
+                yunOrder.Count = (int)count;
                 yunOrder.ID = new Guid();
 
                 for (int k = 0; k < count; k++)
                 {
                     var item = new YunQRCode();
-                    item.
+                    item.ID =Guid.NewGuid();
+                    item.OrderID = yunOrder.ID;
+                    item.QRCode = item.OrderID.ToString() + k;
+                    //item.Status = (int)ENUM.EntityStatus.正常;
+                    db.YunQRCodes.Add(item);
                 }
 
+                db.YunOrders.Add(yunOrder);
+                db.SaveChanges();
 
             }
             return res.SetAsOK();
@@ -78,6 +86,10 @@ namespace WangJun.Yun
         /// <returns></returns>
         public RES PayOrder(string json)
         {
+            var res = RES.New;
+
+            return res.SetAsOK();
+
 
         }
 
@@ -88,7 +100,9 @@ namespace WangJun.Yun
         /// <returns></returns>
         public RES CancelOrder(string json)
         {
+            var res = RES.New;
 
+            return res.SetAsOK();
         }
 
         /// <summary>
@@ -98,7 +112,9 @@ namespace WangJun.Yun
         /// <returns></returns>
         public RES QRCodeCheckIn(string json)
         {
+            var res = RES.New;
 
+            return res.SetAsOK();
         }
 
 

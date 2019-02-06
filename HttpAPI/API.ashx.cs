@@ -124,9 +124,9 @@ namespace HttpAPI
                 str = res.ToJson();
                 contentType = CONST.application_json;
             }
-            else if (typeof(YunOrder).Name == reqCheck.TargetClass)
+            else if (typeof(YunOrderService).Name == reqCheck.TargetClass)
             {
-                var reqMsg = ReqMsg<YunOrder>.Parse(str);
+                var reqMsg = ReqMsg<YunOrderService>.Parse(str);
                 RES res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray) as RES;
                 str = res.ToJson();
                 contentType = CONST.application_json;

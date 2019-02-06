@@ -9,11 +9,16 @@ namespace WangJun.Yun
     /// <summary>
     /// 
     /// </summary>
-    public class ORDER
+    public static class ORDER
     {
-        public string NewOrderID
+        public static string NewOrderID
         {
+            get
+            {
+                var id = string.Format("{0}",DateTime.Now.ToString("yyyyMMddhhmmssfff"));
 
+                return id;
+            }
         }
     }
 }

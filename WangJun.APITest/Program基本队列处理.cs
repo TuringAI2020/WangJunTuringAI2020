@@ -11,6 +11,8 @@ namespace WangJun.APITest
     {
         static void Main(string[] args)
         {
+
+            var id = ORDER.NewOrderID;
             Console.ReadKey();
         }
     }

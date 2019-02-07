@@ -130,6 +130,7 @@
     <Content Include="Scripts\iscroll-master\src\zoom\handleEvent.js" />
     <Content Include="Scripts\iscroll-master\src\zoom\refresh.js" />
     <Content Include="Scripts\iscroll-master\src\zoom\zoom.js" />
+    <Content Include="YunApp\YunApp.html" />
     <Content Include="YunHome\App01\App02.html" />
     <Content Include="YunHome\App01\App01.html" />
     <Content Include="YunHome\Home1.html" />
@@ -189,7 +190,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="YunApp\" />
+    <Folder Include="YunDesktop\" />
+    <Folder Include="YunSiteTools\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -77,7 +77,7 @@ namespace WangJun.Yun
             return res.SetAsOK();
         }
 
-
+        
 
         /// <summary>
         /// 支付一个订单
@@ -117,6 +117,15 @@ namespace WangJun.Yun
             return res.SetAsOK();
         }
 
+
+        /// <summary>
+        /// 加载一个订单
+        /// </summary>
+        /// <returns></returns>
+        public RES LoadOrder(string orderID)
+        {
+
+        }
 
 
 

@@ -12,7 +12,11 @@ namespace WangJun.APITest
         static void Main(string[] args)
         {
 
-            var id = ORDER.NewOrderID;
+            
+            for (int k = 0; k < 10000; k++)
+            {var id = ORDER.NewOrderID;
+                Console.WriteLine(id);
+            }
             Console.ReadKey();
         }
     }

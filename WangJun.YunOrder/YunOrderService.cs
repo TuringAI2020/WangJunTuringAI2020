@@ -110,9 +110,11 @@ namespace WangJun.Yun
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public RES QRCodeCheckIn(string json)
+        public RES QRCodeCheckIn(string orderId)
         {
             var res = RES.New;
+
+
 
             return res.SetAsOK();
         }
@@ -124,7 +126,15 @@ namespace WangJun.Yun
         /// <returns></returns>
         public RES LoadOrder(string orderID)
         {
+            var res = RES.New;
+            var orderGuid = ORDER.OrderIDToGuid(orderID);
+            var db = ModelEF.GetInst();
+            var order = db.YunOrders.FirstOrDefault(p => p.ID == orderGuid);
+            var qrCodeList = db.YunQRCodes.Where(p => p.OrderID == orderGuid).ToList();
 
+            order.QRCodeList = qrCodeList;
+            res.DATA = order;
+            return res.SetAsOK();
         }
 
 

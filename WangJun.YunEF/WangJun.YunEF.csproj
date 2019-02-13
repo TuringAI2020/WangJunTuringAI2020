@@ -60,6 +60,7 @@
     <Compile Include="YunForm.cs" />
     <Compile Include="YunForm\YunForm_方法.cs" />
     <Compile Include="YunOrder.cs" />
+    <Compile Include="YunOrder\YunOrder.cs" />
     <Compile Include="YunQRCode.cs" />
     <Compile Include="YunRelation.cs" />
     <Compile Include="YunRelation\YunRelation_方法.cs" />
@@ -79,8 +80,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="YunOrder\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

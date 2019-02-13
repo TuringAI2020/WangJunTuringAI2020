@@ -41,5 +41,13 @@ namespace WangJun.Yun
             return Guid.Empty;
 
         }
+
+        /// <summary>
+        /// 创建一个新的消费码
+        /// </summary>
+        public static string NewQrCode(string)
+        {
+            var 
+        }
     }
 }

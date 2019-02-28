@@ -59,6 +59,7 @@
     <Compile Include="YunFile\YunFile_LOCAL.cs" />
     <Compile Include="YunForm.cs" />
     <Compile Include="YunForm\YunForm_方法.cs" />
+    <Compile Include="YunCommodity\YunCommodity_方法.cs" />
     <Compile Include="YunOrder.cs" />
     <Compile Include="YunOrder\YunOrder.cs" />
     <Compile Include="YunQRCode.cs" />

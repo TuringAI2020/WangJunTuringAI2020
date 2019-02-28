@@ -45,9 +45,9 @@ namespace WangJun.Yun
         /// <summary>
         /// 创建一个新的消费码
         /// </summary>
-        public static string NewQrCode(string)
+        public static string NewQrCode(string input)
         {
-            var 
+            return string.Empty; 
         }
     }
 }

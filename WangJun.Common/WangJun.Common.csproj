@@ -58,6 +58,7 @@
     <Compile Include="CONST.cs" />
     <Compile Include="DATETIME.cs" />
     <Compile Include="ENUM.cs" />
+    <Compile Include="GUID.cs" />
     <Compile Include="GZIP.cs" />
     <Compile Include="HANZI.cs" />
     <Compile Include="HMACSHA1.cs" />

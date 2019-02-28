@@ -60,5 +60,20 @@ namespace WangJun.Yun
             res.DATA = query.ToList();
             return res.SetAsOK();
         }
+
+        public void InitialDateTime()
+        {
+            if (!this.CreateTime.HasValue)
+            {
+                this.CreateTime = DateTime.Now;
+            }
+
+            if (!this.UpdateTime.HasValue)
+            {
+                this.UpdateTime = this.CreateTime;
+            }
+
+        }
+
     }
 }

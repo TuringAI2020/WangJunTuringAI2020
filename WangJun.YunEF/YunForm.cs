@@ -63,5 +63,13 @@ namespace WangJun.Yun
 
         [StringLength(50)]
         public string ValueS01 { get; set; }
+
+        public int? ValueI01 { get; set; }
+
+        public int? ValueI02 { get; set; }
+
+        public int? ValueI03 { get; set; }
+
+        public int? ValueI04 { get; set; }
     }
 }

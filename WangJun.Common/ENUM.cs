@@ -44,6 +44,16 @@ namespace WangJun.Yun
             已删除 = -0x0001
         }
 
+        /// <summary>
+        /// 实体状态
+        /// </summary>
+        public enum CommodityStatus
+        {
+            上架 = 0x0010,
+            下架 = -0x0020
+        }
+
+
         public enum 队列分组名称
         {
             YunForm待处理 = 0x0001,

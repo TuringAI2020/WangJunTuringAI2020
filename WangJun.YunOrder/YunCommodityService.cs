@@ -68,6 +68,10 @@ namespace WangJun.Yun
         {
             return YunCommodity.GetInst().RefOrderCount(keyword);
         }
+
+        public RES LoadList(string filter=null) {
+            return YunCommodity.GetInst().LoadList((int)ENUM.ServiceType.云商品);
+        }
           
     }
 }

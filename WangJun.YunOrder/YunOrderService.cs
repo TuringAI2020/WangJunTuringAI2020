@@ -17,24 +17,7 @@ namespace WangJun.Yun
             var inst = new YunOrderService();
             return inst;
         }
-
-        /// <summary>
-        /// 保存商品信息
-        /// </summary>
-        /// <param name="json"></param>
-        /// <returns></returns>
-        public RES SaveGoods(string json)
-        {
-            var res = RES.New;
-            if (!string.IsNullOrWhiteSpace(json))
-            {
-                var yunForm = YunForm.Parse(json);
-                yunForm.FormType = (int)ENUM.ServiceType.云商品;
-                yunForm.FormTypeName = ENUM.ServiceType.云商品.ToString();
-                res = yunForm.Save();
-            }
-            return res;
-        }
+         
 
 
         /// <summary>
@@ -58,7 +41,9 @@ namespace WangJun.Yun
                 yunOrder.SourceID = sourceID;
                 yunOrder.ConsumerID = consumerID;
                 yunOrder.Count = (int)count;
-                yunOrder.ID = new Guid();
+                yunOrder.ID = Guid.NewGuid();
+                yunOrder.Status = (int)ENUM.订单及消费项状态.未支付;
+                //yunOrder.OrderID =GUID. MD5.ToMD5( ORDER.NewOrderID);
 
                 for (int k = 0; k < count; k++)
                 {
@@ -67,6 +52,7 @@ namespace WangJun.Yun
                     item.OrderID = yunOrder.ID;
                     item.QRCode = item.OrderID.ToString() + k;
                     //item.Status = (int)ENUM.EntityStatus.正常;
+                    item.Status =  (int)ENUM.订单及消费项状态.未支付;
                     db.YunQRCodes.Add(item);
                 }
 
@@ -86,9 +72,22 @@ namespace WangJun.Yun
         /// <returns></returns>
         public RES PayOrder(string json)
         {
-            var res = RES.New;
 
-            return res.SetAsOK();
+            var param = JSON.ToObject<Dictionary<string, object>>(json);
+            var orderId = Guid.Parse( param["OrderId"].ToString());
+            var db = ModelEF.GetInst();
+            var order = db.YunOrders.FirstOrDefault(p => p.ID == orderId);
+            var qrCodeList = db.YunQRCodes.Where(p => p.OrderID == orderId).ToList();
+            order.QRCodeList = qrCodeList;
+
+            order.Status = (int)ENUM.订单及消费项状态.未使用;
+            qrCodeList.ForEach(p=> {
+                p.Status = (int)ENUM.订单及消费项状态.未使用;
+            });
+
+            db.SaveChanges();
+
+            return RES.New.SetAsOK(order);
 
 
         }
@@ -100,9 +99,46 @@ namespace WangJun.Yun
         /// <returns></returns>
         public RES CancelOrder(string json)
         {
-            var res = RES.New;
+            var param = JSON.ToObject<Dictionary<string, object>>(json);
+            var orderId = Guid.Parse(param["OrderId"].ToString());
+            var db = ModelEF.GetInst();
+            var order = db.YunOrders.FirstOrDefault(p => p.ID == orderId);
+            var qrCodeList = db.YunQRCodes.Where(p => p.OrderID == orderId).ToList();
+            order.QRCodeList = qrCodeList;
 
-            return res.SetAsOK();
+            order.Status = (int)ENUM.订单及消费项状态.已取消;
+            qrCodeList.ForEach(p =>
+            {
+                p.Status = (int)ENUM.订单及消费项状态.已取消;
+            });
+
+            db.SaveChanges();
+            return RES.New.SetAsOK(order);
+        }
+
+        /// <summary>
+        /// 退款一个订单
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public RES RefundOrder(string json)
+        {
+            var param = JSON.ToObject<Dictionary<string, object>>(json);
+            var orderId = Guid.Parse(param["OrderId"].ToString());
+            var refundCount = int.Parse(param["Count"].ToString());
+            var db = ModelEF.GetInst();
+            var order = db.YunOrders.FirstOrDefault(p => p.ID == orderId);
+            var qrCodeList = db.YunQRCodes.Where(p => p.OrderID == orderId).Take(refundCount).ToList();
+            order.QRCodeList = qrCodeList;
+
+            order.Status = (int)ENUM.订单及消费项状态.已退款;
+            qrCodeList.ForEach(p =>
+            {
+                p.Status = (int)ENUM.订单及消费项状态.已退款;
+            });
+
+            db.SaveChanges();
+            return RES.New.SetAsOK(order);
         }
 
         /// <summary>
@@ -110,13 +146,26 @@ namespace WangJun.Yun
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public RES QRCodeCheckIn(string orderId)
+        public RES QRCodeCheckIn(string json)
         {
-            var res = RES.New;
 
+            var param = JSON.ToObject<Dictionary<string, object>>(json);
+            var orderId = Guid.Parse(param["OrderId"].ToString());
+            var refundCount = int.Parse(param["Count"].ToString());
+            var db = ModelEF.GetInst();
+            var order = db.YunOrders.FirstOrDefault(p => p.ID == orderId);
+            var qrCodeList = db.YunQRCodes.Where(p => p.OrderID == orderId).Take(refundCount).ToList();
+            order.QRCodeList = qrCodeList;
 
+            order.Status = (int)ENUM.订单及消费项状态.无可用项目;
+            qrCodeList.ForEach(p =>
+            {
+                p.Status = (int)ENUM.订单及消费项状态.无可用项目;
+            });
 
-            return res.SetAsOK();
+            db.SaveChanges();
+            return RES.New.SetAsOK(order);
+             
         }
 
 
@@ -137,6 +186,13 @@ namespace WangJun.Yun
             return res.SetAsOK();
         }
 
+
+        public RES LoadOrderList()
+        {
+            var db = ModelEF.GetInst();
+            var orderList = db.YunOrders.ToList();
+            return RES.New.SetAsOK(orderList);
+        }
 
 
 

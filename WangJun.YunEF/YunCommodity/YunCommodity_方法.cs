@@ -28,6 +28,9 @@ namespace WangJun.Yun
         {
             if (GUID.IsGuid(keyword))
             {
+                var db = ModelEF.GetInst();
+                var guid = Guid.Parse(keyword);
+                var val = db.YunForms.FirstOrDefault(p => p.ID == guid);
                 var inst = ModelEF.GetInst().YunForms.FirstOrDefault(p => p.ID == Guid.Parse(keyword));
                 return RES.New.SetAsOK(inst);
             }
@@ -59,7 +62,7 @@ namespace WangJun.Yun
             else
             {
 
-                var properties = newVal.GetType().GetProperties(System.Reflection.BindingFlags.GetProperty).ToList();
+                var properties = newVal.GetType().GetProperties().ToList();
                 properties.ForEach(p =>
                 {
                     var targetProperty = oldVal.GetType().GetProperty(p.Name);
@@ -79,7 +82,8 @@ namespace WangJun.Yun
             var db = ModelEF.GetInst();
             if (GUID.IsGuid(keyword))
             {
-                var val = db.YunForms.FirstOrDefault(p => p.ID == Guid.Parse(keyword));
+                var guid = Guid.Parse(keyword);
+                var val = db.YunForms.FirstOrDefault(p => p.ID == guid);
                 if (null != val)
                 {
                     val.Status = (int)ENUM.EntityStatus.ÒÑÉ¾³ý;
@@ -97,7 +101,8 @@ namespace WangJun.Yun
             var db = ModelEF.GetInst();
             if (GUID.IsGuid(keyword))
             {
-                var val = db.YunForms.FirstOrDefault(p => p.ID == Guid.Parse(keyword));
+                var guid = Guid.Parse(keyword);
+                var val = db.YunForms.FirstOrDefault(p => p.ID == guid);
                 if (null != val)
                 {
                     val.ValueI01 = (int)ENUM.CommodityStatus.ÏÂ¼Ü;

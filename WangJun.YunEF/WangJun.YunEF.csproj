@@ -71,6 +71,7 @@
     <None Include="packages.config" />
     <None Include="SQLSERVER\WangJun20181125.7z" />
     <None Include="SQLSERVER\WangJun20190203-2.7z" />
+    <None Include="数据库\WangJun20190303.7z" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WangJun.Common\WangJun.Common.csproj">
@@ -81,6 +82,8 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="数据库\WangJun20190303.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

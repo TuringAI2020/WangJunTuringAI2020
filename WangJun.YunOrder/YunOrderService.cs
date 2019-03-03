@@ -17,7 +17,20 @@ namespace WangJun.Yun
             var inst = new YunOrderService();
             return inst;
         }
-         
+
+        public RES IsValidOrder()
+        {
+            return RES.New.SetAsOK();
+        }
+
+        public RES CanOrderCheckIn() {
+            return RES.New.SetAsOK();
+        }
+
+        public RES CanOrderRefund()
+        {
+            return RES.New.SetAsOK();
+        }
 
 
         /// <summary>
@@ -97,7 +110,7 @@ namespace WangJun.Yun
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public RES CancelOrder(string json)
+        public RES CancelOrder(string json )
         {
             var param = JSON.ToObject<Dictionary<string, object>>(json);
             var orderId = Guid.Parse(param["OrderId"].ToString());
@@ -111,6 +124,11 @@ namespace WangJun.Yun
             {
                 p.Status = (int)ENUM.订单及消费项状态.已取消;
             });
+
+            #region 时间设置
+
+            #endregion
+
 
             db.SaveChanges();
             return RES.New.SetAsOK(order);

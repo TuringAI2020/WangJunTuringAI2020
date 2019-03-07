@@ -100,9 +100,32 @@ namespace WangJun.Yun
 
             db.SaveChanges();
 
-            return RES.New.SetAsOK(order);
+            return RES.New.SetAsOK(order); 
+        }
 
-
+        /// <summary>
+        /// 是否可继续提交
+        /// </summary>
+        /// <param name="order"></param>
+        /// <param name="nextStatus"></param>
+        /// <returns></returns>
+        public RES CanContinue(YunOrder order,int currentStatus,int nextStatus)
+        {
+            if (nextStatus == (int)ENUM.订单及消费项状态.未支付)
+            {
+                ///状态异常
+            }
+            else if (currentStatus == (int)ENUM.订单及消费项状态.未支付 && nextStatus == (int)ENUM.订单及消费项状态.未使用)
+            {
+                ///要求所有状态为未支付,无支付信息
+                if (order.Status == (int)ENUM.订单及消费项状态.未支付 && order.QRCodeList.Count == order.QRCodeList.Count(p => p.Status == (int)ENUM.订单及消费项状态.未支付)) {
+                    ///一张未用才转变为可支付状态
+                }
+            }
+            else if (currentStatus == (int)ENUM.订单及消费项状态.未使用 && nextStatus == (int)ENUM.订单及消费项状态.部分使用)
+            {
+                ///所有的都是已支付状态,未使用状态
+            }
         }
 
         /// <summary>

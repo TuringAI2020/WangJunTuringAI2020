@@ -136,5 +136,8 @@ namespace WangJun.Yun
         {
             return RES.New.SetAsOK();
         }
+
+        ///创建一个套票
+        
     }
 }

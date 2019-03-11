@@ -111,21 +111,35 @@ namespace WangJun.Yun
         /// <returns></returns>
         public RES CanContinue(YunOrder order,int currentStatus,int nextStatus)
         {
-            if (nextStatus == (int)ENUM.订单及消费项状态.未支付)
+            if ((int)ENUM.订单及消费项状态.未支付 == currentStatus)
             {
-                ///状态异常
-            }
-            else if (currentStatus == (int)ENUM.订单及消费项状态.未支付 && nextStatus == (int)ENUM.订单及消费项状态.未使用)
-            {
-                ///要求所有状态为未支付,无支付信息
-                if (order.Status == (int)ENUM.订单及消费项状态.未支付 && order.QRCodeList.Count == order.QRCodeList.Count(p => p.Status == (int)ENUM.订单及消费项状态.未支付)) {
-                    ///一张未用才转变为可支付状态
+                ///下一步有效状态  未使用
+                if (order.Status == (int)ENUM.订单及消费项状态.未支付 && order.QRCodeList.Count == order.QRCodeList.Count(p => p.Status == (int)ENUM.订单及消费项状态.未支付))
+                {
+                    return RES.New.SetAsOK(true);
                 }
             }
-            else if (currentStatus == (int)ENUM.订单及消费项状态.未使用 && nextStatus == (int)ENUM.订单及消费项状态.部分使用)
+            else if ((int)ENUM.订单及消费项状态.未使用 == currentStatus)
             {
-                ///所有的都是已支付状态,未使用状态
+                ///下一步有效状态  部分使用 无可用项目 退款处理中
+                if (order.Status == (int)ENUM.订单及消费项状态.未使用 && order.QRCodeList.Count == order.QRCodeList.Count(p => p.Status == (int)ENUM.订单及消费项状态.未使用))
+                {
+                    return RES.New.SetAsOK(true);
+                }
             }
+            else if ((int)ENUM.订单及消费项状态.部分使用 == currentStatus)
+            {
+                ///下一步有效状态  部分使用 无可用项目
+            }
+            else if ((int)ENUM.订单及消费项状态.无可用项目 == currentStatus)
+            {
+                ///下一步有效状态    无可用项目
+            }
+            else if ((int)ENUM.订单及消费项状态.全部已退款 == currentStatus)
+            {
+                ///下一步有效状态    无可用项目
+            }
+            return RES.New.SetAsOK(true);
         }
 
         /// <summary>
@@ -192,17 +206,41 @@ namespace WangJun.Yun
 
             var param = JSON.ToObject<Dictionary<string, object>>(json);
             var orderId = Guid.Parse(param["OrderId"].ToString());
-            var refundCount = int.Parse(param["Count"].ToString());
+            var refundCount = 0;//
+            var qrCode = string.Empty;//
             var db = ModelEF.GetInst();
             var order = db.YunOrders.FirstOrDefault(p => p.ID == orderId);
-            var qrCodeList = db.YunQRCodes.Where(p => p.OrderID == orderId).Take(refundCount).ToList();
-            order.QRCodeList = qrCodeList;
+            if (param.ContainsKey("QRCode") && null != param["QRCode"])
+            {
+                qrCode = param["QRCode"].ToString();
+                order.QRCodeList = db.YunQRCodes.Where(p => p.OrderID == orderId && p.QRCode==qrCode).Take(1).ToList(); ;
+            }
+            else if (param.ContainsKey("Count") && null != param["Count"])
+            {
+                refundCount = int.Parse(param["Count"].ToString());
+                order.QRCodeList = db.YunQRCodes.Where(p => p.OrderID == orderId).Take(refundCount).ToList();
+            }
 
-            order.Status = (int)ENUM.订单及消费项状态.无可用项目;
-            qrCodeList.ForEach(p =>
+             
+            order.QRCodeList.ForEach(p =>
             {
                 p.Status = (int)ENUM.订单及消费项状态.无可用项目;
             });
+
+            if (0 < order.QRCodeList.Count(p => p.Status == (int)ENUM.订单及消费项状态.未使用))
+            {
+                ///若还有可使用的
+                order.Status = (int)ENUM.订单及消费项状态.部分使用;
+            }
+            else if (0 < order.QRCodeList.Count(p => p.Status == (int)ENUM.订单及消费项状态.已退款)&& order.QRCodeList.Count(p => p.Status == (int)ENUM.订单及消费项状态.已退款)==order.QRCodeList.Count())
+            {
+                order.Status = (int)ENUM.订单及消费项状态.全部已退款;
+            }
+            else if (0 == order.QRCodeList.Count(p => p.Status == (int)ENUM.订单及消费项状态.未使用))
+            {
+                order.Status = (int)ENUM.订单及消费项状态.无可用项目;
+            }
+
 
             db.SaveChanges();
             return RES.New.SetAsOK(order);

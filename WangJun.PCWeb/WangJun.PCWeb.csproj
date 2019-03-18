@@ -130,6 +130,8 @@
     <Content Include="Scripts\iscroll-master\src\zoom\handleEvent.js" />
     <Content Include="Scripts\iscroll-master\src\zoom\refresh.js" />
     <Content Include="Scripts\iscroll-master\src\zoom\zoom.js" />
+    <Content Include="YunAppTemplate\Html\YunAppTemplate2.html" />
+    <Content Include="YunAppTemplate\Html\YunAppTemplate.html" />
     <Content Include="YunApp\YunApp.html" />
     <Content Include="YunHome\App01\App02.html" />
     <Content Include="YunHome\App01\App01.html" />
@@ -190,6 +192,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="YunAppTemplate\Css\" />
+    <Folder Include="YunAppTemplate\JS\" />
     <Folder Include="YunDesktop\" />
     <Folder Include="YunSiteTools\" />
   </ItemGroup>

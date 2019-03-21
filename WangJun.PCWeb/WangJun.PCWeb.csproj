@@ -130,6 +130,7 @@
     <Content Include="Scripts\iscroll-master\src\zoom\handleEvent.js" />
     <Content Include="Scripts\iscroll-master\src\zoom\refresh.js" />
     <Content Include="Scripts\iscroll-master\src\zoom\zoom.js" />
+    <Content Include="YunAppTemplate\Html\YunAppTemplate4.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate3.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate2.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate.html" />

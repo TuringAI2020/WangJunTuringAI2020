@@ -15,6 +15,11 @@
             line-height: 3rem;
         }
 
+        .h_20rem {
+            height: 3rem;
+            line-height: 3rem;
+        }
+
         .h_2rem {
             height: 2rem;
             line-height: 2rem;
@@ -23,6 +28,11 @@
         .fs_085rem {
             font-size: 0.85rem;
         }
+
+        .fs_075rem {
+            font-size: 0.75rem;
+        }
+
 
         .rect01 {
             position: absolute;
@@ -33,11 +43,21 @@
         }
 
         .w_20rem {
-            width: 20rem;
+            width: 20rem !important;
+            max-width:20rem;
+        }
+
+        .w_30rem {
+            width: 30rem !important;
+            max-width: 30rem;
         }
 
         .w_60rem {
             width: 60rem;
+        }
+
+        .w_140rem {
+            width: 140rem;
         }
 
         .w_8rem {
@@ -47,24 +67,60 @@
         .w_12rem {
             width: 12rem;
         }
+         
+        .wh_5rem {
+            width:5rem;
+            height:5rem;
+        }
+
+        .wh_3rem {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .mw_100p {
+            width:100%;
+            min-width:100%;
+            max-width:100%;
+        }
+
+        .mh_75p {
+            height: 75%;
+            min-height: 75%;
+            max-height: 75%;
+        }
+
+        .border_top {
+            border: none;
+            border-top: 2px solid #dc3545;
+        }
+
+        .fw_700 {
+            font-weight:700;
+        }
+         
     </style>
 </head>
 <body>
-    <div class="container-fluid shadow-sm sticky-top px-0 h_2rem">
+    <div class="container-fluid shadow-sm sticky-top px-0 h_2rem bg-dark">
 
     </div>
-
-    <div class="container shadow-sm mx-auto h-75 d-flex align-items-stretch  mt-3">
+    <div class="container shadow-sm mx-auto d-flex align-items-stretch  mt-3">
         <div class="w_20rem d-flex flex-column text-center mr-5">
+            <div class="w-100 h_3rem bg-danger text-white fw_700">
+                <!-- Content here -->
+                汪俊头条
+            </div>
+
+            <a href="javascript:;" class="d-block bg-white h_3rem align-middle text-decoration-none text-dark">分类1</a>
+            <a href="javascript:;" class="d-block bg-white h_3rem align-middle text-decoration-none text-dark">分类1</a>
             <a href="javascript:;" class="d-block bg-danger h_3rem align-middle text-decoration-none text-white">分类1</a>
             <a href="javascript:;" class="d-block bg-white h_3rem align-middle text-decoration-none text-dark">分类1</a>
             <a href="javascript:;" class="d-block bg-white h_3rem align-middle text-decoration-none text-dark">分类1</a>
             <a href="javascript:;" class="d-block bg-white h_3rem align-middle text-decoration-none text-dark">分类1</a>
             <a href="javascript:;" class="d-block bg-white h_3rem align-middle text-decoration-none text-dark">分类1</a>
-            <a href="javascript:;" class="d-block bg-white h_3rem align-middle text-decoration-none text-dark">分类1</a>
-            <a href="javascript:;" class="d-block bg-white h_3rem align-middle text-decoration-none text-dark">分类1</a>
         </div>
-        <div class="flex-fill">
+        <div class="flex-fill w_140rem">
             <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">Active</a>
@@ -79,58 +135,253 @@
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
-            <ul class="list-unstyled">
-                <li class="media">
-                    <img src="..." class="mr-3" alt="...">
+            <div class="bd-example  d-block mw_100p w_20rem mb-1  ">
+                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="#" class="d-block">
+                                <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="d-block  mw_100p" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>First slide label</h5>
+                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#" class="d-block">
+                                <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="d-block  mw_100p " alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Second slide label</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#" class="d-block ">
+                                <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="d-block  mw_100p" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Third slide label</h5>
+                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="alert alert-success position-sticky text-center" role="alert">
+                加载中...
+            </div>
+            <ul class="list-unstyled mt-3">
+                <li class="media my-5">
+                    <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="mr-3 wh_5rem" alt="...">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-1">List-based media object</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <h5 class="mt-0 mb-1 fw_700">牡丹江“曹园”旅游开发迷局：当地4年两度招商，现彻底否认</h5>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a href="#" class="mr-3 text-info">分类</a>
+                            <a href="#" class="mr-3 text-dark">来源</a>
+                            <a href="#" class="mr-3 text-dark">评论</a>
+                            <span class="text-muted">时间</span>
+                            <button type="button" class="close ml-auto " aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                     </div>
                 </li>
-                <li class="media my-4">
-                    <img src="..." class="mr-3" alt="...">
+                <li class="media my-5">
+                    <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="mr-3 wh_5rem" alt="...">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-1">List-based media object</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <h5 class="mt-0 mb-1 fw_700">牡丹江“曹园”旅游开发迷局：当地4年两度招商，现彻底否认</h5>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a href="#" class="mr-3 text-info">分类</a>
+                            <a href="#" class="mr-3 text-dark">来源</a>
+                            <a href="#" class="mr-3 text-dark">评论</a>
+                            <span class="text-muted">时间</span>
+                            <button type="button" class="close ml-auto " aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                     </div>
                 </li>
-                <li class="media">
-                    <img src="..." class="mr-3" alt="...">
+                <li class="media my-5">
+                    <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="mr-3 wh_5rem" alt="...">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-1">List-based media object</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <h5 class="mt-0 mb-1 fw_700">牡丹江“曹园”旅游开发迷局：当地4年两度招商，现彻底否认</h5>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a href="#" class="mr-3 text-info">分类</a>
+                            <a href="#" class="mr-3 text-dark">来源</a>
+                            <a href="#" class="mr-3 text-dark">评论</a>
+                            <span class="text-muted">时间</span>
+                            <button type="button" class="close ml-auto " aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="media my-5">
+                    <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="mr-3 wh_5rem" alt="...">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1 fw_700">牡丹江“曹园”旅游开发迷局：当地4年两度招商，现彻底否认</h5>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a href="#" class="mr-3 text-info">分类</a>
+                            <a href="#" class="mr-3 text-dark">来源</a>
+                            <a href="#" class="mr-3 text-dark">评论</a>
+                            <span class="text-muted">时间</span>
+                            <button type="button" class="close ml-auto " aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="media my-5">
+                    <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="mr-3 wh_5rem" alt="...">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1 fw_700">牡丹江“曹园”旅游开发迷局：当地4年两度招商，现彻底否认</h5>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a href="#" class="mr-3 text-info">分类</a>
+                            <a href="#" class="mr-3 text-dark">来源</a>
+                            <a href="#" class="mr-3 text-dark">评论</a>
+                            <span class="text-muted">时间</span>
+                            <button type="button" class="close ml-auto " aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="media my-5">
+                    <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="mr-3 wh_5rem" alt="...">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1 fw_700">牡丹江“曹园”旅游开发迷局：当地4年两度招商，现彻底否认</h5>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a href="#" class="mr-3 text-info">分类</a>
+                            <a href="#" class="mr-3 text-dark">来源</a>
+                            <a href="#" class="mr-3 text-dark">评论</a>
+                            <span class="text-muted">时间</span>
+                            <button type="button" class="close ml-auto " aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="media my-5">
+                    <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="mr-3 wh_5rem" alt="...">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1 fw_700">牡丹江“曹园”旅游开发迷局：当地4年两度招商，现彻底否认</h5>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a href="#" class="mr-3 text-info">分类</a>
+                            <a href="#" class="mr-3 text-dark">来源</a>
+                            <a href="#" class="mr-3 text-dark">评论</a>
+                            <span class="text-muted">时间</span>
+                            <button type="button" class="close ml-auto " aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="media my-5">
+                    <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="mr-3 wh_5rem" alt="...">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1 fw_700">牡丹江“曹园”旅游开发迷局：当地4年两度招商，现彻底否认</h5>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a href="#" class="mr-3 text-info">分类</a>
+                            <a href="#" class="mr-3 text-dark">来源</a>
+                            <a href="#" class="mr-3 text-dark">评论</a>
+                            <span class="text-muted">时间</span>
+                            <button type="button" class="close ml-auto " aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="media my-5 ">
+                    <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="mr-3 wh_5rem" alt="...">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1 fw_700">牡丹江“曹园”旅游开发迷局：当地4年两度招商，现彻底否认</h5>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a href="#" class="mr-3 text-info">分类</a>
+                            <a href="#" class="mr-3 text-dark">来源</a>
+                            <a href="#" class="mr-3 text-dark">评论</a>
+                            <span class="text-muted">时间</span>
+                            <button type="button" class="close ml-auto " aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                     </div>
                 </li>
             </ul>
+            <div class="alert alert-light text-center" role="alert">
+                加载更多...
+            </div>
         </div>
         <div class="w_60rem ml-5">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input type="text" class="form-control" placeholder="搜索..." aria-label="Recipient's username" aria-describedby="button-addon2">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">搜索</button>
                 </div>
             </div>
-            <div class="card border-dark mb-3">
-                <div class="card-header">Header</div>
+            <div class="card  mb-3 rounded-0">
                 <div class="card-body text-dark">
-                    <h5 class="card-title">Dark card title</h5>
+
+                    <div class="card-title d-flex">
+                        <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" alt="..." class="rounded-circle wh_3rem mr-3">
+                        <span class="fw_700  align-self-center">汪俊</span>
+                        <a href="#" class="text-info ml-auto  align-self-center ">注销</a>
+                    </div>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card border_top  mb-3 rounded-0">
+                <div class="card-header border-0 bg-white fw_700">24小时热闻</div>
+                <div class="card-body text-dark fs_075rem">
+                    <ul class="list-unstyled ">
+                        <li class="media my-2">
+                            <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="mr-3 wh_3rem" alt="...">
+                            <div class="media-body align-self-center text-wrap">
+                                牡丹江“曹园”旅游开发迷局：当地4年两度招商，现彻底否认
+                            </div>
+                        </li>
+                        <li class="media my-2">
+                            <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class="mr-3 wh_3rem" alt="...">
+                            <div class="media-body align-self-center  text-wrap">
+                                牡丹江“曹园”旅游开发迷局：当地4年两度招商，现彻底否认
+                            </div>
+                        </li>
+                        <li class="media my-2">
+                            <img src="http://p3.pstatp.com/origin/pgc-image/0ab83fb4dfdd427da58bceb78f59e4c5" class=" mr-3 wh_3rem " alt="...">
+                            <div class="media-body align-self-center  text-wrap">
+                                牡丹江“曹园”旅游开发迷局：当地4年两度招商，现彻底否认
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="card border-dark mb-3">
-                <div class="card-header">Header</div>
+
+
+            <div class="card border_top mb-3 rounded-0">
+                <div class="card-header border-0  bg-white fw_700">更多</div>
                 <div class="card-body text-dark">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button>
                 </div>
             </div>
 
-            <div class="card border-dark mb-3">
-                <div class="card-header">Header</div>
-                <div class="card-body text-dark">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="card border_top mb-3 rounded-0">
+                <div class="card-header border-0  bg-white fw_700">友情链接</div>
+                <div class="card-body text-dark d-flex flex-wrap">
+                    <button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button><button type="button" class="btn btn-link">Link</button>
                 </div>
             </div>
         </div>

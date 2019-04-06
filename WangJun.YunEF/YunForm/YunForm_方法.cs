@@ -29,9 +29,11 @@ namespace WangJun.Yun
         {
             var res = RES.New;
 
-            if (Guid.Empty == this.ID) {
+            if (Guid.Empty == this.ID)
+            {
                 this.ID = Guid.NewGuid();
                 this.CreateTime = DateTime.Now;
+                if (!this.Status.HasValue) { this.Status = (int)ENUM.实体状态.正常; }
             }
 ;
 

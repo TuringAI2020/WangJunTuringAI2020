@@ -40,7 +40,7 @@ namespace WangJun.APITest
             for (int k = 0; k < 10; k++)
             {
                 var res = YunCommodityService.GetInst().Save(JSON.ToJson(new YunCommodity { FormType= (int)ENUM.ServiceType.云商品 
-                    , Status=(int)ENUM.EntityStatus.正常 , ValueI01=(int)ENUM.CommodityStatus.待售,
+                    , Status=(int)ENUM.实体状态.正常 , ValueI01=(int)ENUM.CommodityStatus.待售,
                     ID =Guid.NewGuid(),
                     ValueS01 = allChar.Substring(3+k % 3000, 1+k % 20),
                     CreatorID =Guid.NewGuid(), CreatorName=allChar.Substring(k,k%4),

@@ -108,6 +108,7 @@
     <Content Include="Scripts\webuploader-0.1.5\webuploader.nolog.min.js" />
     <Content Include="Scripts\webuploader-0.1.5\webuploader.withoutimage.js" />
     <Content Include="Scripts\webuploader-0.1.5\webuploader.withoutimage.min.js" />
+    <Content Include="YunAppTemplate\Html\YunAppTemplate7.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate6.html" />
     <Content Include="YunAppTemplate\JS\echarts.min.js" />
     <Content Include="Scripts\iscroll-master\.gitignore" />
@@ -255,6 +256,7 @@
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.config.js" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.js" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.min.js" />
+    <Content Include="YunAppTemplate\JS\YunService\YunCategoryService.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunDocumentService.js" />
     <Content Include="YunApp\YunApp.html" />
     <Content Include="YunHome\App01\App02.html" />
@@ -265,6 +267,7 @@
     <Content Include="YunScript\NET.js" />
     <Content Include="YunSocket\YunSocket.html" />
     <Content Include="YunTools\YunTools.html" />
+    <Content Include="net\imageUp.ashx" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Scripts\iscroll-master\.nodemonignore" />
     <Content Include="Scripts\iscroll-master\bower.json" />
@@ -311,6 +314,9 @@
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\third-party\mathquill\font\Symbola.woff" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="net\imageUp.ashx.cs">
+      <DependentUpon>imageUp.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YunAPI\API.ashx.cs">
       <DependentUpon>API.ashx</DependentUpon>

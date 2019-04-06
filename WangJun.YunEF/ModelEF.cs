@@ -19,6 +19,9 @@ namespace WangJun.Yun
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<YunRelation>()
+                .Property(e => e.PermissionGroupID)
+                .IsFixedLength();
         }
     }
 }

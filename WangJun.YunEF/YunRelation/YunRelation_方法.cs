@@ -50,8 +50,7 @@ namespace WangJun.Yun
             var newGroupNode = db.YunRelations.FirstOrDefault(p => p.ID == new Guid(newGroupId));
             if (null != currentNode)
             {
-                currentNode.GroupID = new Guid(newGroupId);
-                currentNode.GroupName = newGroupNode.Name;
+                currentNode.ParentID = new Guid(newGroupId); 
             }
 
             db.SaveChanges();
@@ -79,6 +78,25 @@ namespace WangJun.Yun
             var res = RES.New;
 
             return res.SetAsOK();
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rootId"></param>
+        /// <returns></returns>
+        public RES LoadList(string rootId)
+        {
+            if (GUID.IsGuid(rootId))
+            {
+                var rootID = Guid.Parse(rootId);
+                var db = ModelEF.GetInst();
+                var res = db.YunRelations.Where(p => p.RootID == rootID);
+                return RES.New.SetAsOK(res);
+            }
+            return RES.New.SetAsFail();
         }
 
     }

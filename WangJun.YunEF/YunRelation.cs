@@ -11,26 +11,26 @@ namespace WangJun.Yun
     {
         public Guid ID { get; set; }
 
-        public Guid? GroupID { get; set; }
+        public Guid? RootID { get; set; }
 
-        [StringLength(50)]
-        public string GroupName { get; set; }
+        public Guid? ParentID { get; set; }
 
-        public int? Status { get; set; }
+        [StringLength(10)]
+        public string PermissionGroupID { get; set; }
 
         [StringLength(50)]
         public string Name { get; set; }
 
+        public int? Status { get; set; }
+
         public int? Type { get; set; }
 
-        [StringLength(50)]
-        public string TypeName { get; set; }
+        public Guid? CreatorID { get; set; }
 
-        public int? Sort01 { get; set; }
+        public Guid? UpdaterID { get; set; }
 
-        [StringLength(50)]
-        public string KeyA01 { get; set; }
+        public DateTime? CreateTime { get; set; }
 
-        public int? ValueA01 { get; set; }
+        public DateTime? UpdateTime { get; set; }
     }
 }

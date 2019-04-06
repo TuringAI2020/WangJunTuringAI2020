@@ -86,7 +86,7 @@ namespace WangJun.Yun
                 var val = db.YunForms.FirstOrDefault(p => p.ID == guid);
                 if (null != val)
                 {
-                    val.Status = (int)ENUM.EntityStatus.已删除;
+                    val.Status = (int)ENUM.实体状态.已删除;
                 }
                 db.SaveChanges();
             }

@@ -16,6 +16,7 @@ namespace WangJun.Yun
         {
             云收藏 = 0x0101,
             云商品 = 0x0201,
+            云头条=0x0301
         }
 
         public enum TaskStatus
@@ -38,7 +39,7 @@ namespace WangJun.Yun
         /// <summary>
         /// 实体状态
         /// </summary>
-        public enum EntityStatus
+        public enum 实体状态
         {
             正常 = 0x0001,
             草稿 = 0x0002,

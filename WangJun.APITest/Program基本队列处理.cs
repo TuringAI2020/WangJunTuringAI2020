@@ -43,8 +43,8 @@ namespace WangJun.APITest
                     , Status=(int)ENUM.实体状态.正常 , ValueI01=(int)ENUM.CommodityStatus.待售,
                     ID =Guid.NewGuid(),
                     ValueS01 = allChar.Substring(3+k % 3000, 1+k % 20),
-                    CreatorID =Guid.NewGuid(), CreatorName=allChar.Substring(k,k%4),
-                    UpdaterID = Guid.NewGuid(), UpdaterName = allChar.Substring(k, k % 4)
+                    CreatorID =Guid.NewGuid(),  ValueS02=allChar.Substring(k,k%4),
+                    UpdaterID = Guid.NewGuid(), ValueS03 = allChar.Substring(k, k % 4)
                 }));
                 Console.WriteLine("创建"+k);
             }

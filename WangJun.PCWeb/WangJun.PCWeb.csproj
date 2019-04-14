@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\diy\1_close.png" />
     <Content Include="Content\img\diy\1_open.png" />
     <Content Include="Content\img\diy\2.png" />
@@ -88,9 +89,11 @@
     <Content Include="Content\zTree.min.css" />
     <Content Include="Content\zTree.theme.metro.css" />
     <Content Include="Content\zTree.theme.metro.min.css" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.ztree.all-3.5.js" />
     <Content Include="Scripts\jquery.ztree.all-3.5.min.js" />
     <Content Include="Scripts\jquery.ztree.dropdown.js" />
+    <Content Include="Scripts\PARAMCHCKER.js" />
     <Content Include="Scripts\webuploader-0.1.5\Uploader.swf" />
     <Content Include="Scripts\webuploader-0.1.5\webuploader.css" />
     <Content Include="Scripts\webuploader-0.1.5\webuploader.custom.js" />
@@ -108,7 +111,9 @@
     <Content Include="Scripts\webuploader-0.1.5\webuploader.nolog.min.js" />
     <Content Include="Scripts\webuploader-0.1.5\webuploader.withoutimage.js" />
     <Content Include="Scripts\webuploader-0.1.5\webuploader.withoutimage.min.js" />
-    <Content Include="YunAppTemplate\Html\YunAppTemplate7.html" />
+    <Content Include="YunAppTemplate\Css\YunAppTemplate.css" />
+    <Content Include="YunAppTemplate\Html\YunAppCategory.html" />
+    <Content Include="YunAppTemplate\Html\YunAppDocument.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate6.html" />
     <Content Include="YunAppTemplate\JS\echarts.min.js" />
     <Content Include="Scripts\iscroll-master\.gitignore" />
@@ -256,12 +261,13 @@
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.config.js" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.js" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.min.js" />
+    <Content Include="YunAppTemplate\JS\YunService\YunPageService.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunCategoryService.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunDocumentService.js" />
     <Content Include="YunApp\YunApp.html" />
-    <Content Include="YunHome\App01\App02.html" />
-    <Content Include="YunHome\App01\App01.html" />
-    <Content Include="YunHome\Home1.html" />
+    <Content Include="YunAppTemplate\JS\YunService\YunHome\App01\App02.html" />
+    <Content Include="YunAppTemplate\JS\YunService\YunHome\App01\App01.html" />
+    <Content Include="YunAppTemplate\JS\YunService\YunHome\Home1.html" />
     <Content Include="YunQueue\YunQueue.html" />
     <Content Include="YunQueue\YunQueue.js" />
     <Content Include="YunScript\NET.js" />
@@ -342,7 +348,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="YunAppTemplate\Css\" />
     <Folder Include="YunDesktop\" />
     <Folder Include="YunSiteTools\" />
   </ItemGroup>

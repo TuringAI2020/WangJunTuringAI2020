@@ -47,5 +47,7 @@ namespace WangJun.Yun
         public int? ValueI03 { get; set; }
 
         public int? ValueI04 { get; set; }
+
+        public Guid? ParentNodeID { get; set; }
     }
 }

@@ -69,7 +69,7 @@ option.methods.LoadFormList = function () {
 
 option.methods.LoadForm = function () {
     let vThis = this;
-
+    var id = PARAMCHECKER.GetUrlQuery("id");
     let ajaxOption = {
         url: vThis.api.url,
         method: "POST",
@@ -78,7 +78,7 @@ option.methods.LoadForm = function () {
             "TargetClass": "YunForm",
             "Method": "Load",
             "Param": {},
-            "InputParamArray": ['3FCE2580-96A3-4751-B2E7-34553DEDAEF1']
+            "InputParamArray": [id]
         })
     };
     $.ajax(ajaxOption)

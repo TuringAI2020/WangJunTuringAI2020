@@ -53,7 +53,7 @@ namespace WangJun.Yun
             return res.SetAsOK();
         }
 
-        public RES LoadList(int formType)
+        public RES LoadList(long formType)
         {
             var res = RES.New;
             var db = ModelEF.GetInst();
@@ -62,6 +62,15 @@ namespace WangJun.Yun
             res.DATA = query.ToList();
             return res.SetAsOK();
         }
+
+        public RES Load(string id)
+        {
+            var db = ModelEF.GetInst();
+            var guid = Guid.Parse(id);
+            var query = from item in db.YunForms where item.ID == guid select item;
+            return RES.New.SetAsOK(query.FirstOrDefault());
+        }
+
 
         public void InitialDateTime()
         {

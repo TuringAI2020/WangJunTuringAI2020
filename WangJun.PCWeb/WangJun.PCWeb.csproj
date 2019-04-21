@@ -180,8 +180,8 @@
     <Content Include="Scripts\iscroll-master\src\zoom\refresh.js" />
     <Content Include="Scripts\iscroll-master\src\zoom\zoom.js" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate5.html" />
-    <Content Include="YunAppTemplate\Html\YunAppTemplate4.html" />
-    <Content Include="YunAppTemplate\Html\YunAppTemplate3.html" />
+    <Content Include="YunAppTemplate\Html\YunAppTouTiao2.html" />
+    <Content Include="YunAppTemplate\Html\YunAppTouTiao1.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate2.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate.html" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\dialogs\emotion\emotion.css" />
@@ -261,6 +261,7 @@
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.config.js" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.js" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.min.js" />
+    <Content Include="YunAppTemplate\JS\YunService\YunTouTiao.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunPageService.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunCategoryService.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunDocumentService.js" />

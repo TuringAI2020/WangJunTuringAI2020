@@ -27,3 +27,8 @@ PARAMCHECKER.GetUrlQuery = function (keyName) {
     return queryData;
     
 }
+
+var PARAM_UTINITY = {};
+PARAM_UTINITY.FormatDate = function (input,type) {
+    return input.substring(0, 16).replace("T", " ");
+}

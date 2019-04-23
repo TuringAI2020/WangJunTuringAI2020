@@ -92,14 +92,14 @@
                     <form class="">
 
                         <div class=" form-inline form-group row ">
-                            <label class="mr-3  w_5rem">节点名称</label>
+                            <label class="mr-3  w_5rem">应用名称</label>
                             <input type="text" class="form-control  mr-3" placeholder="当前节点名称" value="" v-model="CurrentNode.Name">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class=" form-inline form-group  row  mt-5">
-                            <label class="mr-3 w_5rem">保存至</label><input type="text" class="form-control plaintext" placeholder="父节点名称" value="" v-model="ParentNode.Name">
+                            <label class="mr-3 w_5rem">所在分类</label><input type="text" class="form-control plaintext" placeholder="父节点名称" value="" v-model="ParentNode.Name">
                         </div>
                         <div class="form-row ml_5rem">
                             <ul class="ztree" id="tree2"></ul>
@@ -111,11 +111,57 @@
                         <div class="form-row ml_5rem">
                             <ul class="ztree" id="tree3"></ul>
                         </div>
+                        <div class=" form-inline form-group row mt-5">
+                            <label class="mr-3 w_5rem">权限设置</label><input type="text" class="form-control plaintext" placeholder="父节点名称" value="" v-model="ParentNode.Name">
+                        </div>
+                        <div class="form-row ml_5rem">
+                            <ul class="ztree" id="tree4"></ul>
+                        </div>
+                        <div class=" form-inline form-group row mt-5">
+                            <label class="mr-3 w_5rem">顶部菜单</label><input type="text" class="form-control plaintext" placeholder="父节点名称" value="" v-model="ParentNode.Name">
+                        </div>
+                        <div class=" form-inline form-group row mt-5">
+                            <label class="mr-3 w_5rem">左侧菜单</label><input type="text" class="form-control plaintext" placeholder="父节点名称" value="" v-model="ParentNode.Name">
+                        </div>
                         <button class="btn btn-primary" type="button" @click="SaveCategory">保存</button>
                         <button class="btn btn-primary" type="button" @click="Clear">全新</button>
                         <h2>&nbsp;</h2>
                     </form>
+                    <form class="ml-5">
 
+                        <div class=" form-inline form-group row ">
+                            <label class="mr-3  w_5rem">功能菜单</label>
+                            <input type="text" class="form-control  mr-3" placeholder="当前节点名称" value="" v-model="CurrentNode.Name">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class=" form-inline form-group  row  mt-5">
+                            <label class="mr-3 w_5rem">所在分类</label><input type="text" class="form-control plaintext" placeholder="父节点名称" value="" v-model="ParentNode.Name">
+                        </div>
+                        <div class="form-row ml_5rem">
+                            <ul class="ztree" id="tree2"></ul>
+                        </div>
+                        <div class=" form-inline form-group row mt-5">
+                            <label class="mr-3 w_5rem">移动至</label><input type="text" class="form-control plaintext" placeholder="父节点名称" value="" v-model="ParentNode.Name">
+
+                        </div>
+                        <div class="form-row ml_5rem">
+                            <ul class="ztree" id="tree3"></ul>
+                        </div>
+                        <div class=" form-inline form-group row mt-5">
+                            <label class="mr-3 w_5rem">权限设置</label><input type="text" class="form-control plaintext" placeholder="父节点名称" value="" v-model="ParentNode.Name">
+                        </div>
+                        <div class="form-row ml_5rem">
+                            <ul class="ztree" id="tree4"></ul>
+                        </div>
+                        <div class=" form-inline form-group row mt-5">
+                            <label class="mr-3 w_5rem">菜单设置</label><input type="text" class="form-control plaintext" placeholder="父节点名称" value="" v-model="ParentNode.Name">
+                        </div>
+                        <button class="btn btn-primary" type="button" @click="SaveCategory">保存</button>
+                        <button class="btn btn-primary" type="button" @click="Clear">全新</button>
+                        <h2>&nbsp;</h2>
+                    </form>
                 </div>
             </div>
 
@@ -133,8 +179,7 @@
 
     <script src="../../Scripts/PARAMCHCKER.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="../JS/YunService/YunPageService.js"></script>
-    <script src="../JS/YunService/YunCategoryService.js"></script>
+    <script src="../JS/YunService/YunAppService.js"></script> 
 
     <link href="../Css/YunAppTemplate.css" rel="stylesheet" />
 

@@ -134,8 +134,10 @@
     <Content Include="Scripts\webuploader-0.1.5\webuploader.withoutimage.js" />
     <Content Include="Scripts\webuploader-0.1.5\webuploader.withoutimage.min.js" />
     <Content Include="YunAppTemplate\Css\YunAppTemplate.css" />
-    <Content Include="YunAppTemplate\Html\YunAppCategory.html" />
-    <Content Include="YunAppTemplate\Html\YunAppDocument.html" />
+    <Content Include="YunAppTemplate\Html\index.html" />
+    <Content Include="YunAppTemplate\Html\YunAppCreator.html" />
+    <Content Include="YunAppTemplate\Html\YunCategory.html" />
+    <Content Include="YunAppTemplate\Html\YunDocument.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate6.html" />
     <Content Include="YunAppTemplate\JS\echarts.min.js" />
     <Content Include="Scripts\iscroll-master\.gitignore" />
@@ -202,8 +204,8 @@
     <Content Include="Scripts\iscroll-master\src\zoom\refresh.js" />
     <Content Include="Scripts\iscroll-master\src\zoom\zoom.js" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate5.html" />
-    <Content Include="YunAppTemplate\Html\YunAppTouTiao2.html" />
-    <Content Include="YunAppTemplate\Html\YunAppTouTiao1.html" />
+    <Content Include="YunAppTemplate\Html\YunTouTiao2.html" />
+    <Content Include="YunAppTemplate\Html\YunTouTiao1.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate2.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate.html" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\dialogs\emotion\emotion.css" />
@@ -283,6 +285,8 @@
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.config.js" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.js" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.min.js" />
+    <Content Include="YunAppTemplate\JS\YunService\YunAppService.js" />
+    <Content Include="YunAppTemplate\JS\YunService\YunCategoryService.YunPageService.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunTouTiao.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunPageService.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunCategoryService.js" />

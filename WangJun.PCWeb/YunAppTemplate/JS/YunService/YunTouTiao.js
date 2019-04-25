@@ -20,7 +20,13 @@ option.data = {
     RootNode: { ID: "F06E86A8-DB7F-4E39-BA1E-C2F620F8D20C" },
     CategoryList: [],
     FormList: [],
-    CurrentForm: {}
+    CurrentForm: {},
+    HotFormList1: [],
+    LinkList1: [],
+    LinkList2: [],
+    SubMenu: {
+        "Test": [{ ID: "", Name: "子菜单1" }, { ID: "", Name: "子菜单1" }, { ID: "", Name: "子菜单1" }, { ID: "", Name: "子菜单1" }]
+    }
 
 
 };
@@ -75,10 +81,52 @@ option.methods.LoadFormList = function () {
                 p.CreateTime = PARAM_UTINITY.FormatDate(p.CreateTime);
             });
 
-            vThis.FormList = vThis.FormList.concat( res1.DATA);
+            vThis.FormList = vThis.FormList.concat(res1.DATA);
         }).fail(function (res1, res2) {
 
         }).always(function (res1, res2) { });
+}
+
+option.methods.LoadHotFormList1 = function () {
+    let vThis = this;
+
+    let ajaxOption = {
+        url: vThis.api.url,
+        method: "POST",
+        dataType: "json",
+        data: JSON.stringify({
+            "TargetClass": "YunForm",
+            "Method": "LoadList",
+            "Param": {},
+            "InputParamArray": [769]
+        })
+    };
+    $.ajax(ajaxOption)
+        .done(function (res1, res2) {
+            res1.DATA.forEach(p => {
+                p.CreateTime = PARAM_UTINITY.FormatDate(p.CreateTime);
+            });
+            var count = 0;
+            res1.DATA.forEach(p => {
+                if (count <= 5) {
+                    vThis.HotFormList1.push(res1.DATA[count++]);
+                }
+            });
+            
+         }).fail(function (res1, res2) {
+
+        }).always(function (res1, res2) { });
+}
+
+option.methods.LoadLinkList1 = function () {
+    let vThis = this;
+    vThis.LinkList1 = [{ ID: "", Name: "相关链接", Target: "" }, { ID: "", Name: "相关链接", Target: "" }, { ID: "", Name: "相关链接", Target: "" }, { ID: "", Name: "相关链接", Target: "" }, { ID: "", Name: "相关链接", Target: "" }, { ID: "", Name: "相关链接", Target: "" }, { ID: "", Name: "相关链接", Target: "" }];
+}
+
+option.methods.LoadLinkList2 = function () {
+    let vThis = this;
+    vThis.LinkList2 = [{ ID: "", Name: "相关链接", Target: "" }, { ID: "", Name: "相关链接", Target: "" }, { ID: "", Name: "相关链接", Target: "" }, { ID: "", Name: "相关链接", Target: "" }, { ID: "", Name: "相关链接", Target: "" }, { ID: "", Name: "相关链接", Target: "" }, { ID: "", Name: "相关链接", Target: "" }];
+
 }
 
 option.methods.LoadForm = function () {

@@ -10,7 +10,8 @@ option.data = {
     content: "",
     title: "",
     ParentNode: { ID: "", Name: "" },
-    RootNode: { ID: "F06E86A8-DB7F-4E39-BA1E-C2F620F8D20C" }
+    RootNode: { ID: "F06E86A8-DB7F-4E39-BA1E-C2F620F8D20C" },
+    FormList: [],
 
 
 };
@@ -76,6 +77,32 @@ option.methods.LoadCategotyList = function () {
                 }
             }); 
 
+        }).fail(function (res1, res2) {
+
+        }).always(function (res1, res2) { });
+}
+
+option.methods.LoadFormList = function () {
+    let vThis = this;
+
+    let ajaxOption = {
+        url: vThis.api.url,
+        method: "POST",
+        dataType: "json",
+        data: JSON.stringify({
+            "TargetClass": "YunForm",
+            "Method": "LoadList",
+            "Param": {},
+            "InputParamArray": [769]
+        })
+    };
+    $.ajax(ajaxOption)
+        .done(function (res1, res2) {
+            res1.DATA.forEach(p => {
+                p.CreateTime = PARAM_UTINITY.FormatDate(p.CreateTime);
+            });
+
+            vThis.FormList = vThis.FormList.concat(res1.DATA);
         }).fail(function (res1, res2) {
 
         }).always(function (res1, res2) { });

@@ -136,6 +136,7 @@
     <Content Include="YunAppTemplate\Css\YunAppTemplate.css" />
     <Content Include="YunAppTemplate\Html\index.html" />
     <Content Include="YunAppTemplate\Html\YunAppCreator.html" />
+    <Content Include="YunAppTemplate\Html\YunDocument2.html" />
     <Content Include="YunAppTemplate\Html\YunCategory.html" />
     <Content Include="YunAppTemplate\Html\YunDocument.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate6.html" />
@@ -286,6 +287,7 @@
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.js" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\umeditor.min.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunAppService.js" />
+    <Content Include="YunAppTemplate\JS\YunService\YunDocumentService.YunPageService.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunCategoryService.YunPageService.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunTouTiao.js" />
     <Content Include="YunAppTemplate\JS\YunService\YunPageService.js" />

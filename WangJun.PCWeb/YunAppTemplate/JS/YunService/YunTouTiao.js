@@ -21,12 +21,18 @@ option.data = {
     CategoryList: [],
     FormList: [],
     CurrentForm: {},
+    CurrentAuthor: {
+        Name: "汪俊",
+        Description: "自我介绍"
+    },
     HotFormList1: [],
     LinkList1: [],
     LinkList2: [],
     SubMenu: {
         "Test": [{ ID: "", Name: "子菜单1" }, { ID: "", Name: "子菜单1" }, { ID: "", Name: "子菜单1" }, { ID: "", Name: "子菜单1" }]
-    }
+    },
+    LeftButtonArray: [{ ID: "", Name: "观点" }, { ID: "", Name: "收藏" }, { ID: "", Name: "分享" }],
+    CommentList:[]
 
 
 };
@@ -149,6 +155,60 @@ option.methods.LoadForm = function () {
         }).fail(function (res1, res2) {
 
         }).always(function (res1, res2) { });
+}
+
+
+option.methods.LoadCommentList = function () {
+    let vThis = this;
+    var sourceID = PARAMCHECKER.GetUrlQuery("id");
+
+    let ajaxOption = {
+        url: vThis.api.url,
+        method: "POST",
+        dataType: "json",
+        data: JSON.stringify({
+            "TargetClass": "YunForm",
+            "Method": "LoadList_Comment",
+            "Param": {},
+            "InputParamArray": [sourceID]
+        })
+    };
+    $.ajax(ajaxOption)
+        .done(function (res1, res2) { 
+            vThis.CommentList = res1.DATA;
+        }).fail(function (res1, res2) {
+
+        }).always(function (res1, res2) { });
+}
+
+option.methods.SaveComment = function () {
+    let vThis = this;
+    var sourceID = PARAMCHECKER.GetUrlQuery("id");
+    let param = {
+        FormType: parseInt("0x0901", 16),
+        ValueS01: $("#comment_input").val(),
+        SourceID: sourceID
+    };
+
+
+    let ajaxOption = {
+        url: "http://localhost:5168/API.ashx",
+        method: "POST",
+        dataType: "json",
+        data: JSON.stringify({
+            TargetClass: "YunForm",
+            Method: "Save",
+            Param: param,
+            InputParamArray: []
+        })
+    };
+    $.ajax(ajaxOption)
+        .done(function (res1, res2) {
+            $("#comment_input").val("")
+        }).fail(function (res1, res2) {
+        }).always(function (res1, res2) {
+            vThis.LoadCategotyList();
+        });
 }
 
 

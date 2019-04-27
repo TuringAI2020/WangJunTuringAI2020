@@ -86,5 +86,16 @@ namespace WangJun.Yun
 
         }
 
+        public RES LoadList_Comment(string sourceIDStr)
+        {
+            var res = RES.New;
+            var db = ModelEF.GetInst();
+            var formType = (int)ENUM.ServiceType.ÔÆÆÀÂÛ;
+            var sourceID = Guid.Parse(sourceIDStr);
+            var query = from item in db.YunForms where formType == item.FormType && sourceID == item.SourceID select item;
+            res.DATA = query.ToList();
+            return res.SetAsOK();
+        }
+
     }
 }

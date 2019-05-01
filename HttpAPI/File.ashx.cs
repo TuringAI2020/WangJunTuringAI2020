@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WangJun.PCWeb.net
+namespace HttpAPI
 {
     /// <summary>
-    /// imageUp 的摘要说明
+    /// File 的摘要说明
     /// </summary>
-    public class imageUp : IHttpHandler
+    public class File : IHttpHandler
     {
 
         public void ProcessRequest(HttpContext context)

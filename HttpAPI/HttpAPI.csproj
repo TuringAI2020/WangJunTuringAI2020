@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="WebServiceAPI.asmx" />
+    <Content Include="File.ashx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="WCFAPI" />
     <Content Include="Test.html" />
@@ -99,6 +100,9 @@
   <ItemGroup>
     <Compile Include="API.ashx.cs">
       <DependentUpon>API.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="File.ashx.cs">
+      <DependentUpon>File.ashx</DependentUpon>
     </Compile>
     <Compile Include="WebAPI.cs" />
     <Compile Include="API.svc.cs">

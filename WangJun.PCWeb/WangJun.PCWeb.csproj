@@ -133,6 +133,7 @@
     <Content Include="Scripts\webuploader-0.1.5\webuploader.nolog.min.js" />
     <Content Include="Scripts\webuploader-0.1.5\webuploader.withoutimage.js" />
     <Content Include="Scripts\webuploader-0.1.5\webuploader.withoutimage.min.js" />
+    <Content Include="YunAPI\imageUp.ashx" />
     <Content Include="YunAppTemplate\Css\YunAppTemplate.css" />
     <Content Include="YunAppTemplate\Html\index.html" />
     <Content Include="YunAppTemplate\Html\YunAppCreator.html" />
@@ -302,7 +303,6 @@
     <Content Include="YunScript\NET.js" />
     <Content Include="YunSocket\YunSocket.html" />
     <Content Include="YunTools\YunTools.html" />
-    <Content Include="net\imageUp.ashx" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
@@ -343,8 +343,6 @@
     <Content Include="YunForm\YunForm.js" />
     <Content Include="YunForm\YunFormCreator.html" />
     <Content Include="YunAPI\API.ashx" />
-    <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\net\getContent.ashx" />
-    <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\net\imageUp.ashx" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.eot" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.ttf" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.woff" />
@@ -363,14 +361,14 @@
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\third-party\mathquill\font\Symbola.woff" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="net\imageUp.ashx.cs">
-      <DependentUpon>imageUp.ashx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YunAPI\API.ashx.cs">
       <DependentUpon>API.ashx</DependentUpon>
     </Compile>
-    <Compile Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\net\Uploader.cs" />
+    <Compile Include="YunAPI\imageUp.ashx.cs">
+      <DependentUpon>imageUp.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="YunAPI\Uploader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

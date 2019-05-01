@@ -1,6 +1,7 @@
 ﻿using Microsoft.Owin.Hosting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -14,6 +15,11 @@ namespace WangJun.APITest
     {
         static void Main(string[] args)
         {
+
+            var stream = new FileStream(@"E:\共享数据\流浪地球.The.Wandering.Earth.2019.HD1080P.X264.AAC.Mandarin.CHS-ENG.mp4", FileMode.Open, FileAccess.Read);
+            var info = YunFileService.ReadFile(stream);
+
+            return;
             string baseAddress = "http://localhost:9000/";
 
             // Start OWIN host 

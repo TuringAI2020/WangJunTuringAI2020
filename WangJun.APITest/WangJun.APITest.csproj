@@ -95,6 +95,10 @@
       <Project>{7C1E7961-DE0E-4FFC-A797-6DAA3E6DF63F}</Project>
       <Name>WangJun.YunEF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WangJun.YunFile\WangJun.YunFile.csproj">
+      <Project>{43a8a651-e54b-4eb6-a29a-aa9355904209}</Project>
+      <Name>WangJun.YunFile</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WangJun.YunOrder\WangJun.YunOrder.csproj">
       <Project>{4a969021-de7d-436a-93b9-74e2d51e2d28}</Project>
       <Name>WangJun.YunOrder</Name>

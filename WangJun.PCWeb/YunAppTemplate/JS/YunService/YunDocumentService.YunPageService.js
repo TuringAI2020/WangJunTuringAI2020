@@ -31,3 +31,6 @@ let vNav = new Vue({
         Menu1: [{ ID: "", Name: "菜单一" }],
     }
 });
+
+
+window.document.title = vTop.app.Name;

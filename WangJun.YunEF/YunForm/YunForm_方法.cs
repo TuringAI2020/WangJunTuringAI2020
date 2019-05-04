@@ -63,6 +63,16 @@ namespace WangJun.Yun
             return res.SetAsOK();
         }
 
+        public RES LoadList_Article(string filter, string keyword, string ParentNodeID,string PermissionGroupID ,string SourceID,string , string CreateTime ,string UpdateTime, long pageIndex,long pageSize , long formType,long status  )
+        {
+            var res = RES.New;
+            var db = ModelEF.GetInst();
+
+            var query = from item in db.YunForms where formType == item.FormType select item;
+            res.DATA = query.ToList();
+            return res.SetAsOK();
+        }
+
         public RES Load(string id)
         {
             var db = ModelEF.GetInst();

@@ -16,6 +16,24 @@ namespace WangJun.Yun
 
         public object DATA { get; set; }
 
+        public int PageIndex { get; set; }
+
+        public int PageSize { get; set; }
+
+        public int TotalCount { get; set; }
+
+        public int PageCount
+        {
+            get
+            {
+                if (0 < PageSize)
+                {
+                    return (0 == TotalCount % PageSize) ? TotalCount / PageSize : 1 + (TotalCount / PageSize);
+                }
+                return 0;
+            }
+        }
+
         public static RES New
         {
             get

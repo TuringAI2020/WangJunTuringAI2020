@@ -63,12 +63,70 @@ namespace WangJun.Yun
             return res.SetAsOK();
         }
 
-        public RES LoadList_Article(string filter, string keyword, string ParentNodeID,string PermissionGroupID ,string SourceID,string , string CreateTime ,string UpdateTime, long pageIndex,long pageSize , long formType,long status  )
+        public RES LoadList_Article(string filter, string keyword, string parentNodeID,string permissionGroupID ,string sourceID, string createTime ,string updateTime, long pageIndex,long pageSize , long formType,long status,string columnArray,string orderby )
         {
             var res = RES.New;
             var db = ModelEF.GetInst();
 
-            var query = from item in db.YunForms where formType == item.FormType select item;
+            var query = from item in db.YunForms  select item;
+            if (!string.IsNullOrWhiteSpace(keyword))
+            {
+                query = query.Where(p => p.Title.Contains(keyword));
+            }
+
+            if (!string.IsNullOrWhiteSpace(parentNodeID))
+            {
+                var guid_parentNodeID = Guid.Parse(parentNodeID);
+                query = query.Where(p => p.ParentNodeID == guid_parentNodeID);
+            }
+
+            if (!string.IsNullOrWhiteSpace(permissionGroupID))
+            {
+                var guid_permissionGroupID = Guid.Parse(permissionGroupID);
+                query = query.Where(p => p.PermissionGroupID == guid_permissionGroupID);
+            }
+
+            if (!string.IsNullOrWhiteSpace(sourceID))
+            {
+                var guid_sourceID = Guid.Parse(sourceID);
+                query = query.Where(p => p.SourceID == guid_sourceID);
+            }
+
+            if (!string.IsNullOrWhiteSpace(createTime))
+            {
+                var _createTime = DateTime.Parse(createTime);
+                query = query.Where(p => p.CreateTime == _createTime);
+            }
+
+            if (!string.IsNullOrWhiteSpace(updateTime))
+            {
+                var _updateTime = DateTime.Parse(updateTime);
+                query = query.Where(p => p.UpdateTime == _updateTime);
+            }
+
+            if (0<formType)
+            {
+                var _formType = formType % int.MaxValue;
+                query = query.Where(p => p.FormType == _formType);
+            }
+
+            if (0 < status)
+            {
+                var _status = status % int.MaxValue;
+                query = query.Where(p => p.Status == _status);
+            }
+
+            if (0 <= pageIndex && 0<pageSize)
+            {
+                int _pageIndex =Convert.ToInt32(pageIndex % int.MaxValue);
+                int _pageSize = Convert.ToInt32(pageSize % int.MaxValue);
+                res.TotalCount = query.Count();
+                res.PageSize = _pageSize;
+                res.PageIndex = _pageIndex;
+                query = query.OrderByDescending(p=>CreateTime).Skip(_pageIndex * _pageSize).Take(_pageSize);
+            }
+
+
             res.DATA = query.ToList();
             return res.SetAsOK();
         }

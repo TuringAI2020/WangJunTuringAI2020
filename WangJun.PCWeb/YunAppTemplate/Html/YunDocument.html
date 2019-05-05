@@ -138,7 +138,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(item,index) in FormList">
+                        <tr v-for="(item,index) in CurrentShowFormList">
                             <th scope="row">1</th>
                             <td>{{item.Title}}</td>
                             <td>{{item.CreateTime}}</td>
@@ -154,9 +154,7 @@
                         <li class="page-item disabled">
                             <a class="page-link" href="#" tabindex="-1" aria-disabled="true">前一页</a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"  v-for="(item,index) in Pager1.PagerArray"><a class="page-link" href="javascript:;" @click="LoadFormList(item,index)">{{item.Index}}</a></li> 
                         <li class="page-item">
                             <a class="page-link" href="#">后一页</a>
                         </li>

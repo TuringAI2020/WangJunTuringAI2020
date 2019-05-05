@@ -12,7 +12,13 @@ option.data = {
     ParentNode: { ID: "", Name: "" },
     RootNode: { ID: "F06E86A8-DB7F-4E39-BA1E-C2F620F8D20C" },
     FormList: [],
-
+    CurrentShowFormList:[],
+    Pager1: {
+        PageIndex: 0,
+        PageSize: 5,
+        TotalCount: 0,
+        PagerArray:[]
+    }
 
 };
 option.methods = {};
@@ -82,7 +88,11 @@ option.methods.LoadCategotyList = function () {
         }).always(function (res1, res2) { });
 }
 
-option.methods.LoadFormList = function () {
+option.methods.LoadFormList = function (item, index) {
+    if (!PARAMCHECKER.IsValid(item)) {
+        item = { Index: 0 };
+    }
+
     let vThis = this;
 
     let ajaxOption = {
@@ -91,9 +101,9 @@ option.methods.LoadFormList = function () {
         dataType: "json",
         data: JSON.stringify({
             "TargetClass": "YunForm",
-            "Method": "LoadList",
+            "Method": "LoadList_Article",
             "Param": {},
-            "InputParamArray": [769]
+            "InputParamArray": [null, null, '5B6EE16F-702F-48F9-B1F2-3D3C032E068D', null, null, null, null, item.Index, 10, parseInt("0x0301", 16), 1,null,null]//[  filter,   keyword,   parentNodeID,   permissionGroupID,   sourceID,   createTime,   updateTime,   pageIndex,   pageSize,   formType,   status,   columnArray]
         })
     };
     $.ajax(ajaxOption)
@@ -103,6 +113,13 @@ option.methods.LoadFormList = function () {
             });
 
             vThis.FormList = vThis.FormList.concat(res1.DATA);
+            vThis.CurrentShowFormList = res1.DATA; 
+            vThis.Pager1.PagerArray = [];
+            for (var k = 0; k < res1.PageCount; k++) {
+                vThis.Pager1.PagerArray.push({ Index: k });
+            }
+
+
         }).fail(function (res1, res2) {
 
         }).always(function (res1, res2) { });

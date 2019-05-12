@@ -18,7 +18,9 @@ option.data = {
         PageSize: 5,
         TotalCount: 0,
         PagerArray:[]
-    }
+    },
+    ShowEle: "",
+
 
 };
 option.methods = {};
@@ -59,6 +61,44 @@ option.methods.SaveDocument = function () {
     }).always(function (res1, res2) { });
 }
 
+option.methods.LoadForm = function (id) {
+
+    this.ShowEle = "editor";
+    var um = UM.getEditor('myEditor');
+    um.setWidth(1033);
+    if (false === PARAMCHECKER.IsNotEmptyString(id)) {
+        id = PARAM_UTINITY.GetUrlQuery("id");
+    }
+     
+    if (false === PARAMCHECKER.IsNotEmptyString(id)) {
+        return false;
+    }
+     
+    let vThis = this;
+    vThis.page.alert.text = "OK124";
+    let param = { };
+ 
+
+    let ajaxOption = {
+        url: "http://localhost:5168/API.ashx",
+        method: "POST",
+        dataType: "json",
+        data: JSON.stringify({
+            "TargetClass": "YunForm",
+            "Method": "Load",
+            "Param": param,
+            "InputParamArray": [id]
+        })
+    };
+    $.ajax(ajaxOption)
+        .done(function (res1, res2) {
+            vThis.title = res1.DATA.Title;
+            UM.getEditor('myEditor').setContent(res1.DATA.ValueS01);
+        }).fail(function (res1, res2) {
+
+        }).always(function (res1, res2) { });
+}
+
 option.methods.LoadCategotyList = function () {
     let vThis = this;
 
@@ -89,8 +129,10 @@ option.methods.LoadCategotyList = function () {
 }
 
 option.methods.LoadFormList = function (item, index) {
+    this.ShowEle = "table";
+
     if (!PARAMCHECKER.IsValid(item)) {
-        item = { Index: 0 };
+        item = { Index: 0, Status: 1 };
     }
 
     let vThis = this;
@@ -103,7 +145,8 @@ option.methods.LoadFormList = function (item, index) {
             "TargetClass": "YunForm",
             "Method": "LoadList_Article",
             "Param": {},
-            "InputParamArray": [null, null, '5B6EE16F-702F-48F9-B1F2-3D3C032E068D', null, null, null, null, item.Index, 10, parseInt("0x0301", 16), 1,null,null]//[  filter,   keyword,   parentNodeID,   permissionGroupID,   sourceID,   createTime,   updateTime,   pageIndex,   pageSize,   formType,   status,   columnArray]
+            ///string filter, string keyword, string parentNodeID,string permissionGroupID ,string sourceID, string createTime ,string updateTime, long pageIndex,long pageSize , long formType,long status,string columnArray,string orderby
+            "InputParamArray": [null, null, '5B6EE16F-702F-48F9-B1F2-3D3C032E068D', null, null, null, null, item.Index, 10, parseInt("0x0301", 16), item.Status,null,null]
         })
     };
     $.ajax(ajaxOption)
@@ -155,3 +198,4 @@ function LoadZtree(el, zNodes, option) {
 
     $.fn.zTree.init($(el), zSetting, zNodes);
 }
+

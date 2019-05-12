@@ -110,7 +110,7 @@ namespace WangJun.Yun
                 query = query.Where(p => p.FormType == _formType);
             }
 
-            if (0 < status)
+            if (0 != status)
             {
                 var _status = status % int.MaxValue;
                 query = query.Where(p => p.Status == _status);

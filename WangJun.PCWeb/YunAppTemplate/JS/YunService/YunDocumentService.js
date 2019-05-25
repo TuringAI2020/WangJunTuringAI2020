@@ -1,11 +1,12 @@
-﻿let option = {}
+﻿let API_URL = "http://192.168.0.168:80/API.ashx";
+let option = {}
 option.el = "#page";
 option.data = {
     page: {
         alert: { text: "OK" }
     },
     api: {
-        url: "http://localhost:5168/API.ashx",
+        url: API_URL,
     }, 
     content: "",
     title: "",
@@ -43,7 +44,7 @@ option.methods.SaveDocument = function () {
 
 
     let ajaxOption = {
-        url: "http://localhost:5168/API.ashx",
+        url: API_URL,
         method: "POST",
         dataType :"json",
         data: JSON.stringify({
@@ -80,7 +81,7 @@ option.methods.LoadForm = function (id) {
  
 
     let ajaxOption = {
-        url: "http://localhost:5168/API.ashx",
+        url: API_URL,
         method: "POST",
         dataType: "json",
         data: JSON.stringify({
@@ -146,7 +147,7 @@ option.methods.LoadFormList = function (item, index) {
             "Method": "LoadList_Article",
             "Param": {},
             ///string filter, string keyword, string parentNodeID,string permissionGroupID ,string sourceID, string createTime ,string updateTime, long pageIndex,long pageSize , long formType,long status,string columnArray,string orderby
-            "InputParamArray": [null, null, '5B6EE16F-702F-48F9-B1F2-3D3C032E068D', null, null, null, null, item.Index, 10, parseInt("0x0301", 16), item.Status,null,null]
+            "InputParamArray": [null, null, '5B6EE16F-702F-48F9-B1F2-3D3C032E068D', null, null, null, null, item.Index, 10, parseInt("0x0301", 16), item.Status,null,"desc"]
         })
     };
     $.ajax(ajaxOption)

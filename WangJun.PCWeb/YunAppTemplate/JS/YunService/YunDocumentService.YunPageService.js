@@ -18,6 +18,7 @@ let vLeft = new Vue({
         MenuItem_Click: function (item,index) {
             if (true === PARAMCHECKER.IsValid(vue) && true === PARAMCHECKER.IsInt(item.Status)) {
                 vue.LoadFormList({ Index: 1, Status: item.Status });
+                vNav.LoadMenu(item);
             }
             else {
                 vue.LoadForm();
@@ -33,7 +34,23 @@ let vNav = new Vue({
         func: {
             Name: "功能名称"
         },
-        Menu1: [{ ID: "", Name: "菜单一" }],
+        Menu1: [{ ID: "已发布", Name: "菜单一" }],
+        FuncMenu: {
+            "已发布": { ID: "已发布", Name: "已发布", ButtonArray: [{ ID: "新增", Name: "新增" }, { ID: "删除", Name: "删除" }, { ID: "移动到", Name: "移动到" }, { ID: "复制到", Name: "复制到" }, { ID: "编辑", Name: "编辑" }]}
+        }
+    },
+    methods: {
+        LoadMenu(leftMenu) {
+            let id = leftMenu.ID;
+            let selMenu = this.FuncMenu[id];
+            this.func.Name = selMenu.Name;
+            this.Menu1 = selMenu.ButtonArray;
+        },
+        MenuItem_Click: function (item, index) {
+            if ("新增" == item.ID) {
+                vue.LoadForm();
+            }
+        }
     }
 });
 

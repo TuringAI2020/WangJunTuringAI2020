@@ -58,7 +58,7 @@ namespace WangJun.Yun
             var res = RES.New;
             var db = ModelEF.GetInst();
 
-            var query = from item in db.YunForms where formType == item.FormType  select item;
+            var query = from item in db.YunForms where formType == item.FormType orderby CreateTime descending  select item;
             res.DATA = query.ToList();
             return res.SetAsOK();
         }

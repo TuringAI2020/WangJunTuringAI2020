@@ -210,6 +210,7 @@
     <Content Include="YunAppTemplate\Html\YunTouTiao1.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate2.html" />
     <Content Include="YunAppTemplate\Html\YunAppTemplate.html" />
+    <Content Include="YunAppTemplate\JS\jquery-3.4.1.min.js" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\dialogs\emotion\emotion.css" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\dialogs\emotion\emotion.js" />
     <Content Include="YunAppTemplate\JS\umeditor1_2_2-utf8-net\dialogs\emotion\images\0.gif" />

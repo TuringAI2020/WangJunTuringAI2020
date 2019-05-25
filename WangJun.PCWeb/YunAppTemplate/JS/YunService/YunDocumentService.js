@@ -55,8 +55,9 @@ option.methods.SaveDocument = function () {
         })
     };
     $.ajax(ajaxOption)
-    .done(function (res1, res2) {
-        vThis.page.alert.text = "OK123";
+        .done(function (res1, res2) {
+            vThis.ClearForm();
+        $("#已发布").trigger("click");
     }).fail(function (res1, res2) {
     
     }).always(function (res1, res2) { });
@@ -98,6 +99,11 @@ option.methods.LoadForm = function (id) {
         }).fail(function (res1, res2) {
 
         }).always(function (res1, res2) { });
+}
+
+option.methods.ClearForm=function() {
+    UM.getEditor('myEditor').setContent("");
+    this.title = "";
 }
 
 option.methods.LoadCategotyList = function () {

@@ -18,25 +18,34 @@ namespace HttpAPI
         public void ProcessRequest(HttpContext context)
         {
             //var param = HttpRequestParam.Parse(context);
+            //context.Response.Headers.Add("Access-Control-Allow-Origin", "*"); //设置请求来源不受限制
+            //context.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type,Accept,X-Requested-With");
+            //context.Response.Headers.Add("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS"); //请求方式
+            try
+            {
+                if (context.IsWebSocketRequest)
+                {
+                    this.WebSocketProc(context);
+                }
+                else if (0 < context.Request.Files.Count && "SaveToSQLServer" == context.Request.QueryString["m"])
+                {
+                    new YunFile().SaveToSQLServer();
+                }
+                else if (0 < context.Request.Files.Count && "SaveToDisk" == context.Request.QueryString["m"])
+                {
+                    var filePath = new YunFile().SaveFromHttp();
+                    context.Response.Write(filePath);
+                }
+                else
+                {
 
-            if (context.IsWebSocketRequest)
-            {
-                this.WebSocketProc(context);
+                    this.Execute(context);
+                }
             }
-            else if (0 < context.Request.Files.Count&&"SaveToSQLServer" == context.Request.QueryString["m"]) {
-                new YunFile().SaveToSQLServer();
-            }
-            else if (0 < context.Request.Files.Count&&"SaveToDisk" == context.Request.QueryString["m"])
+            catch (Exception ex)
             {
-                var filePath = new YunFile().SaveFromHttp();
-                context.Response.Write(filePath);
-            } 
-            else
-            {
-                context.Response.Headers.Add("Access-Control-Allow-Origin", "*"); //设置请求来源不受限制
-                context.Response.Headers.Add("Access-Control-Allow-Headers", "X-Requested-With");
-                context.Response.Headers.Add("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS"); //请求方式
-                this.Execute(context);
+                context.Response.ContentType = CONST.application_json;
+                context.Response.Write(new { Ex = ex.Message });
             }
 
         }

@@ -4,16 +4,15 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using WangJun.Yun;
 
-namespace WangJun.APITest
+namespace WangJun.Yun
 {
     /// <summary>
     /// 微信接口
     /// </summary>
     public class WeChatAPI
     {
-        public static  WeChatAPI GetInstance() {
+        public static WeChatAPI GetInstance() {
             var inst = new WeChatAPI();
             return inst;
         }
@@ -25,7 +24,7 @@ namespace WangJun.APITest
             return res;
         }
 
-        public static string HttpPost(string url,string data)
+        public static string HttpPost(string url, string data)
         {
             var bytes = Encoding.UTF8.GetBytes(data);
             var http = new WebClient();
@@ -49,7 +48,7 @@ namespace WangJun.APITest
             var url = string.Format("https://api.weixin.qq.com/cgi-bin/user/get?access_token={0}&next_openid={1}", this.GetToken(), string.Empty);
             var res = WeChatAPI.HttpGet(url);
             res = JSON.GetValue(res, "data", "openid");
-             list = JSON.ToObject<List<string>>(res);
+            list = JSON.ToObject<List<string>>(res);
             return list;
         }
 
@@ -66,16 +65,33 @@ namespace WangJun.APITest
 
         public string GetUserInfo(string openId)
         {
-            var url =string.Format( "https://api.weixin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}&lang=zh_CN",this.GetToken(),openId);
+            var url = string.Format("https://api.weixin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}&lang=zh_CN", this.GetToken(), openId);
             var res = WeChatAPI.HttpGet(url);
             return res;
 
         }
         public string CreateMenu() {
-            var url = string.Format("https://api.weixin.qq.com/cgi-bin/menu/create?access_token={0}",this.GetToken());
-            var data= "{\"button\": [{\"type\": \"click\",\"name\": \"汪俊\",\"key\": \"V1002_TODAY_MUSIC\"}]}";
-            var res = WeChatAPI.HttpPost(url,data);
+            var url = string.Format("https://api.weixin.qq.com/cgi-bin/menu/create?access_token={0}", this.GetToken());
+            var data = "{\"button\": [{\"type\": \"click\",\"name\": \"汪俊\",\"key\": \"V1002_TODAY_MUSIC\"}]}";
+            var res = WeChatAPI.HttpPost(url, data);
             return res;
+
+        }
+
+        public string GetWeChatUrl()
+        {
+            var appId = "wx0d5f15121f4d9cc3";
+            var returnUrl = "http%3a%2f%2fapi01.vipgz1.idcfengye.com%2fWeChat.ashx";
+            var scope = "snsapi_base";
+            return string.Format("https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type=code&scope={2}&state=test#wechat_redirect", appId, returnUrl,scope);
+        }
+
+        public string GetTokenByCode(string code)
+        {
+            var appId = "wx0d5f15121f4d9cc3";
+            var secret = "c2dd349ae5faf6267bf330b44a7f8d50"; 
+            var url =  string.Format("https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code",appId,secret,code);
+            return WeChatAPI.HttpGet(url);
 
         }
     }

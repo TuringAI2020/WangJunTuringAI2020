@@ -73,10 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program基本队列处理.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeChatAPI.cs" />
-    <Compile Include="七彩福星.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -90,6 +88,10 @@
     <ProjectReference Include="..\WangJun.SelfHostAPI\WangJun.SelfHostAPI.csproj">
       <Project>{7115de18-c824-40ad-a15b-d8a000d53ed8}</Project>
       <Name>WangJun.SelfHostAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WangJun.WeChat\WangJun.WeChat.csproj">
+      <Project>{a4b527f4-3a15-457e-875e-16942074c524}</Project>
+      <Name>WangJun.WeChat</Name>
     </ProjectReference>
     <ProjectReference Include="..\WangJun.YunEF\WangJun.YunEF.csproj">
       <Project>{7C1E7961-DE0E-4FFC-A797-6DAA3E6DF63F}</Project>

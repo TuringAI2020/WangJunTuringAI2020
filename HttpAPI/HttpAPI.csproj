@@ -92,10 +92,12 @@
   <ItemGroup>
     <Content Include="WebServiceAPI.asmx" />
     <Content Include="File.ashx" />
+    <Content Include="WeChat.html" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="WCFAPI" />
     <Content Include="Test.html" />
     <Content Include="Web.config" />
+    <Content Include="WeChat.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.ashx.cs">
@@ -113,6 +115,9 @@
       <DependentUpon>WebServiceAPI.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WeChat.ashx.cs">
+      <DependentUpon>WeChat.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="API.ashx" />
@@ -128,6 +133,10 @@
     <ProjectReference Include="..\WangJun.Common\WangJun.Common.csproj">
       <Project>{D2FE513E-355E-44BA-96FE-844970CF960D}</Project>
       <Name>WangJun.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WangJun.WeChat\WangJun.WeChat.csproj">
+      <Project>{A4B527F4-3A15-457E-875E-16942074C524}</Project>
+      <Name>WangJun.WeChat</Name>
     </ProjectReference>
     <ProjectReference Include="..\WangJun.YunConvertor\WangJun.YunConvertor.csproj">
       <Project>{15a31a16-f82d-433c-8e02-04d696b345d6}</Project>

@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,14 @@ namespace WangJun.Yun
 
         public static string ToJson(object data) {
             return JsonConvert.SerializeObject(data);
+        }
+
+        public static string StreamToJson(Stream stream,Encoding encoding) {
+            var count = (int)(stream.Length % int.MaxValue);
+            var bytes = new byte[stream.Length % int.MaxValue];
+            stream.Read(bytes, 0, count);
+            var str = encoding.GetString(bytes);
+            return str;
         }
 
         public static string GetValue(string json,string keyName1, string keyName2 = null) {

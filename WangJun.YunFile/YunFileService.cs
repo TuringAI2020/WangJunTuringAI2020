@@ -42,7 +42,7 @@ namespace WangJun.Yun
                 info.MD5Array.ToList().ForEach(p=> {
                     md5long += p;
                 });
-                info.FileMD5 = MD5.ToMD5(info.MD5long);
+                info.FileMD5 = MD5.ToMD5(md5long);
                  
             }
             return info;

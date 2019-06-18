@@ -21,6 +21,7 @@ namespace HttpAPI
                 var echostr = context.Request.QueryString["echostr"];
                 var r = context.Request.QueryString["r"];
                 var code = context.Request.QueryString["code"];
+                var method = context.Request.QueryString["m"];
 
                 var json = JSON.StreamToJson(context.Request.InputStream,Encoding.UTF8);
                 var data = new { Url = context.Request.Url, Data = json };
@@ -30,8 +31,7 @@ namespace HttpAPI
                     System.IO.Directory.CreateDirectory(path);
                 }
 
-                System.IO.File.WriteAllText(string.Format("{0}/{1}.txt",path, DateTime.Now.ToString("yyyyMMddhhmmss")), JSON.ToJson(data),Encoding.UTF8);
-                context.Response.Write("OK");
+                System.IO.File.WriteAllText(string.Format("{0}/{1}.txt",path, DateTime.Now.ToString("yyyyMMddhhmmss")), JSON.ToJson(data),Encoding.UTF8); 
 
 
                 if (!string.IsNullOrWhiteSpace(echostr))
@@ -45,9 +45,12 @@ namespace HttpAPI
                     return;
                 }
                 else
-                { 
-                }
-                context.Response.Write(echostr);
+                {
+                    var inst = WeChatAPI.GetInstance();
+                    var res = inst.GetType().GetMethod(method).Invoke(inst, null);
+                    context.Response.Write(res);
+                    return;
+                } 
             }
             catch (Exception ex) {
                 var json = JSON.ToJson(context.Request.InputStream);

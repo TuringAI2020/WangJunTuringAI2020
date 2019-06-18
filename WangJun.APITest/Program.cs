@@ -19,14 +19,16 @@ namespace WangJun.APITest
             #region 微信测试
             {
                 var inst = WeChatAPI.GetInstance();
-                #region 基础支持
-                var token = inst.GetToken();
-                Console.WriteLine("获取Token {0}",token);
+                //#region 基础支持
+                //var token = inst.GetToken();
+                //Console.WriteLine("获取Token {0}",token);
 
-                var returnUrl = inst.GetWeChatUrl();
-                Console.WriteLine("获取跳转链接 {0}", returnUrl);
+                //var returnUrl = inst.GetWeChatUrl();
+                //Console.WriteLine("获取跳转链接 {0}", returnUrl);
 
-                #endregion  
+                //#endregion  
+
+                Console.WriteLine($"获取微信服务器IP地址 -" + inst.GetWeChatServerIpList());
             }
 
             #endregion

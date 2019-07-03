@@ -85,10 +85,6 @@
       <Project>{D2FE513E-355E-44BA-96FE-844970CF960D}</Project>
       <Name>WangJun.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WangJun.SelfHostAPI\WangJun.SelfHostAPI.csproj">
-      <Project>{7115de18-c824-40ad-a15b-d8a000d53ed8}</Project>
-      <Name>WangJun.SelfHostAPI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WangJun.WeChat\WangJun.WeChat.csproj">
       <Project>{a4b527f4-3a15-457e-875e-16942074c524}</Project>
       <Name>WangJun.WeChat</Name>

@@ -93,6 +93,7 @@
     <Content Include="WebServiceAPI.asmx" />
     <Content Include="File.ashx" />
     <Content Include="WeChat.html" />
+    <Content Include="YunArticleAPI.ashx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="WCFAPI" />
     <Content Include="Test.html" />
@@ -100,6 +101,9 @@
     <Content Include="WeChat.ashx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="YunArticleAPI.ashx.cs">
+      <DependentUpon>YunArticleAPI.ashx</DependentUpon>
+    </Compile>
     <Compile Include="API.ashx.cs">
       <DependentUpon>API.ashx</DependentUpon>
     </Compile>

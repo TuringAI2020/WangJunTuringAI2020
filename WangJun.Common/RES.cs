@@ -75,6 +75,36 @@ namespace WangJun.Yun
         }
 
         /// <summary>
+        /// 失败结果
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public static RES FAIL(object data = null, string msg = "失败")
+        {
+            var res = new RES();
+            res.SUCCESS = false;
+            res.DATA = data;
+            res.MESSAGE = msg;
+            return res;
+        }
+
+        /// <summary>
+        /// 成功结果
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public static RES OK(object data = null, string msg = "成功")
+        {
+            var res = new RES();
+            res.SUCCESS = true;
+            res.DATA = data;
+            res.MESSAGE = msg;
+            return res;
+        }
+
+        /// <summary>
         /// 转换为JSON
         /// </summary>
         /// <returns></returns>

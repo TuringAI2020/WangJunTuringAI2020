@@ -65,7 +65,7 @@ namespace WangJun.Yun
             }
             catch (Exception ex)
             {
-                return RES.FAIL();
+                return RES.FAIL(ex.Message);
 
             }
         }

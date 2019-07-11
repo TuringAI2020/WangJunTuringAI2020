@@ -18,5 +18,12 @@ namespace WangJun.Yun
             var guid = Guid.Empty;
             return Guid.TryParse(input, out guid);
         }
+
+        public static Guid FromStringToGuid(string input)
+        {
+            var bytes = MD5.ToMD5Bytes(input); 
+            var guid = new Guid(bytes);
+            return guid;
+        }
     }
 }

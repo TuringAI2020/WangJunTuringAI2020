@@ -6,22 +6,17 @@ namespace WangJun.Yun
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("YunArticle")]
-    public partial class YunArticle
+    [Table("YunFormTemplate")]
+    public partial class YunFormTemplate
     {
         public Guid ID { get; set; }
 
-        [StringLength(100)]
-        public string Title { get; set; }
-
-        public string Content { get; set; }
+        [StringLength(50)]
+        public string Name { get; set; }
 
         public DateTime? CreateTime { get; set; }
 
         public DateTime? UpdateTime { get; set; }
-
-        [StringLength(2048)]
-        public string Url { get; set; }
 
         public int? Status { get; set; }
     }

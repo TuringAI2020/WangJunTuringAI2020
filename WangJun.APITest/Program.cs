@@ -18,6 +18,8 @@ namespace WangJun.APITest
                 Param = new { },
                 InputParamArray = new string[] {  JSON.ToJson(new { Remark="Test111"}) }
             }));
+             
+
             Console.ReadKey();
         }
     }

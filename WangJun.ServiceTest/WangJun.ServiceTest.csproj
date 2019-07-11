@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7C1E7961-DE0E-4FFC-A797-6DAA3E6DF63F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WangJun.Yun</RootNamespace>
-    <AssemblyName>WangJun.YunEF</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ProjectGuid>{69077898-9314-4E89-A274-DC70ADFFEB01}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WangJun.ServiceTest</RootNamespace>
+    <AssemblyName>WangJun.ServiceTest</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,9 +42,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,48 +50,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelEF.cs" />
-    <Compile Include="ModelEF\ModelEF_对外方法.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YunArticle.cs" />
-    <Compile Include="YunArticle\YunArticle.cs" />
-    <Compile Include="YunDocument\YunDocument_方法.cs" />
-    <Compile Include="YunFile\YunFile_SQLSERVER.cs" />
-    <Compile Include="YunFile\YunFile_LOCAL.cs" />
-    <Compile Include="YunForm.cs" />
-    <Compile Include="YunFormInst.cs" />
-    <Compile Include="YunFormRow.cs" />
-    <Compile Include="YunFormTemplate.cs" />
-    <Compile Include="YunForm\YunForm_方法.cs" />
-    <Compile Include="YunCommodity\YunCommodity_方法.cs" />
-    <Compile Include="YunOrder.cs" />
-    <Compile Include="YunOrder\YunOrder.cs" />
-    <Compile Include="YunProperty.cs" />
-    <Compile Include="YunQRCode.cs" />
-    <Compile Include="YunRelation.cs" />
-    <Compile Include="YunRelation\YunRelation_方法.cs" />
-    <Compile Include="YunToDo\YunToDo.cs" />
-    <Compile Include="YunToken.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="SQLSERVER\WangJun20181125.7z" />
-    <None Include="SQLSERVER\WangJun20190203-2.7z" />
-    <None Include="数据库\WangJun20190303.7z" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WangJun.Common\WangJun.Common.csproj">
-      <Project>{d2fe513e-355e-44ba-96fe-844970cf960d}</Project>
+      <Project>{D2FE513E-355E-44BA-96FE-844970CF960D}</Project>
       <Name>WangJun.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WangJun.YunEF\WangJun.YunEF.csproj">
+      <Project>{7c1e7961-de0e-4ffc-a797-6daa3e6df63f}</Project>
+      <Name>WangJun.YunEF</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="数据库\WangJun20190303.sql" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

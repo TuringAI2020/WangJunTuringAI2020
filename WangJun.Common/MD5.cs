@@ -19,6 +19,12 @@ namespace WangJun.Yun
             byte[] hashedBytes = System.Security.Cryptography.MD5.Create().ComputeHash(cleanBytes);
             return BitConverter.ToString(hashedBytes).Replace("-", string.Empty);
         }
+        public static byte[] ToMD5Bytes(string input)
+        {
+            byte[] cleanBytes = Encoding.Default.GetBytes(input);
+            byte[] hashedBytes = System.Security.Cryptography.MD5.Create().ComputeHash(cleanBytes);
+            return hashedBytes;
+        }
 
         /// <summary>
         /// 转换为16位的MD5

@@ -13,8 +13,10 @@ namespace WangJun.ServiceTest
         {
             //new YunToDo().SaveToDo("","第一个","测试赛");
             //new YunJob().StartJob("作业名称", "参数");
-            new YunQueue().Enqueue("Test", "");
-            new YunQueue().Dequeue("Test");
+            //new YunQueue().Enqueue("Test", "");
+            //new YunQueue().Dequeue("Test");
+            //var res = new YunToDo().LoadList("");
+            var res = new YunMail().SendMail();
             Console.ReadKey();
         }
     }

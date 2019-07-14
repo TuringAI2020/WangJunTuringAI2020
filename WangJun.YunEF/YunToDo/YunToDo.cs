@@ -52,7 +52,41 @@ namespace WangJun.Yun
             {
                 return RES.FAIL(ex.Message);
             }
+        }
 
+        public RES LoadDetail(string idStr)
+        {
+            try
+            {
+                if (GUID.IsGuid(idStr))
+                {
+                    var id = Guid.Parse(idStr);
+                    var db = ModelEF.GetInst();
+                    var entity = db.YunFormInsts.FirstOrDefault(p => p.ID == id);
+                    return RES.OK(entity);
+                }
+                return RES.FAIL();
+            }
+            catch (Exception ex)
+            {
+                return RES.FAIL();
+            }
+        }
+
+
+        public RES LoadList(string filter)
+        {
+            try
+            {
+                var db = ModelEF.GetInst();
+                var titleId = GUID.FromStringToGuid("Title");
+                var list = db.YunFormInsts.Where(p => p.CreateTime <= DateTime.Now&& p.PropertyID==titleId).ToList();
+                return RES.OK(list);
+            }
+            catch (Exception ex)
+            {
+                return RES.FAIL();
+            }
         }
     }
 }

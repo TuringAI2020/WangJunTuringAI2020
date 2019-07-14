@@ -54,6 +54,7 @@
     <Compile Include="ModelEF.cs" />
     <Compile Include="ModelEF\ModelEF_对外方法.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YunAddress\YunAddress.cs" />
     <Compile Include="YunArticle.cs" />
     <Compile Include="YunArticle\YunArticle.cs" />
     <Compile Include="YunDocument\YunDocument_方法.cs" />

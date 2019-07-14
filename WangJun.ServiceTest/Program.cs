@@ -11,8 +11,9 @@ namespace WangJun.ServiceTest
     {
         static void Main(string[] args)
         {
-            new YunToDo().SaveToDo("","第一个","测试赛");
-            
+            //new YunToDo().SaveToDo("","第一个","测试赛");
+            new YunJob().StartJob("作业名称", "参数");
+            Console.ReadKey();
         }
     }
 }

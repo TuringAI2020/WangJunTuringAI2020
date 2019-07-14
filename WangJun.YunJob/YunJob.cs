@@ -45,5 +45,27 @@ namespace WangJun.Yun
             }
 
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public RES StopJob(string jobName)
+        {
+            try
+            {
+                var factory = new StdSchedulerFactory();
+                var scheduler = factory.GetScheduler();
+                scheduler.Result.DeleteJob(new JobKey(jobName));
+                scheduler.Result.Start();
+                return RES.OK();
+            }
+            catch (Exception ex)
+            {
+
+                return RES.FAIL();
+            }
+
+        }
     }
 }

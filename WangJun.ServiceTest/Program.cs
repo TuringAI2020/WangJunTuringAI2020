@@ -16,7 +16,7 @@ namespace WangJun.ServiceTest
             //new YunQueue().Enqueue("Test", "");
             //new YunQueue().Dequeue("Test");
             //var res = new YunToDo().LoadList("");
-            var res = new YunMail().SendMail();
+            //var res = new YunMail().SendMail();
             Console.ReadKey();
         }
     }

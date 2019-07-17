@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.WebSockets;
+using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Web;
-using WangJun.Common;
 using WangJun.Yun;
 
-namespace LogAPI
+namespace WangJun.AsyncAPI
 {
     /// <summary>
-    /// API 的摘要说明
+    /// AsyncAPI 的摘要说明
     /// </summary>
-    public partial class LogAPI : IHttpHandler
+    public class AsyncAPI : IHttpHandler
     {
-
         public void ProcessRequest(HttpContext context)
         {
             //var param = HttpRequestParam.Parse(context);
@@ -42,22 +39,14 @@ namespace LogAPI
             var length = (int)context.Request.InputStream.Length;
             var buffer = new byte[length];
             context.Request.InputStream.Read(buffer, 0, length);
-            var str = Encoding.UTF8.GetString(buffer);
-            var reqCheck = ReqMsg<object>.Parse(str);
+            var req = Encoding.UTF8.GetString(buffer); 
             context.Response.ContentType = "text/plain";
-            var contentType = "text/plain";
-            if (typeof(YunLog).Name == reqCheck.TargetClass)
-            { 
-                var reqMsg = ReqMsg<YunLog>.Parse(str);
-                RES res = reqMsg.Param.GetType().GetMethod(reqCheck.Method).Invoke(reqMsg.Param, reqMsg.InputParamArray) as RES;
-                str = res.ToJson();
-                contentType = CONST.application_json;
-            }
+            var contentType = "application/json";
+            var res = YunQueue.GetInst().Enqueue("", req);
+
             context.Response.ContentType = contentType;
-            context.Response.Write(str);
+            context.Response.Write(res.ToJson());
         }
-
-
         public bool IsReusable
         {
             get

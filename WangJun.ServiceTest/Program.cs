@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WangJun.Yun;
+using WangJun.ProcApp;
+using WangJun.Yun; 
 
 namespace WangJun.ServiceTest
 {
@@ -17,6 +18,7 @@ namespace WangJun.ServiceTest
             //new YunQueue().Dequeue("Test");
             //var res = new YunToDo().LoadList("");
             //var res = new YunMail().SendMail();
+            new QueueRunner().Run();
             Console.ReadKey();
         }
     }

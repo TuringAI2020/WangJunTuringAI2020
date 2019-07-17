@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4F4C1EBD-AF3E-4B74-93EF-C6539026670A}</ProjectGuid>
+    <ProjectGuid>{EE9B97C9-C087-4746-8AE1-7689851B41EB}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LogAPI</RootNamespace>
-    <AssemblyName>WangJun.Yun</AssemblyName>
+    <RootNamespace>WangJun.AsyncAPI</RootNamespace>
+    <AssemblyName>WangJun.AsyncAPI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -43,12 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -73,17 +67,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Test.html" />
+    <Content Include="start.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LogAPI.ashx.cs">
-      <DependentUpon>LogAPI.ashx</DependentUpon>
+    <Compile Include="AsyncAPI.ashx.cs">
+      <DependentUpon>AsyncAPI.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LogAPI.ashx" />
+    <Content Include="AsyncAPI.ashx" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
@@ -97,10 +91,6 @@
     <ProjectReference Include="..\WangJun.Common\WangJun.Common.csproj">
       <Project>{D2FE513E-355E-44BA-96FE-844970CF960D}</Project>
       <Name>WangJun.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WangJun.YunLog\WangJun.YunLog.csproj">
-      <Project>{e2acd9dd-7480-4d58-a4b6-4d30cb984735}</Project>
-      <Name>WangJun.YunLog</Name>
     </ProjectReference>
     <ProjectReference Include="..\WangJun.YunQueue\WangJun.YunQueue.csproj">
       <Project>{b3370e44-c78b-4381-b2c8-d20dcff84272}</Project>
@@ -120,9 +110,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>10714</DevelopmentServerPort>
+          <DevelopmentServerPort>51078</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:6168/</IISUrl>
+          <IISUrl>http://localhost:51078/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

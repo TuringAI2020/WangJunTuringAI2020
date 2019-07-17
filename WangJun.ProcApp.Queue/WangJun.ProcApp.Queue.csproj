@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{69077898-9314-4E89-A274-DC70ADFFEB01}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>WangJun.ServiceTest</RootNamespace>
-    <AssemblyName>WangJun.ServiceTest</AssemblyName>
+    <ProjectGuid>{E7C278B7-82C8-4256-AD76-9C82AC9CB650}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WangJun.ProcApp.Queue</RootNamespace>
+    <AssemblyName>WangJun.ProcApp.Queue</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,14 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="RabbitMQ.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.5.1.0\lib\net451\RabbitMQ.Client.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,38 +47,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="QueueRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WangJun.Common\WangJun.Common.csproj">
       <Project>{D2FE513E-355E-44BA-96FE-844970CF960D}</Project>
       <Name>WangJun.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WangJun.ProcApp.Queue\WangJun.ProcApp.Queue.csproj">
-      <Project>{E7C278B7-82C8-4256-AD76-9C82AC9CB650}</Project>
-      <Name>WangJun.ProcApp.Queue</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WangJun.YunEF\WangJun.YunEF.csproj">
-      <Project>{7c1e7961-de0e-4ffc-a797-6daa3e6df63f}</Project>
-      <Name>WangJun.YunEF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WangJun.YunJob\WangJun.YunJob.csproj">
-      <Project>{54790870-3e95-4cd3-81e3-daa4cd8b6745}</Project>
-      <Name>WangJun.YunJob</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WangJun.YunMail\WangJun.YunMail.csproj">
-      <Project>{7CFF24A9-2B30-47FF-B5E2-FF9BB8EE9D63}</Project>
-      <Name>WangJun.YunMail</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WangJun.YunQueue\WangJun.YunQueue.csproj">
       <Project>{b3370e44-c78b-4381-b2c8-d20dcff84272}</Project>
       <Name>WangJun.YunQueue</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,7 +14,11 @@ namespace WangJun.Yun
     /// </summary>
     public class YunQueue
     {
- 
+
+        public static YunQueue GetInst() {
+            var inst = new YunQueue();
+            return inst;
+        }
 
         /// <summary>
         /// 入队列
@@ -55,18 +59,19 @@ namespace WangJun.Yun
 
                         //准备开始推送 
                         //发布的消息可以是任何一个(可以被序列化的)字节数组，如序列化对象，一个实体的ID，或只是一个字符串 
-                        var encoding = new UTF8Encoding();
-                        for (var i = 0; i < 10; i++)
-                        {
-                            var msg = string.Format("这是消息 #{0}?", i + 1);
-                            var msgBytes = encoding.GetBytes(msg);
-                            //RabbitMQ消息模型的核心思想就是，生产者不把消息直接发送给队列。实际上，生产者在很多情况下都不知道消息是否会被发送到一个队列中。取而代之的是，生产者将消息发送到交换区。交换区是一个非常简单的东西，它一端接受生产者的消息，另一端将他们推送到队列中。交换区必须要明确的指导如何处理它接受到的消息。是放到一个队列中，还是放到多个队列中，亦或是被丢弃。这些规则可以通过交换区的类型来定义。 
-                            //可用的交换区类型有：direct，topic，headers，fanout。 
-                            //Exchange：用于接收消息生产者发送的消息，有三种类型的exchange：direct, fanout,topic，不同类型实现了不同的路由算法； 
-                            //RoutingKey：是RabbitMQ实现路由分发到各个队列的规则，并结合Binging提供于Exchange使用将消息推送入队列； 
-                            //Queue：是消息队列，可以根据需要定义多个队列，设置队列的属性，比如：消息移除、消息缓存、回调机制等设置，实现与Consumer通信； 
-                            channel.BasicPublish("SISOExchange", "optionalRoutingKey", properties, msgBytes);
-                        }
+                        channel.BasicPublish("SISOExchange", "optionalRoutingKey", properties, Encoding.UTF8.GetBytes(data));
+                        //var encoding = new UTF8Encoding();
+                        //for (var i = 0; i < 10; i++)
+                        //{
+                        //    var msg = string.Format("这是消息 #{0}?", i + 1);
+                        //    var msgBytes = encoding.GetBytes(msg);
+                        //    //RabbitMQ消息模型的核心思想就是，生产者不把消息直接发送给队列。实际上，生产者在很多情况下都不知道消息是否会被发送到一个队列中。取而代之的是，生产者将消息发送到交换区。交换区是一个非常简单的东西，它一端接受生产者的消息，另一端将他们推送到队列中。交换区必须要明确的指导如何处理它接受到的消息。是放到一个队列中，还是放到多个队列中，亦或是被丢弃。这些规则可以通过交换区的类型来定义。 
+                        //    //可用的交换区类型有：direct，topic，headers，fanout。 
+                        //    //Exchange：用于接收消息生产者发送的消息，有三种类型的exchange：direct, fanout,topic，不同类型实现了不同的路由算法； 
+                        //    //RoutingKey：是RabbitMQ实现路由分发到各个队列的规则，并结合Binging提供于Exchange使用将消息推送入队列； 
+                        //    //Queue：是消息队列，可以根据需要定义多个队列，设置队列的属性，比如：消息移除、消息缓存、回调机制等设置，实现与Consumer通信； 
+                        //    channel.BasicPublish("SISOExchange", "optionalRoutingKey", properties, msgBytes);
+                        //}
                         channel.Close();
                     }
                 }
@@ -86,7 +91,7 @@ namespace WangJun.Yun
         /// <param name="queueName"></param>
         /// <param name="data"></param>
         /// <returns></returns>
-        public RES Dequeue(string queueName)
+        public RES Dequeue(string queueName,EventHandler<BasicDeliverEventArgs> proc)
         {
             // 建立RabbitMQ连接和通道 
             var connectionFactory = new ConnectionFactory
@@ -118,9 +123,14 @@ namespace WangJun.Yun
                     var encoding = new UTF8Encoding();
                     while (channel.IsOpen)
                     {
+                        Console.WriteLine($"等待消息...{DateTime.Now}");
                         BasicDeliverEventArgs eventArgs;
                         var success = subscription.Next(2000, out eventArgs);
                         if (success == false) continue;
+                        if (null != proc)
+                        {
+                            proc(this, eventArgs);
+                        }
                         var msgBytes = eventArgs.Body;
                         var message = encoding.GetString(msgBytes);
                         Console.WriteLine(message);

@@ -35,5 +35,8 @@ namespace WangJun.Yun
         public int? Status { get; set; }
 
         public int? Type { get; set; }
+
+        [StringLength(10)]
+        public string LoginID { get; set; }
     }
 }

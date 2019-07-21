@@ -57,6 +57,7 @@
     <Compile Include="YunAddress\YunAddress.cs" />
     <Compile Include="YunArticle.cs" />
     <Compile Include="YunArticle\YunArticle.cs" />
+    <Compile Include="YunBaseForm.cs" />
     <Compile Include="YunDocument\YunDocument_方法.cs" />
     <Compile Include="YunFile\YunFile_SQLSERVER.cs" />
     <Compile Include="YunFile\YunFile_LOCAL.cs" />

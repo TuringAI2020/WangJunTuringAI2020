@@ -133,7 +133,7 @@ namespace WangJun.Yun
                         }
                         var msgBytes = eventArgs.Body;
                         var message = encoding.GetString(msgBytes);
-                        Console.WriteLine(message);
+                        //Console.WriteLine(message);
                         channel.BasicAck(eventArgs.DeliveryTag, false);
                     }
                 }

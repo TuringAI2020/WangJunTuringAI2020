@@ -38,5 +38,9 @@ namespace WangJun.Yun
         public DateTime? UpdateTime { get; set; }
 
         public int? Status { get; set; }
+
+        public Guid? InstanceID { get; set; }
+
+        public Guid? CategoryID { get; set; }
     }
 }

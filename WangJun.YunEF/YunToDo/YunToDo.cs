@@ -12,38 +12,29 @@ namespace WangJun.Yun
         /// <param name="title"></param>
         /// <param name="content"></param>
         /// <returns></returns>
-        public  RES SaveToDo(string idStr, string title, string content)
+        public  RES SaveToDo(string idStr,string categoryIdStr, string title, string content)
         {
             try
             {
                 var db = ModelEF.GetInst();
-                var titleId = GUID.FromStringToGuid("Title");
-                var contentId = GUID.FromStringToGuid("Content");
-                YunFormInst titleInst = null;
-                YunFormInst contentInst = null;
+                var appId = GUID.FromStringToGuid("YunToDo"); 
                 if (GUID.IsGuid(idStr))
                 {
                     var id = Guid.Parse(idStr);
-                    var oldInst = db.YunFormInsts.Where(p => p.ID == id);
+                    var categoryId = Guid.Parse(categoryIdStr);
+                    var oldInst = db.YunBaseForms.FirstOrDefault(p => p.ID == id);
                     if (null != oldInst)
                     {
-
-                        titleInst = oldInst.FirstOrDefault(p => p.PropertyID == titleId);
-                        titleInst.PropertyValueString = title;
-                        titleInst.UpdateTime = DateTime.Now;
-
-                        contentInst = oldInst.FirstOrDefault(p => p.PropertyID == contentId);
-                        contentInst.PropertyValueString = title;
-                        contentInst.UpdateTime = DateTime.Now;
+                        oldInst.CategoryID = categoryId;
+                        oldInst.Title = title;
+                        oldInst.Content = content;
+                        oldInst.UpdateTime = DateTime.Now; 
                     }
                 }
                 else
                 {
-                    titleInst = new YunFormInst {ID=  Guid.NewGuid(), CreateTime = DateTime.Now, PropertyID = titleId, PropertyValueString = title };
-
-                    contentInst = new YunFormInst { ID = Guid.NewGuid(), CreateTime = DateTime.Now, PropertyID = contentId, PropertyValueString = content };
-                    db.YunFormInsts.Add(titleInst);
-                    db.YunFormInsts.Add(contentInst);
+                    var newInst = new YunBaseForm {ID = Guid.NewGuid(), CategoryID=Guid.Parse(categoryIdStr), AppID = "云备忘", Title = title, Content = content, CreateTime = DateTime.Now, UpdateTime = DateTime.Now , Status=(int)ENUM.实体状态.正常 }; 
+                    db.YunBaseForms.Add(newInst);
                 }
                 var rInt = db.SaveChanges();
                 return RES.OK(rInt);
@@ -74,19 +65,71 @@ namespace WangJun.Yun
         }
 
 
-        public RES LoadList(string filter)
+        public RES LoadList(string categoryIdStr)
         {
             try
             {
-                var db = ModelEF.GetInst();
-                var titleId = GUID.FromStringToGuid("Title");
-                var list = db.YunFormInsts.Where(p => p.CreateTime <= DateTime.Now&& p.PropertyID==titleId).ToList();
+                var categoryId = Guid.Parse(categoryIdStr);
+                var db = ModelEF.GetInst(); 
+                var list = db.YunBaseForms.Where(p=>p.CategoryID==categoryId&&p.Status==(int)ENUM.实体状态.正常).OrderByDescending(p=>p.CreateTime).ToList();
                 return RES.OK(list);
             }
             catch (Exception ex)
             {
-                return RES.FAIL();
+                return RES.FAIL(ex.Message);
             }
         }
+
+        public RES RemoveToDo(string idStr)
+        {
+            try
+            {
+                var db = ModelEF.GetInst();
+                var appId = GUID.FromStringToGuid("YunToDo");
+                if (GUID.IsGuid(idStr))
+                {
+                    var id = Guid.Parse(idStr); 
+                    var oldInst = db.YunBaseForms.FirstOrDefault(p => p.ID == id);
+                    if (null != oldInst)
+                    {
+                        oldInst.Status = (int)ENUM.实体状态.已删除;
+                        oldInst.UpdateTime = DateTime.Now;
+                    }
+                } 
+                var rInt = db.SaveChanges();
+                return RES.OK(rInt);
+            }
+            catch (Exception ex)
+            {
+                return RES.FAIL(ex.Message);
+            }
+        }
+
+        public RES FinishToDo(string idStr)
+        {
+            try
+            {
+                var db = ModelEF.GetInst();
+                var appId = GUID.FromStringToGuid("YunToDo");
+                if (GUID.IsGuid(idStr))
+                {
+                    var id = Guid.Parse(idStr); 
+                    var oldInst = db.YunBaseForms.FirstOrDefault(p => p.ID == id);
+                    if (null != oldInst)
+                    {
+                        oldInst.Status = (int)ENUM.实体状态.已完成;
+                        oldInst.UpdateTime = DateTime.Now;
+                    }
+                }
+                var rInt = db.SaveChanges();
+                return RES.OK(rInt);
+            }
+            catch (Exception ex)
+            {
+                return RES.FAIL(ex.Message);
+            }
+
+        }
+
     }
 }

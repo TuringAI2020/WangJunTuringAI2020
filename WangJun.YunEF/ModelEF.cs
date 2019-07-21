@@ -13,6 +13,7 @@ namespace WangJun.Yun
         }
 
         public virtual DbSet<YunArticle> YunArticles { get; set; }
+        public virtual DbSet<YunBaseForm> YunBaseForms { get; set; }
         public virtual DbSet<YunForm> YunForms { get; set; }
         public virtual DbSet<YunFormInst> YunFormInsts { get; set; }
         public virtual DbSet<YunFormRow> YunFormRows { get; set; }
@@ -27,6 +28,10 @@ namespace WangJun.Yun
         {
             modelBuilder.Entity<YunRelation>()
                 .Property(e => e.PermissionGroupID)
+                .IsFixedLength();
+
+            modelBuilder.Entity<YunToken>()
+                .Property(e => e.LoginID)
                 .IsFixedLength();
         }
     }

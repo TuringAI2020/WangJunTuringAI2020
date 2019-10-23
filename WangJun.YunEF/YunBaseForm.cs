@@ -30,8 +30,7 @@ namespace WangJun.Yun
         [Required]
         [StringLength(500)]
         public string Title { get; set; }
-
-        [Required]
+         
         public string Content { get; set; }
 
         public Guid CategoryID { get; set; }

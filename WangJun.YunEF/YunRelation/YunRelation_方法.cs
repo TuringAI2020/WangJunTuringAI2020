@@ -230,14 +230,14 @@ namespace WangJun.Yun
                 {
                     var nId = Guid.Parse(rootID);
                     var db = ModelEF.GetInst();
-                    var nodes = db.YunRelations.Where(p => p.RootID == nId).ToList();
+                    var nodes = db.YunRelations.Where(p => p.RootID == nId&&p.Status!=(int)ENUM.实体状态.已删除).ToList();
                     var rootNode = db.YunRelations.FirstOrDefault(p => p.ID == nId);
-                    nodes.Add(rootNode);
+                    nodes.Add(rootNode); 
                     return RES.OK(nodes);
                 }
                 catch (Exception ex)
                 {
-                    return RES.FAIL();
+                    return RES.FAIL(ex.Message+"-"+ex.InnerException.Message);
                 }
 
             }

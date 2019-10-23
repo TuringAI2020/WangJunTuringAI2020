@@ -75,6 +75,7 @@
     <Compile Include="YunRelation\YunRelation_方法.cs" />
     <Compile Include="YunToDo\YunToDo.cs" />
     <Compile Include="YunToken.cs" />
+    <Compile Include="YunToken\YunToken.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

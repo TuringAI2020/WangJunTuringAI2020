@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static WangJun.Yun.ENUM;
 
 namespace WangJun.Yun
 {
@@ -15,6 +16,8 @@ namespace WangJun.Yun
         public string MESSAGE { get; set; }
 
         public object DATA { get; set; }
+
+        public int DataType { get; set; }
 
         public int PageIndex { get; set; }
 
@@ -90,6 +93,21 @@ namespace WangJun.Yun
         }
 
         /// <summary>
+        /// 失败结果
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public static RES FAIL(Exception ex)
+        {
+            var res = new RES();
+            res.SUCCESS = false;
+            res.DATA = $"{ex.Message}\t{((null == ex.InnerException) ? string.Empty : ex.InnerException.Message)}";
+            res.MESSAGE = "发生异常";
+            return res;
+        }
+
+        /// <summary>
         /// 成功结果
         /// </summary>
         /// <param name="data"></param>
@@ -101,6 +119,16 @@ namespace WangJun.Yun
             res.SUCCESS = true;
             res.DATA = data;
             res.MESSAGE = msg;
+            return res;
+        }
+
+        public static RES OK(object data , 数据类型 dataType, string msg = "成功")
+        {
+            var res = new RES();
+            res.SUCCESS = true;
+            res.DATA = data;
+            res.MESSAGE = msg;
+            res.DataType = (int)dataType;
             return res;
         }
 

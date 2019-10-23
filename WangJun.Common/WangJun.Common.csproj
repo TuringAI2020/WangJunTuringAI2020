@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="BASE64.cs" />
+    <Compile Include="CallbackEventAgrs.cs" />
     <Compile Include="CONST.cs" />
     <Compile Include="DATETIME.cs" />
     <Compile Include="ENUM.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="HMACSHA1.cs" />
     <Compile Include="HTTP.cs" />
     <Compile Include="HttpRequestParam.cs" />
+    <Compile Include="HttpServer.cs" />
     <Compile Include="JSON.cs" />
     <Compile Include="MAIL.cs" />
     <Compile Include="MD5.cs" />

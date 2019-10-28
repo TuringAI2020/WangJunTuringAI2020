@@ -33,6 +33,7 @@ namespace WangJun.Yun
                     var req = context.Request;
                     if (null != callback)
                     {
+                        
                         var reqMethod = context.Request.HttpMethod.ToUpper();
                         var reqOrigin = context.Request.Headers["Origin"];
                         var corHeader = context.Request.Headers["Access-Control-Request-Headers"];
@@ -61,10 +62,7 @@ namespace WangJun.Yun
 
                             context.Response.OutputStream.Write(buffer, 0, buffer.Length);
                         }
-
-
-
-
+                         
                         context.Response.Close();
 
                         Console.WriteLine($"[已处理][{reqMethod}]\t{++this.count}\t{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff")}\t{rawUrl}");
